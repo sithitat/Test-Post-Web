@@ -765,8 +765,9 @@ public class PostWebManualV2 extends javax.swing.JFrame {
         else{
             sRequestMethod = "POST";
         }
-        
-        sParaForPost = sParameter.replace("%", "%25");
+
+        sParaForPost = sParameter.replace("\\", "");
+        // sParaForPost = sParameter.replace("%", "%25");        
         
         byte[] postData = sParaForPost.getBytes(StandardCharsets.UTF_8);       // StandardCharsets.UTF_8
 
@@ -998,7 +999,8 @@ public class PostWebManualV2 extends javax.swing.JFrame {
                 sParameter = sParameter.replace("@TRANSACTION_NO", sSetTransactionNo);
             }
 
-            sParaForPost = sParameter.replace("%", "%25");
+            sParaForPost = sParameter.replace("\\", "");
+            // sParaForPost = sParameter.replace("%", "%25");            
             txaPostData.setText(sParaForPost);
             byte[] postData = sParaForPost.getBytes(StandardCharsets.UTF_8);       // StandardCharsets.UTF_8
             postDataLength = postData.length;                
@@ -1240,7 +1242,8 @@ public class PostWebManualV2 extends javax.swing.JFrame {
                 sParameter = sParameter.replace("@TRANSACTION_NO", sSetTransactionNo);
             }
 
-            sParaForPost = sParameter.replace("%", "%25");
+            sParaForPost = sParameter.replace("\\", "");
+            // sParaForPost = sParameter.replace("%", "%25");     
             txaPostData.setText(sParaForPost);
             byte[] postData = sParaForPost.getBytes(StandardCharsets.UTF_8);       // StandardCharsets.UTF_8
             postDataLength = postData.length;                
@@ -1420,7 +1423,8 @@ public class PostWebManualV2 extends javax.swing.JFrame {
             connHttpURL.setRequestProperty("Content-Type", sContentType + "; charset=utf-8");
             connHttpURL.setRequestProperty("Accept-Charset", "utf-8");
             
-            sParaForPost = sParameter.replace("%", "%25");
+            sParaForPost = sParameter.replace("\\", "");
+            // sParaForPost = sParameter.replace("%", "%25");     
             
             txaPostData.setText(sParaForPost);
             byte[] postData = sParaForPost.getBytes(StandardCharsets.UTF_8);       // StandardCharsets.UTF_8
