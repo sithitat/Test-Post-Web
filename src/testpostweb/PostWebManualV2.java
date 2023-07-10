@@ -67,7 +67,8 @@ import javax.swing.JOptionPane;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-
+import rbtencryption.RbtEncryption;
+        
 /**
  *
  * @author Administrator
@@ -560,7 +561,6 @@ public class PostWebManualV2 extends javax.swing.JFrame {
 
         jButton9.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jButton9.setText("AES 256");
-        jButton9.setActionCommand("AES 256");
         jButton9.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton9ActionPerformed(evt);
@@ -583,10 +583,10 @@ public class PostWebManualV2 extends javax.swing.JFrame {
         lblPatientID16.setText("Method");
 
         rbtEncrypte.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        rbtEncrypte.setText("Encrypte");
+        rbtEncrypte.setText("Encrypt");
 
         rbtDecrypte.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        rbtDecrypte.setText("Decrypte");
+        rbtDecrypte.setText("Decrypt");
 
         txtAESCipher.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         txtAESCipher.setText("AES/ECB/PKCS5Padding");
@@ -647,7 +647,6 @@ public class PostWebManualV2 extends javax.swing.JFrame {
                 .addGap(45, 45, 45))
         );
 
-        lblPatientID16.getAccessibleContext().setAccessibleName("Method");
         lblPatientID18.getAccessibleContext().setAccessibleName("");
 
         tabRequestDetail.addTab("AES 256", jPanel2);
@@ -850,6 +849,257 @@ public class PostWebManualV2 extends javax.swing.JFrame {
         } finally {
             //connHttpURL.disconnect();
             connHttpsURL.disconnect();
+        }
+
+        return sReturnResult;
+        
+    }    
+    
+    private String SendDataToAPIMain(boolean bIsSSL){
+        String sParaForPost;
+        URL urlPost = null;
+        StringBuilder contentSB = null;
+        String sLine;
+        String sReturnResult = "";
+        String sContentType;
+        String sRequestMethod;
+        String sSetAuthCode = "";
+        String sSetTransactionNo = "";
+        String sSetAuthToken = "";
+        String sSetTokenType = "";        
+        int postDataLength;
+        String sParameter;
+        String sURL;
+
+        String sDisplayMsg;
+        String sEsbModule;
+        String sAuthCode;
+        String sAccessToken;
+        String sTokenType;
+        String sReturnCode;
+        String sReturnMessage;
+        String sRefId = "";
+        String sTransactionNo = "";            
+        String sAllData;
+        String sAuthorizeKey;
+        String sAuthorizeKeyMD5;
+        String sAuthorizeDate;
+        String sAuthorizeData;        
+        
+        HttpURLConnection connHttpURL = null;
+        
+        postDataLength = 0;
+        sParameter = txaParameter.getText();
+        sURL = txaURL.getText();
+
+        if (rbtContentType0.isSelected()){
+            // application/x-www-form-urlencoded
+            sContentType = "application/x-www-form-urlencoded";
+        }
+        else if (rbtContentType1.isSelected()){
+            // application/json
+            sContentType = "application/json";
+        }
+        else if (rbtContentType2.isSelected()){
+            // multipart/form-data
+            sContentType = "multipart/form-data";
+        }
+        else if (rbtContentType3.isSelected()){
+            sContentType = txaContent.getText();
+        }
+        else{
+            sContentType = "application/x-www-form-urlencoded";
+        }
+        
+        if (rbtRequestMethodGet.isSelected()){
+            sRequestMethod = "GET";
+        }
+        else{
+            sRequestMethod = "POST";
+        }           
+        
+        try {
+            
+            try {
+                urlPost = new URL(sURL);
+            } catch (MalformedURLException ex) {
+                Logger.getLogger(PostWebManualV2.class.getName()).log(Level.SEVERE, null, ex);
+                txaResult.append("Error: urlPost - " + ex.getMessage() + "\n");
+            } catch (Exception ex) {
+                Logger.getLogger(PostWebManualV2.class.getName()).log(Level.SEVERE, null, ex);
+                txaResult.append("Error: urlPost - " + ex.getMessage() + "\n");
+            }
+            
+            try {
+                if (bIsSSL == true) {
+                    SSLFix.execute();
+                    connHttpURL = (HttpsURLConnection) urlPost.openConnection();
+                    // Additional SSL-specific configuration if needed
+                } else {
+                    connHttpURL = (HttpURLConnection) urlPost.openConnection();
+                }
+                // SSLFix.execute();
+                // connHttpsURL = (HttpsURLConnection) urlPost.openConnection();
+            } catch (IOException ex) {
+                Logger.getLogger(PostWebManualV2.class.getName()).log(Level.SEVERE, null, ex);
+                txaResult.append("Error: connHttpURL - " + ex.getMessage() + "\n");
+            } catch (Exception ex) {
+                Logger.getLogger(PostWebManualV2.class.getName()).log(Level.SEVERE, null, ex);
+                txaResult.append("Error: connHttpURL - " + ex.getMessage() + "\n");
+            }
+
+            connHttpURL.setConnectTimeout(CONNECT_TIMEOUT);
+            connHttpURL.setReadTimeout(READ_TIMEOUT);            
+            connHttpURL.setDoInput(true);
+            
+            connHttpURL.setDoOutput(true);
+            connHttpURL.setInstanceFollowRedirects(false);
+            try {
+                connHttpURL.setRequestMethod(sRequestMethod);
+            } catch (ProtocolException ex) {
+                Logger.getLogger(PostWebManualV2.class.getName()).log(Level.SEVERE, null, ex);
+                txaResult.append("Error: POST - " + ex.getMessage() + "\n");
+            } catch (Exception ex) {
+                Logger.getLogger(PostWebManualV2.class.getName()).log(Level.SEVERE, null, ex);
+                txaResult.append("Error: POST - " + ex.getMessage() + "\n");
+            }
+            connHttpURL.setRequestProperty("Content-Type", sContentType + "; charset=utf-8");
+            connHttpURL.setRequestProperty("Accept-Charset", "utf-8");
+            
+            sParaForPost = sParameter.replace("\\", "");
+            // sParaForPost = sParameter.replace("%", "%25");     
+            
+            if (jrbRequestType0.isSelected()){
+                // Get Auth Code - Use Only Parameter Data
+            }
+            else if (jrbRequestType1.isSelected()){
+                // Get Token - Use Only Parameter Data
+                // @AUTH_CODE
+                sSetAuthCode = txaAuthCode.getText();
+                sParaForPost = sParaForPost.replace("@AUTH_CODE", sSetAuthCode);
+            }
+            else if (jrbRequestType3.isSelected()){
+                // Check Eligible
+                sSetAuthToken = txaAuthorization.getText();
+                sSetTokenType = jtxtTokenType.getText();
+                connHttpURL.setRequestProperty("Authorization", sSetTokenType + " " + sSetAuthToken);
+            }
+            else if (jrbRequestType4.isSelected()){
+                // Payment QR Code
+                // OLD Version MD5(MD5(“bitpayment2021”) + Date(20220127) + "RKH" + "1000.00" + "0001"))
+                
+                // Update 20220323
+                // Authenticate :  Bearer Token
+                // Password : fdffcd4ce6905bca6149914a0b987caf
+                // Key = MD5( Password + Date(yyyymmdd) + HosCode (RKH) + Amount(1.00) + OrderNumber ) => Upper Case 
+
+                sAuthorizeKey = jtxtAuthorizeKey.getText();
+                sAuthorizeKeyMD5 = getMd5(sAuthorizeKey);
+                sAuthorizeDate = jtxtAuthorizeDate.getText();
+                sAuthorizeData = txaAuthorizeData.getText();
+                sAllData = sAuthorizeKeyMD5 + sAuthorizeDate + sAuthorizeData;
+
+                jtxtTokenType.setText("Bearer");
+                sSetTokenType = jtxtTokenType.getText();
+                        
+                sSetAuthToken = getMd5(sAllData).toUpperCase();
+                txaAuthorization.setText(sSetAuthToken);                
+                
+                connHttpURL.setRequestProperty("Authorization", sSetTokenType + " " + sSetAuthToken);
+            }            
+            else if (jrbRequestType5.isSelected()){
+                // Send Normal Data with Authorization
+                sSetAuthToken = txaAuthorization.getText();
+                sSetTokenType = jtxtTokenType.getText();
+                connHttpURL.setRequestProperty("Authorization", sSetTokenType + " " + sSetAuthToken);
+            }
+            else{
+                // Send Normal Data WITHOUT Authorization
+                sSetAuthToken = txaAuthorization.getText();
+                sSetTokenType = jtxtTokenType.getText();
+            }     
+            
+            txaPostData.setText(sParaForPost);
+            byte[] postData = sParaForPost.getBytes(StandardCharsets.UTF_8);       // StandardCharsets.UTF_8
+            postDataLength = postData.length;             
+            connHttpURL.setRequestProperty("Content-Length", Integer.toString(postDataLength ));
+            
+            connHttpURL.setUseCaches(false);
+            
+            //SSLSocketFactory sslsocketfactory = (SSLSocketFactory) SSLSocketFactory.getDefault();
+            //connHttpsURL.setSSLSocketFactory(sslsocketfactory);
+            
+            try (DataOutputStream streamDO = new DataOutputStream(connHttpURL.getOutputStream())) {
+                streamDO.write(postData);
+            } catch (IOException ex) {
+                Logger.getLogger(PostWebManualV2.class.getName()).log(Level.SEVERE, null, ex);
+                txaResult.append("Error: streamDO - " + ex.getMessage() + "\n");
+            } catch (Exception ex) {
+                Logger.getLogger(PostWebManualV2.class.getName()).log(Level.SEVERE, null, ex);
+                txaResult.append("Error: streamDO - " + ex.getMessage() + "\n");
+            }        
+            
+            try (BufferedReader buffReader = new BufferedReader(new InputStreamReader(connHttpURL.getInputStream(),"utf-8"))) {
+                contentSB = new StringBuilder();
+
+                while ((sLine = buffReader.readLine()) != null) {
+                    contentSB.append(sLine);
+                    contentSB.append(System.lineSeparator());
+                    txaResult.append(sLine + "\n");
+                }
+                sReturnResult = contentSB.toString();
+                
+                JSONObject jsonObj = null;
+                try {
+                    jsonObj = new JSONObject(sReturnResult);
+                } 
+                catch (JSONException e) {
+                    e.printStackTrace();
+                }                
+                
+                if (jrbRequestType0.isSelected()){
+                    sReturnCode = jsonObj.getString("returnCode");
+                    sReturnMessage = jsonObj.getString("returnMessage");
+                    sEsbModule = jsonObj.getJSONObject("requestInfo").getJSONObject("serviceInfo").getString("esbModule");
+                    sAuthCode = jsonObj.getString("authCode");
+                    txaAuthCode.setText(sAuthCode);
+                }
+                else if (jrbRequestType1.isSelected()){
+                    sReturnCode = jsonObj.getString("returnCode");
+                    sReturnMessage = jsonObj.getString("returnMessage");
+                    sEsbModule = jsonObj.getJSONObject("requestInfo").getJSONObject("serviceInfo").getString("esbModule");
+                    sAccessToken = jsonObj.getJSONObject("tokenInfo").getString("accessToken");
+                    sTokenType = jsonObj.getJSONObject("tokenInfo").getString("tokenType");                
+                    jtxtTokenType.setText(sTokenType);
+                    txaAuthorization.setText(sAccessToken);
+                }
+                else if (jrbRequestType3.isSelected()){
+                    sReturnCode = jsonObj.getJSONObject("Result").getString("Code");
+                    sReturnMessage = jsonObj.getJSONObject("Result").getString("Message");
+                    sRefId = jsonObj.getJSONObject("Data").getString("RefId");
+                    sTransactionNo = jsonObj.getJSONObject("Data").getString("TransactionNo");
+                    jtxtTransactionNo.setText(sTransactionNo);
+                }
+                else{
+                    
+                }
+                
+            } catch (IOException ex) {
+                Logger.getLogger(PostWebManualV2.class.getName()).log(Level.SEVERE, null, ex);
+                txaResult.append("Error: Result - " + ex.getMessage() + "\n");
+            } catch (Exception ex) {
+                Logger.getLogger(PostWebManualV2.class.getName()).log(Level.SEVERE, null, ex);
+                txaResult.append("Error: Result - " + ex.getMessage() + "\n");
+            } finally {
+                sReturnResult = "";
+            }
+            
+        } catch (Exception ex) {
+            Logger.getLogger(PostWebManualV2.class.getName()).log(Level.SEVERE, null, ex);
+            txaResult.append("Error: Main - " + ex.getMessage() + "\n");
+        } finally {
+            connHttpURL.disconnect();
+            //connHttpsURL.disconnect();
         }
 
         return sReturnResult;
@@ -1329,6 +1579,494 @@ public class PostWebManualV2 extends javax.swing.JFrame {
         return sReturnResult;
         
     }            
+
+    private String PostToWebWithSSLV3(){
+        String sParaForPost;
+        URL urlPost = null;
+        StringBuilder contentSB = null;
+        HttpsURLConnection connHttpsURL = null;
+        String sLine;
+        String sReturnResult = "";
+        String sContentType;
+        String sRequestMethod;
+        String sSetAuthCode = "";
+        String sSetTransactionNo = "";
+        String sSetAuthToken = "";
+        String sSetTokenType = "";
+        int postDataLength;
+        String sParameter;
+        String sURL;
+
+        String sDisplayMsg;
+        String sEsbModule;
+        String sAuthCode;
+        String sAccessToken;
+        String sTokenType;
+        String sReturnCode;
+        String sReturnMessage;
+        String sRefId = "";
+        String sTransactionNo = "";            
+        String sAllData;
+        String sAuthorizeKey;
+        String sAuthorizeKeyMD5;
+        String sAuthorizeDate;
+        String sAuthorizeData;  
+        
+        postDataLength = 0;
+        sParameter = txaParameter.getText();
+        sURL = txaURL.getText();
+
+        if (rbtContentType0.isSelected()){
+            // application/x-www-form-urlencoded
+            sContentType = "application/x-www-form-urlencoded";
+        }
+        else if (rbtContentType1.isSelected()){
+            // application/json
+            sContentType = "application/json";
+        }
+        else if (rbtContentType2.isSelected()){
+            // multipart/form-data
+            sContentType = "multipart/form-data";
+        }
+        else if (rbtContentType3.isSelected()){
+            sContentType = txaContent.getText();
+        }
+        else{
+            sContentType = "application/x-www-form-urlencoded";
+        }
+        
+        if (rbtRequestMethodGet.isSelected()){
+            sRequestMethod = "GET";
+        }
+        else{
+            sRequestMethod = "POST";
+        }
+        
+        try {
+            
+            try {
+                urlPost = new URL(sURL);
+            } catch (MalformedURLException ex) {
+                Logger.getLogger(PostWebManualV2.class.getName()).log(Level.SEVERE, null, ex);
+                txaResult.append("Error: urlPost - " + ex.getMessage() + "\n");
+            } catch (Exception ex) {
+                Logger.getLogger(PostWebManualV2.class.getName()).log(Level.SEVERE, null, ex);
+                txaResult.append("Error: urlPost - " + ex.getMessage() + "\n");
+            }
+            
+            try {
+                //connHttpURL = (HttpURLConnection) urlPost.openConnection();
+                SSLFix.execute();
+                connHttpsURL = (HttpsURLConnection) urlPost.openConnection();
+            } catch (IOException ex) {
+                Logger.getLogger(PostWebManualV2.class.getName()).log(Level.SEVERE, null, ex);
+                txaResult.append("Error: connHttpURL - " + ex.getMessage() + "\n");
+            } catch (Exception ex) {
+                Logger.getLogger(PostWebManualV2.class.getName()).log(Level.SEVERE, null, ex);
+                txaResult.append("Error: connHttpURL - " + ex.getMessage() + "\n");
+            }
+
+            connHttpsURL.setConnectTimeout(CONNECT_TIMEOUT);
+            connHttpsURL.setReadTimeout(READ_TIMEOUT);            
+            connHttpsURL.setDoInput(true);
+            
+            connHttpsURL.setDoOutput(true);
+            connHttpsURL.setInstanceFollowRedirects(false);
+            try {
+                connHttpsURL.setRequestMethod(sRequestMethod);
+            } catch (ProtocolException ex) {
+                Logger.getLogger(PostWebManualV2.class.getName()).log(Level.SEVERE, null, ex);
+                txaResult.append("Error: POST - " + ex.getMessage() + "\n");
+            } catch (Exception ex) {
+                Logger.getLogger(PostWebManualV2.class.getName()).log(Level.SEVERE, null, ex);
+                txaResult.append("Error: POST - " + ex.getMessage() + "\n");
+            }
+            connHttpsURL.setRequestProperty("Content-Type", sContentType + "; charset=utf-8");
+            connHttpsURL.setRequestProperty("Accept-Charset", "utf-8");
+
+            sParaForPost = sParameter.replace("\\", "");
+            // sParaForPost = sParameter.replace("%", "%25");     
+        
+            if (jrbRequestType0.isSelected()){
+                // Get Auth Code - Use Only Parameter Data
+            }
+            else if (jrbRequestType1.isSelected()){
+                // Get Token - Use Only Parameter Data
+                // @AUTH_CODE
+                sSetAuthCode = txaAuthCode.getText();
+                sParaForPost = sParaForPost.replace("@AUTH_CODE", sSetAuthCode);
+            }
+            else if (jrbRequestType3.isSelected()){
+                // Check Eligible
+                sSetAuthToken = txaAuthorization.getText();
+                sSetTokenType = jtxtTokenType.getText();
+                connHttpsURL.setRequestProperty("Authorization", sSetTokenType + " " + sSetAuthToken);
+            }
+            else if (jrbRequestType4.isSelected()){
+                // Payment QR Code
+                // OLD Version MD5(MD5(“bitpayment2021”) + Date(20220127) + "RKH" + "1000.00" + "0001"))
+
+                // Update 20220323
+                // Authenticate :  Bearer Token
+                // Password : fdffcd4ce6905bca6149914a0b987caf
+                // Key = MD5( Password + Date(yyyymmdd) + HosCode (RKH) + Amount(1.00) + OrderNumber ) => Upper Case 
+
+                sAuthorizeKey = jtxtAuthorizeKey.getText();
+                sAuthorizeKeyMD5 = getMd5(sAuthorizeKey);
+                sAuthorizeDate = jtxtAuthorizeDate.getText();
+                sAuthorizeData = txaAuthorizeData.getText();
+                sAllData = sAuthorizeKeyMD5 + sAuthorizeDate + sAuthorizeData;
+
+                jtxtTokenType.setText("Bearer");
+                sSetTokenType = jtxtTokenType.getText();
+                        
+                sSetAuthToken = getMd5(sAllData).toUpperCase();
+                txaAuthorization.setText(sSetAuthToken);                
+                
+                connHttpsURL.setRequestProperty("Authorization", sSetTokenType + " " + sSetAuthToken);
+            }            
+            else if (jrbRequestType5.isSelected()){
+                // Send Normal Data with Authorization
+                sSetAuthToken = txaAuthorization.getText();
+                sSetTokenType = jtxtTokenType.getText();
+                connHttpsURL.setRequestProperty("Authorization", sSetTokenType + " " + sSetAuthToken);
+            }
+            else{
+                // Send Normal Data WITHOUT Authorization
+                sSetAuthToken = txaAuthorization.getText();
+                sSetTokenType = jtxtTokenType.getText();
+            }
+
+            txaPostData.setText(sParaForPost);
+            byte[] postData = sParaForPost.getBytes(StandardCharsets.UTF_8);       // StandardCharsets.UTF_8
+            postDataLength = postData.length;                
+            connHttpsURL.setRequestProperty("Content-Length", Integer.toString(postDataLength ));       
+
+            connHttpsURL.setUseCaches(false);
+            
+            //SSLSocketFactory sslsocketfactory = (SSLSocketFactory) SSLSocketFactory.getDefault();
+            //connHttpsURL.setSSLSocketFactory(sslsocketfactory);
+            
+            try (DataOutputStream streamDO = new DataOutputStream(connHttpsURL.getOutputStream())) {
+                streamDO.write(postData);
+            } catch (IOException ex) {
+                Logger.getLogger(PostWebManualV2.class.getName()).log(Level.SEVERE, null, ex);
+                txaResult.append("Error: streamDO - " + ex.getMessage() + "\n");
+            } catch (Exception ex) {
+                Logger.getLogger(PostWebManualV2.class.getName()).log(Level.SEVERE, null, ex);
+                txaResult.append("Error: streamDO - " + ex.getMessage() + "\n");
+            }        
+            
+            try (BufferedReader buffReader = new BufferedReader(new InputStreamReader(connHttpsURL.getInputStream(),"utf-8"))) {
+                contentSB = new StringBuilder();
+
+                while ((sLine = buffReader.readLine()) != null) {
+                    contentSB.append(sLine);
+                    contentSB.append(System.lineSeparator());
+                    txaResult.append(sLine + "\n");
+                }
+                sReturnResult = contentSB.toString();
+                
+                JSONObject jsonObj = null;
+                try {
+                    jsonObj = new JSONObject(sReturnResult);
+                } 
+                catch (JSONException e) {
+                    e.printStackTrace();
+                }                
+                
+                if (jrbRequestType0.isSelected()){
+                    sReturnCode = jsonObj.getString("returnCode");
+                    sReturnMessage = jsonObj.getString("returnMessage");
+                    sEsbModule = jsonObj.getJSONObject("requestInfo").getJSONObject("serviceInfo").getString("esbModule");
+                    sAuthCode = jsonObj.getString("authCode");
+                    txaAuthCode.setText(sAuthCode);
+                }
+                else if (jrbRequestType1.isSelected()){
+                    sReturnCode = jsonObj.getString("returnCode");
+                    sReturnMessage = jsonObj.getString("returnMessage");
+                    sEsbModule = jsonObj.getJSONObject("requestInfo").getJSONObject("serviceInfo").getString("esbModule");
+                    sAccessToken = jsonObj.getJSONObject("tokenInfo").getString("accessToken");
+                    sTokenType = jsonObj.getJSONObject("tokenInfo").getString("tokenType");                
+                    jtxtTokenType.setText(sTokenType);
+                    txaAuthorization.setText(sAccessToken);
+                }
+                else if (jrbRequestType3.isSelected()){
+                    sReturnCode = jsonObj.getJSONObject("Result").getString("Code");
+                    sReturnMessage = jsonObj.getJSONObject("Result").getString("Message");
+                    sRefId = jsonObj.getJSONObject("Data").getString("RefId");
+                    sTransactionNo = jsonObj.getJSONObject("Data").getString("TransactionNo");
+                    jtxtTransactionNo.setText(sTransactionNo);
+                }
+                else{
+                    
+                }
+                
+            } catch (IOException ex) {
+                Logger.getLogger(PostWebManualV2.class.getName()).log(Level.SEVERE, null, ex);
+                txaResult.append("Error: Result - " + ex.getMessage() + "\n");
+            } catch (Exception ex) {
+                Logger.getLogger(PostWebManualV2.class.getName()).log(Level.SEVERE, null, ex);
+                txaResult.append("Error: Result - " + ex.getMessage() + "\n");
+            } finally {
+                sReturnResult = "";
+            }
+
+        } catch (Exception ex) {
+            Logger.getLogger(PostWebManualV2.class.getName()).log(Level.SEVERE, null, ex);
+            txaResult.append("Error: Main - " + ex.getMessage() + "\n");
+        } finally {
+            //connHttpURL.disconnect();
+            connHttpsURL.disconnect();
+        }
+
+        return sReturnResult;
+        
+    }
+    
+    private String PostDoctorQueueToWebOriginalV2(){
+        String sParaForPost;
+        URL urlPost = null;
+        StringBuilder contentSB = null;
+        HttpURLConnection connHttpURL = null;
+        String sLine;
+        String sReturnResult = "";
+        String sContentType;
+        String sRequestMethod;
+        String sSetAuthCode = "";
+        String sSetTransactionNo = "";
+        String sSetAuthToken = "";
+        String sSetTokenType = "";        
+        int postDataLength;
+        String sParameter;
+        String sURL;
+
+        String sDisplayMsg;
+        String sEsbModule;
+        String sAuthCode;
+        String sAccessToken;
+        String sTokenType;
+        String sReturnCode;
+        String sReturnMessage;
+        String sRefId = "";
+        String sTransactionNo = "";            
+        String sAllData;
+        String sAuthorizeKey;
+        String sAuthorizeKeyMD5;
+        String sAuthorizeDate;
+        String sAuthorizeData;        
+        
+        postDataLength = 0;
+        sParameter = txaParameter.getText();
+        sURL = txaURL.getText();
+
+        if (rbtContentType0.isSelected()){
+            // application/x-www-form-urlencoded
+            sContentType = "application/x-www-form-urlencoded";
+        }
+        else if (rbtContentType1.isSelected()){
+            // application/json
+            sContentType = "application/json";
+        }
+        else if (rbtContentType2.isSelected()){
+            // multipart/form-data
+            sContentType = "multipart/form-data";
+        }
+        else if (rbtContentType3.isSelected()){
+            sContentType = txaContent.getText();
+        }
+        else{
+            sContentType = "application/x-www-form-urlencoded";
+        }
+        
+        if (rbtRequestMethodGet.isSelected()){
+            sRequestMethod = "GET";
+        }
+        else{
+            sRequestMethod = "POST";
+        }           
+        
+        try {
+            
+            try {
+                urlPost = new URL(sURL);
+            } catch (MalformedURLException ex) {
+                Logger.getLogger(PostWebManualV2.class.getName()).log(Level.SEVERE, null, ex);
+                txaResult.append("Error: urlPost - " + ex.getMessage() + "\n");
+            } catch (Exception ex) {
+                Logger.getLogger(PostWebManualV2.class.getName()).log(Level.SEVERE, null, ex);
+                txaResult.append("Error: urlPost - " + ex.getMessage() + "\n");
+            }
+            
+            try {
+                connHttpURL = (HttpURLConnection) urlPost.openConnection();
+                // SSLFix.execute();
+                // connHttpsURL = (HttpsURLConnection) urlPost.openConnection();
+            } catch (IOException ex) {
+                Logger.getLogger(PostWebManualV2.class.getName()).log(Level.SEVERE, null, ex);
+                txaResult.append("Error: connHttpURL - " + ex.getMessage() + "\n");
+            } catch (Exception ex) {
+                Logger.getLogger(PostWebManualV2.class.getName()).log(Level.SEVERE, null, ex);
+                txaResult.append("Error: connHttpURL - " + ex.getMessage() + "\n");
+            }
+
+            connHttpURL.setConnectTimeout(CONNECT_TIMEOUT);
+            connHttpURL.setReadTimeout(READ_TIMEOUT);            
+            connHttpURL.setDoInput(true);
+            
+            connHttpURL.setDoOutput(true);
+            connHttpURL.setInstanceFollowRedirects(false);
+            try {
+                connHttpURL.setRequestMethod(sRequestMethod);
+            } catch (ProtocolException ex) {
+                Logger.getLogger(PostWebManualV2.class.getName()).log(Level.SEVERE, null, ex);
+                txaResult.append("Error: POST - " + ex.getMessage() + "\n");
+            } catch (Exception ex) {
+                Logger.getLogger(PostWebManualV2.class.getName()).log(Level.SEVERE, null, ex);
+                txaResult.append("Error: POST - " + ex.getMessage() + "\n");
+            }
+            connHttpURL.setRequestProperty("Content-Type", sContentType + "; charset=utf-8");
+            connHttpURL.setRequestProperty("Accept-Charset", "utf-8");
+            
+            sParaForPost = sParameter.replace("\\", "");
+            // sParaForPost = sParameter.replace("%", "%25");     
+            
+            if (jrbRequestType0.isSelected()){
+                // Get Auth Code - Use Only Parameter Data
+            }
+            else if (jrbRequestType1.isSelected()){
+                // Get Token - Use Only Parameter Data
+                // @AUTH_CODE
+                sSetAuthCode = txaAuthCode.getText();
+                sParaForPost = sParaForPost.replace("@AUTH_CODE", sSetAuthCode);
+            }
+            else if (jrbRequestType3.isSelected()){
+                // Check Eligible
+                sSetAuthToken = txaAuthorization.getText();
+                sSetTokenType = jtxtTokenType.getText();
+                connHttpURL.setRequestProperty("Authorization", sSetTokenType + " " + sSetAuthToken);
+            }
+            else if (jrbRequestType4.isSelected()){
+                // Payment QR Code
+                // OLD Version MD5(MD5(“bitpayment2021”) + Date(20220127) + "RKH" + "1000.00" + "0001"))
+                
+                // Update 20220323
+                // Authenticate :  Bearer Token
+                // Password : fdffcd4ce6905bca6149914a0b987caf
+                // Key = MD5( Password + Date(yyyymmdd) + HosCode (RKH) + Amount(1.00) + OrderNumber ) => Upper Case 
+
+                sAuthorizeKey = jtxtAuthorizeKey.getText();
+                sAuthorizeKeyMD5 = getMd5(sAuthorizeKey);
+                sAuthorizeDate = jtxtAuthorizeDate.getText();
+                sAuthorizeData = txaAuthorizeData.getText();
+                sAllData = sAuthorizeKeyMD5 + sAuthorizeDate + sAuthorizeData;
+
+                jtxtTokenType.setText("Bearer");
+                sSetTokenType = jtxtTokenType.getText();
+                        
+                sSetAuthToken = getMd5(sAllData).toUpperCase();
+                txaAuthorization.setText(sSetAuthToken);                
+                
+                connHttpURL.setRequestProperty("Authorization", sSetTokenType + " " + sSetAuthToken);
+            }            
+            else if (jrbRequestType5.isSelected()){
+                // Send Normal Data with Authorization
+                sSetAuthToken = txaAuthorization.getText();
+                sSetTokenType = jtxtTokenType.getText();
+                connHttpURL.setRequestProperty("Authorization", sSetTokenType + " " + sSetAuthToken);
+            }
+            else{
+                // Send Normal Data WITHOUT Authorization
+                sSetAuthToken = txaAuthorization.getText();
+                sSetTokenType = jtxtTokenType.getText();
+            }     
+            
+            txaPostData.setText(sParaForPost);
+            byte[] postData = sParaForPost.getBytes(StandardCharsets.UTF_8);       // StandardCharsets.UTF_8
+            postDataLength = postData.length;             
+            connHttpURL.setRequestProperty("Content-Length", Integer.toString(postDataLength ));
+            
+            connHttpURL.setUseCaches(false);
+            
+            //SSLSocketFactory sslsocketfactory = (SSLSocketFactory) SSLSocketFactory.getDefault();
+            //connHttpsURL.setSSLSocketFactory(sslsocketfactory);
+            
+            try (DataOutputStream streamDO = new DataOutputStream(connHttpURL.getOutputStream())) {
+                streamDO.write(postData);
+            } catch (IOException ex) {
+                Logger.getLogger(PostWebManualV2.class.getName()).log(Level.SEVERE, null, ex);
+                txaResult.append("Error: streamDO - " + ex.getMessage() + "\n");
+            } catch (Exception ex) {
+                Logger.getLogger(PostWebManualV2.class.getName()).log(Level.SEVERE, null, ex);
+                txaResult.append("Error: streamDO - " + ex.getMessage() + "\n");
+            }        
+            
+            try (BufferedReader buffReader = new BufferedReader(new InputStreamReader(connHttpURL.getInputStream(),"utf-8"))) {
+                contentSB = new StringBuilder();
+
+                while ((sLine = buffReader.readLine()) != null) {
+                    contentSB.append(sLine);
+                    contentSB.append(System.lineSeparator());
+                    txaResult.append(sLine + "\n");
+                }
+                sReturnResult = contentSB.toString();
+                
+                JSONObject jsonObj = null;
+                try {
+                    jsonObj = new JSONObject(sReturnResult);
+                } 
+                catch (JSONException e) {
+                    e.printStackTrace();
+                }                
+                
+                if (jrbRequestType0.isSelected()){
+                    sReturnCode = jsonObj.getString("returnCode");
+                    sReturnMessage = jsonObj.getString("returnMessage");
+                    sEsbModule = jsonObj.getJSONObject("requestInfo").getJSONObject("serviceInfo").getString("esbModule");
+                    sAuthCode = jsonObj.getString("authCode");
+                    txaAuthCode.setText(sAuthCode);
+                }
+                else if (jrbRequestType1.isSelected()){
+                    sReturnCode = jsonObj.getString("returnCode");
+                    sReturnMessage = jsonObj.getString("returnMessage");
+                    sEsbModule = jsonObj.getJSONObject("requestInfo").getJSONObject("serviceInfo").getString("esbModule");
+                    sAccessToken = jsonObj.getJSONObject("tokenInfo").getString("accessToken");
+                    sTokenType = jsonObj.getJSONObject("tokenInfo").getString("tokenType");                
+                    jtxtTokenType.setText(sTokenType);
+                    txaAuthorization.setText(sAccessToken);
+                }
+                else if (jrbRequestType3.isSelected()){
+                    sReturnCode = jsonObj.getJSONObject("Result").getString("Code");
+                    sReturnMessage = jsonObj.getJSONObject("Result").getString("Message");
+                    sRefId = jsonObj.getJSONObject("Data").getString("RefId");
+                    sTransactionNo = jsonObj.getJSONObject("Data").getString("TransactionNo");
+                    jtxtTransactionNo.setText(sTransactionNo);
+                }
+                else{
+                    
+                }
+                
+            } catch (IOException ex) {
+                Logger.getLogger(PostWebManualV2.class.getName()).log(Level.SEVERE, null, ex);
+                txaResult.append("Error: Result - " + ex.getMessage() + "\n");
+            } catch (Exception ex) {
+                Logger.getLogger(PostWebManualV2.class.getName()).log(Level.SEVERE, null, ex);
+                txaResult.append("Error: Result - " + ex.getMessage() + "\n");
+            } finally {
+                sReturnResult = "";
+            }
+            
+        } catch (Exception ex) {
+            Logger.getLogger(PostWebManualV2.class.getName()).log(Level.SEVERE, null, ex);
+            txaResult.append("Error: Main - " + ex.getMessage() + "\n");
+        } finally {
+            connHttpURL.disconnect();
+            //connHttpsURL.disconnect();
+        }
+
+        return sReturnResult;
+        
+    }
     
     private String PostDoctorQueueToWebOriginal(){
         String sParaForPost;
@@ -1426,12 +2164,17 @@ public class PostWebManualV2 extends javax.swing.JFrame {
             sParaForPost = sParameter.replace("\\", "");
             // sParaForPost = sParameter.replace("%", "%25");     
             
+            if (jrbRequestType1.isSelected()){
+                // Replace Token @AUTH_CODE
+                sParaForPost = sParaForPost.replace("@AUTH_CODE", sParameter);
+            }            
+            
             txaPostData.setText(sParaForPost);
             byte[] postData = sParaForPost.getBytes(StandardCharsets.UTF_8);       // StandardCharsets.UTF_8
             postDataLength = postData.length;             
             connHttpURL.setRequestProperty("Content-Length", Integer.toString(postDataLength ));
 
-            
+            /*
             for (byte myByte: postData) {
                 //do something with myByte
                 System.out.println(myByte);
@@ -1442,6 +2185,7 @@ public class PostWebManualV2 extends javax.swing.JFrame {
                 //do something with mFFTBytes[i]
                 System.out.println(postData[i]);
             }            
+            */
             
             if (jrbRequestType0.isSelected()){
                 // Get Auth Code - Use Only Parameter Data
@@ -1563,6 +2307,16 @@ public class PostWebManualV2 extends javax.swing.JFrame {
             throw new RuntimeException(e);
         }
     }        
+    
+    public boolean isJsonFormatValid(String jsonString) {
+        try {
+            new JSONObject(jsonString);
+            return true;
+        } catch (JSONException ex) {
+            Logger.getLogger(PostWebManualV2.class.getName()).log(Level.SEVERE, null, ex);
+            return false;
+        }
+    }    
     
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
@@ -1723,136 +2477,20 @@ public class PostWebManualV2 extends javax.swing.JFrame {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
         // Source code from https://blog.cpming.top/p/httpurlconnection-post-raw
-        String sPatientname = "";
-        String sHN = "";
-        String sAN = "patientname";
-        String sStartdate = "";
-        String sDepartmentuid = "";
-        String sDepartmentname = "";
-        String sDrcode = "";
-        String sDrname = "";
-        boolean bStatus;
-        boolean bCheckorder;
-        String sDisplayMsg;
-        String sURL;
-        String sParameter;
-        String sContentType;
+        String sPostData = "";
+        boolean bIsJsonFormatValid = false;
         
+        sPostData = txaParameter.getText();
+        bIsJsonFormatValid = isJsonFormatValid(sPostData);
         
-        PostDoctorQueueToWebOriginal();
-        
-        /*
-        sParameter = txaParameter.getText();
-        sURL = txaURL.getText();
-
-        if (rbtContentType0.isSelected()){
-            // application/x-www-form-urlencoded
-            sContentType = "application/x-www-form-urlencoded";
-        }
-        else if (rbtContentType1.isSelected()){
-            // application/json
-            sContentType = "application/json";
-        }
-        else if (rbtContentType2.isSelected()){
-            // multipart/form-data
-            sContentType = "multipart/form-data";
-        }
-        else if (rbtContentType3.isSelected()){
-            sContentType = txaContent.getText();
+        if(bIsJsonFormatValid == true){
+            // With Out SSL
+            SendDataToAPIMain(false);
         }
         else{
-            sContentType = "application/x-www-form-urlencoded";
+            Logger.getLogger(PostWebManualV2.class.getName()).log(Level.SEVERE, "Invalid JSON format");
+            txaResult.append("Error: POST - Invalid JSON format\n");
         }
-        // "http://159.138.244.73:7222/centrix_api_kdms/afterregistration/"
-        
-        try {
-            HttpPostRaw post = new HttpPostRaw(sURL, "utf-8");
-            // String json = "{\"id\":\"288285\",\"value\":\"test\"}";
-            //String json = "{\"orguid\": \"59e865c8ab5f11532bab0537\", \"visitdate\": \"2021-12-27T17:00:00.00Z\"}";
-            String json = sParameter;
-            post.setPostData(json);
-            post.addHeader("Content-Type", sContentType);
-            String out = post.finish();
-            System.out.println(out);
-            txaResult.append(out);
-            String out2;
-            out2 = out.substring(8, out.length() - 1);
-            txaResult.append("Return Result - " + out2 + "\n");
-            */
-            /*
-            JSONArray jsonArr = new JSONArray(out2);
-            DefaultListModel listModel = new DefaultListModel();
-            for (int i = 0; i < jsonArr.length(); i++){
-                JSONObject jsonObj = jsonArr.getJSONObject(i);
-
-                listModel.addElement(jsonObj);
-                System.out.println(jsonObj);
-                
-                try{
-                    sPatientname = "Patient Name : " + jsonObj.getString("patientname");
-                }
-                catch (Exception e) {
-                    sPatientname = "Patient Name : (NULL)";
-                }
-                try{
-                    sHN = "HN : " + jsonObj.getString("HN");
-                }
-                catch (Exception e) {
-                    sHN = "HN : (NULL)";
-                }
-                try{
-                    sAN = "VN/AN : " + jsonObj.getString("AN");
-                }
-                catch (Exception e) {
-                    sAN = "VN/AN : (NULL)";
-                }
-                try{
-                    sStartdate = "Start Date : " + jsonObj.getString("startdate");
-                }
-                catch (Exception e) {
-                    sStartdate = "Start Date : (NULL)";
-                }
-                try{
-                    sDepartmentuid = "Department ID : " + jsonObj.getString("departmentuid");
-                }
-                catch (Exception e) {
-                    sDepartmentuid = "Department ID : (NULL)";
-                }
-                try{
-                    sDepartmentname = "Department Name : " + jsonObj.getString("departmentname");
-                }
-                catch (Exception e) {
-                    sDepartmentname = "Department Name : (NULL)";
-                }
-                try{
-                    sDrcode = "Doctor Code : " + jsonObj.getString("drcode");
-                }
-                catch (Exception e) {
-                    sDrcode = "Doctor Code : (NULL)";
-                }
-                try{
-                    sDrname = "Doctor Name : " + jsonObj.getString("drname");
-                }
-                catch (Exception e) {
-                    sDrname = "Doctor Name : (NULL)";
-                }                
-                bStatus = jsonObj.getBoolean("status");
-                bCheckorder = jsonObj.getBoolean("checkorder");
-                sDisplayMsg = sHN + ", " + sPatientname + ", " + sAN + ", " + sStartdate + ", " + sDepartmentuid + ", " + sDepartmentname + ", " + sDrcode + ", " + sDrname + "\n\n";
-                
-                txaPostDataEncode.append(sDisplayMsg);
-
-            }
-            lstArrJson.setModel(listModel);
-            */
-        /*    
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        */
-        
-        
-        
         
     }//GEN-LAST:event_jButton2ActionPerformed
 
@@ -1863,7 +2501,21 @@ public class PostWebManualV2 extends javax.swing.JFrame {
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
-        PostToWebWithSSLV2();
+        String sPostData = "";
+        boolean bIsJsonFormatValid = false;
+        
+        sPostData = txaParameter.getText();
+        bIsJsonFormatValid = isJsonFormatValid(sPostData);
+        
+        if(bIsJsonFormatValid == true){
+            // With SSL
+            SendDataToAPIMain(true);
+        }
+        else{
+            Logger.getLogger(PostWebManualV2.class.getName()).log(Level.SEVERE, "Invalid JSON format");
+            txaResult.append("Error: POST - Invalid JSON format\n");
+        }        
+
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
@@ -2115,6 +2767,8 @@ public class PostWebManualV2 extends javax.swing.JFrame {
 
     private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
         // TODO add your handling code here:
+        RbtEncryption RbtEn = new RbtEncryption();
+        
         String sCryptoType;
         
         
@@ -2131,13 +2785,15 @@ public class PostWebManualV2 extends javax.swing.JFrame {
         if (rbtDecrypte.isSelected()){
             sCryptoType = "D";
             encryptedval = txaPostDataEncode.getText().trim();
-            decryptedval = decryptV2(encryptedval, sKey, sCipher);
+            // decryptedval = decryptV2(encryptedval, sKey, sCipher);
+            decryptedval = RbtEn.RbtAESDecrypt(encryptedval, sKey, sCipher);
             txaResult.setText(decryptedval);
         }
         else{
             sCryptoType = "E";
             sData = txaParameter.getText().trim();
-            encryptedval = encryptV2(sData, sKey, sCipher);
+            // encryptedval = encryptV2(sData, sKey, sCipher);
+            encryptedval = RbtEn.RbtAESEncrypt(sData, sKey, sCipher);
             txaPostDataEncode.setText(encryptedval);
         }        
         
