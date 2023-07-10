@@ -294,6 +294,8 @@ public class PostWebManualV2 extends javax.swing.JFrame {
         lblPatientID18 = new javax.swing.JLabel();
         jScrollPane11 = new javax.swing.JScrollPane();
         txaAESKey = new javax.swing.JTextArea();
+        txtAESReplace = new javax.swing.JTextField();
+        lblPatientID19 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         lblPatientID14 = new javax.swing.JLabel();
         jtxtAuthorizeKey = new javax.swing.JTextField();
@@ -302,6 +304,7 @@ public class PostWebManualV2 extends javax.swing.JFrame {
         jScrollPane10 = new javax.swing.JScrollPane();
         txaAuthorizeData = new javax.swing.JTextArea();
         jrbRequestType6 = new javax.swing.JRadioButton();
+        jButton10 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -603,6 +606,13 @@ public class PostWebManualV2 extends javax.swing.JFrame {
         txaAESKey.setRows(5);
         jScrollPane11.setViewportView(txaAESKey);
 
+        txtAESReplace.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        txtAESReplace.setText("AES/ECB/PKCS5Padding");
+
+        lblPatientID19.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        lblPatientID19.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        lblPatientID19.setText("Replace");
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -610,21 +620,20 @@ public class PostWebManualV2 extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblPatientID16, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblPatientID17, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblPatientID18, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblPatientID19, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblPatientID16, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblPatientID17, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addComponent(rbtEncrypte, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(rbtDecrypte, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(txtAESCipher, javax.swing.GroupLayout.DEFAULT_SIZE, 301, Short.MAX_VALUE)))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(lblPatientID18, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jScrollPane11)))
+                        .addComponent(rbtEncrypte, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(rbtDecrypte, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 103, Short.MAX_VALUE))
+                    .addComponent(jScrollPane11, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(txtAESCipher, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(txtAESReplace))
                 .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
@@ -637,14 +646,22 @@ public class PostWebManualV2 extends javax.swing.JFrame {
                         .addComponent(rbtDecrypte)
                         .addComponent(rbtEncrypte)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtAESCipher, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblPatientID17, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblPatientID17, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtAESCipher, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblPatientID18, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jScrollPane11, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(45, 45, 45))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(lblPatientID18, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(51, 51, 51))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                        .addComponent(jScrollPane11, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtAESReplace)
+                    .addComponent(lblPatientID19, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap())
         );
 
         lblPatientID18.getAccessibleContext().setAccessibleName("");
@@ -696,7 +713,7 @@ public class PostWebManualV2 extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lblPatientID14, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jtxtAuthorizeDate, javax.swing.GroupLayout.DEFAULT_SIZE, 39, Short.MAX_VALUE)
+                    .addComponent(jtxtAuthorizeDate, javax.swing.GroupLayout.DEFAULT_SIZE, 49, Short.MAX_VALUE)
                     .addComponent(jtxtAuthorizeKey))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(lblPatientID15)
@@ -707,7 +724,7 @@ public class PostWebManualV2 extends javax.swing.JFrame {
 
         tabRequestDetail.addTab("Payment QR", jPanel1);
 
-        getContentPane().add(tabRequestDetail, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 200, 410, 230));
+        getContentPane().add(tabRequestDetail, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 200, 410, 240));
 
         jrbRequestType6.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
         jrbRequestType6.setText("AES 256");
@@ -717,6 +734,15 @@ public class PostWebManualV2 extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jrbRequestType6, new org.netbeans.lib.awtextra.AbsoluteConstraints(1480, 90, 120, -1));
+
+        jButton10.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        jButton10.setText("AES Replace");
+        jButton10.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton10ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton10, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 280, 140, 30));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -2829,7 +2855,45 @@ public class PostWebManualV2 extends javax.swing.JFrame {
         // TODO add your handling code here:
         tabRequestDetail.setSelectedIndex(8);
     }//GEN-LAST:event_jrbRequestType6ActionPerformed
+
+    private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
+        // TODO add your handling code here:
+        
+        // "DoctorName"="@DOCTOR_FIRST_NAME_ENCRYPT"
+        // @DOCTOR_FIRST_NAME
+        // @DOCTOR_FIRST_NAME_ENCRYPT
+        String sPrepareData = "";
+        String sNonEncryptData = "";
+        String sEncryptData = "";
+        String sNewPrepareData = "";
+        String sReplaceData = "";
+        
+        sReplaceData = txtAESReplace.getText().trim();
+        sPrepareData = txaContent.getText().trim();
+        sNonEncryptData = txaParameter.getText().trim();
+        sEncryptData = txaPostDataEncode.getText().trim();
+        sNewPrepareData = ReplaceJsonData(sReplaceData, sPrepareData, sNonEncryptData, sEncryptData);
+        txaPostData.append("NewPrepareData = " + sNewPrepareData + "\n");
+        txaPostData.append("ReplaceData = " + sReplaceData + "\n");
+        txaPostData.append("PrepareData = " + sPrepareData + "\n");
+        txaPostData.append("NonEncryptData = " + sNonEncryptData + "\n");
+        txaPostData.append("EncryptData = " + sEncryptData + "\n");
+        
+    }//GEN-LAST:event_jButton10ActionPerformed
    
+    public static String ReplaceJsonData(String sPrmFind, String sPrmPrepareData, String sPrmNonEncryptData, String sPrmEncryptData){
+        String sReplaceData = "";
+
+        if(sPrmFind.contains("_ENCRYPT")){
+            sReplaceData = sPrmPrepareData.replace(sPrmFind, sPrmEncryptData);
+        }
+        else{
+            sReplaceData = sPrmPrepareData.replace(sPrmFind, sPrmNonEncryptData);
+        }
+        
+        return sReplaceData;  
+    }    
+    
     public static String encryptV2(String input, String key, String sPrmCipher) {
             byte[] crypted = null;
             try {
@@ -3550,6 +3614,7 @@ public class PostWebManualV2 extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton10;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
@@ -3599,6 +3664,7 @@ public class PostWebManualV2 extends javax.swing.JFrame {
     private javax.swing.JLabel lblPatientID16;
     private javax.swing.JLabel lblPatientID17;
     private javax.swing.JLabel lblPatientID18;
+    private javax.swing.JLabel lblPatientID19;
     private javax.swing.JLabel lblPatientID6;
     private javax.swing.JLabel lblPatientID7;
     private javax.swing.JLabel lblPatientID8;
@@ -3624,5 +3690,6 @@ public class PostWebManualV2 extends javax.swing.JFrame {
     private javax.swing.JTextArea txaResult;
     private javax.swing.JTextArea txaURL;
     private javax.swing.JTextField txtAESCipher;
+    private javax.swing.JTextField txtAESReplace;
     // End of variables declaration//GEN-END:variables
 }
