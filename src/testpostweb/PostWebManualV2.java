@@ -5,7 +5,10 @@
  */
 package testpostweb;
 
+import java.awt.BorderLayout;
 import java.awt.List;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
 import java.io.BufferedOutputStream;
 import java.io.BufferedReader;
@@ -64,6 +67,7 @@ import javax.net.ssl.X509TrustManager;
 import javax.swing.ButtonGroup;
 import javax.swing.DefaultListModel;
 import javax.swing.ImageIcon;
+import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JList;
@@ -72,7 +76,10 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 import rbtencryption.RbtEncryption;
-        
+import javax.swing.JFileChooser;
+import javax.swing.JScrollPane;
+import javax.swing.JTextArea;
+import javax.swing.filechooser.FileNameExtensionFilter;
 /**
  *
  * @author Administrator
@@ -3010,13 +3017,20 @@ public class PostWebManualV2 extends javax.swing.JFrame {
         String sJsonData = "";
         String sReturnData = "";
         
-        sJsonData = txaParameter.getText();
         try {
+            JsonParser();
+            /*
+            sJsonData = txaParameter.getText();
+            try {
             sReturnData = JsonParser(sJsonData);
+            } catch (JSONException ex) {
+            Logger.getLogger(PostWebManualV2.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            txaResult.setText(sReturnData);
+            */
         } catch (JSONException ex) {
             Logger.getLogger(PostWebManualV2.class.getName()).log(Level.SEVERE, null, ex);
         }
-        txaResult.setText(sReturnData);
     }//GEN-LAST:event_jButton6ActionPerformed
     
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
@@ -3626,6 +3640,107 @@ public class PostWebManualV2 extends javax.swing.JFrame {
             imagePath = new File(dir, fileName);
         }
         return toImage(imageBase64, imagePath);
+    }    
+    
+    public String JsonParser() throws JSONException{
+        String formattedJson = "{\"Result\":\"NO DATA\"}";
+        String sResult = "";
+        String jsonString = txaParameter.getText();
+
+        // Get the absolute path of the directory containing your source code
+        String baseDir = new File("").getAbsolutePath();
+        
+        if(jsonString.length() == 0){
+            JFileChooser fileChooser = new JFileChooser(baseDir);
+            FileNameExtensionFilter filter = new FileNameExtensionFilter("Text and JSON Files", "txt", "log", "json");
+            fileChooser.setFileFilter(filter);
+
+            int result = fileChooser.showOpenDialog(null);
+            if (result == JFileChooser.APPROVE_OPTION) {
+                String filePath = fileChooser.getSelectedFile().getAbsolutePath();
+
+                StringBuilder jsonData = new StringBuilder();
+                try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
+                    String line;
+                    while ((line = reader.readLine()) != null) {
+                        jsonData.append(line);
+                    }
+                    sResult = "";
+                } catch (IOException e) {
+                    e.printStackTrace();
+                    sResult = "";
+                }
+
+                JSONObject jsonObject = new JSONObject(jsonData.toString());
+
+                // Display JSON with indentation
+                formattedJson = jsonObject.toString(4); // Use 4 spaces for indentation
+
+                //System.out.println(formattedJson);
+            }
+            else{
+                sResult = "";
+            }
+        }
+        else{
+            JSONObject jsonObject = new JSONObject(jsonString);
+            
+            // Display JSON with indentation
+            formattedJson = jsonObject.toString(4); // Use 4 spaces for indentation
+            //System.out.println(formattedJson);
+            sResult = "";
+        }
+        // showPopupDialog(formattedJson);
+        showDisplayOptionsDialog(formattedJson);
+
+        return sResult;
+    }
+    
+    private void showDisplayOptionsDialog(String content) {
+        String[] options = {"Popup Dialog", "Print to Console", "Display in Application Text Area"};
+        int choice = JOptionPane.showOptionDialog(
+                null,
+                "Choose how to display the JSON content:",
+                "Display Options",
+                JOptionPane.YES_NO_CANCEL_OPTION,
+                JOptionPane.QUESTION_MESSAGE,
+                null,
+                options,
+                options[0]
+        );
+
+        if (choice == JOptionPane.YES_OPTION) {
+            showPopupDialog(content);
+        } else if (choice == JOptionPane.NO_OPTION) {
+            System.out.println(content);
+        } else if (choice == JOptionPane.CANCEL_OPTION) {
+            txaResult.setText(content);
+        }
+    }    
+    
+    private static void showPopupDialog(String content) {
+        JFrame frame = new JFrame("Formatted JSON");
+        frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+
+        JTextArea textArea = new JTextArea(content);
+        textArea.setEditable(false);
+
+        JScrollPane scrollPane = new JScrollPane(textArea);
+        frame.getContentPane().add(scrollPane, BorderLayout.CENTER);
+
+        JButton closeButton = new JButton("Close");
+        closeButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                frame.dispose();
+            }
+        });
+        frame.getContentPane().add(closeButton, BorderLayout.SOUTH);
+
+        frame.pack();
+        frame.setLocationRelativeTo(null);
+        frame.setSize(800, 600);
+        frame.setVisible(true);
     }    
     
     public static String JsonParser(String sPrmJsonData) throws JSONException{
