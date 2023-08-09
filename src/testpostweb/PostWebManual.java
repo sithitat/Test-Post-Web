@@ -5,6 +5,8 @@
  */
 package testpostweb;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.io.BufferedReader;
 import java.io.ByteArrayOutputStream;
 import java.io.DataOutputStream;
@@ -16,10 +18,13 @@ import java.net.MalformedURLException;
 import java.net.ProtocolException;
 import java.net.URL;
 import java.nio.charset.StandardCharsets;
+import java.time.Duration;
+import java.time.Instant;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.Timer;
 
 /**
  *
@@ -27,12 +32,28 @@ import java.util.logging.Logger;
  */
 public class PostWebManual extends javax.swing.JFrame {
     private static HttpURLConnection con;
+    private Instant startTime;
     
     /**
      * Creates new form PostWebManual
      */
     public PostWebManual() {
         initComponents();
+        
+        timeLabel.setText("Running Time: 00 years 00 months 00 days 00:00:00");
+    
+       // Get the current time as the start time
+        startTime = Instant.now();
+        
+        // Start a timer to update the running time every second
+        Timer timer = new Timer(1000, new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                timeLabel.setText(updateRunningTimeV2());
+                
+            }
+        });
+        timer.start();
     }
 
     /**
@@ -60,6 +81,7 @@ public class PostWebManual extends javax.swing.JFrame {
         jScrollPane6 = new javax.swing.JScrollPane();
         txaParameter = new javax.swing.JTextArea();
         jButton2 = new javax.swing.JButton();
+        timeLabel = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setPreferredSize(new java.awt.Dimension(1171, 600));
@@ -110,7 +132,7 @@ public class PostWebManual extends javax.swing.JFrame {
         txaResult.setRows(5);
         jScrollPane1.setViewportView(txaResult);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(497, 286, 660, 350));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 290, 660, 300));
 
         txaContent.setColumns(20);
         txaContent.setRows(5);
@@ -133,9 +155,46 @@ public class PostWebManual extends javax.swing.JFrame {
         });
         getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 137, 30));
 
+        timeLabel.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        getContentPane().add(timeLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 600, 660, 40));
+
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void updateRunningTime() {
+        Instant currentTime = Instant.now();
+        Duration duration = Duration.between(startTime, currentTime);
+
+        long years = duration.toDays() / 365;
+        long months = (duration.toDays() % 365) / 30;
+        long days = duration.toDays() % 30;
+        long hours = duration.toHours() % 24;
+        long minutes = duration.toMinutes() % 60;
+        long seconds = duration.getSeconds() % 60;
+
+        String runningTime = String.format("Running Time: %02d years %02d months %02d days %02d:%02d:%02d",
+                years, months, days, hours, minutes, seconds);
+
+        timeLabel.setText(runningTime);
+    }
+    
+    private String updateRunningTimeV2() {
+        Instant currentTime = Instant.now();
+        Duration duration = Duration.between(startTime, currentTime);
+
+        long years = duration.toDays() / 365;
+        long months = (duration.toDays() % 365) / 30;
+        long days = duration.toDays() % 30;
+        long hours = duration.toHours() % 24;
+        long minutes = duration.toMinutes() % 60;
+        long seconds = duration.getSeconds() % 60;
+
+        String runningTime = String.format("Running Time: %02d years %02d months %02d days %02d:%02d:%02d",
+                years, months, days, hours, minutes, seconds);
+
+        return runningTime;
+    }    
+    
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
 
@@ -328,6 +387,7 @@ public class PostWebManual extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JLabel lblPatientID6;
     private javax.swing.JLabel lblPatientID8;
+    private javax.swing.JLabel timeLabel;
     private javax.swing.JTextArea txaContent;
     private javax.swing.JTextArea txaParameter;
     private javax.swing.JTextArea txaPostData;

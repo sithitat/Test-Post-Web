@@ -1,0 +1,13 @@
+{
+"RefId":"@COMP_REFID",
+"TransactionNo":"@COMP_TRANSACTION_NO",
+"Username":"@USER_NAME",
+"HospitalCode":"@HOSP_CODE",
+"InsurerCode":"13",
+"ElectronicSignature":"@COMP_ELECT_SIGN",
+"DataJsonType":"@COMP_DATA_JSON_TYPE",
+"DataJson":{
+},
+"AttachDocList":[
+]
+}

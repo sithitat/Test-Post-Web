@@ -15,6 +15,8 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
+import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
@@ -27,6 +29,7 @@ import java.net.ProtocolException;
 import java.net.URL;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
+import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.security.InvalidAlgorithmParameterException;
 import java.security.InvalidKeyException;
@@ -37,6 +40,7 @@ import java.security.cert.X509Certificate;
 import java.security.spec.InvalidKeySpecException;
 import java.security.spec.KeySpec;
 import java.util.Base64;
+import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.logging.Level;
@@ -111,12 +115,27 @@ public class PostWebManualV2 extends javax.swing.JFrame {
         gRdbRequestType.add(jrbRequestType4);
         gRdbRequestType.add(jrbRequestType5);
         gRdbRequestType.add(jrbRequestType6);
+        gRdbRequestType.add(jrbRequestType7);
         
         ButtonGroup gRdbCrypte = new ButtonGroup();
         gRdbCrypte.add(rbtEncrypte);
         gRdbCrypte.add(rbtDecrypte);
         
 
+        // Test Code
+        /*
+        String HTMLPostParameterHeaderAIA="\"RefId\":\"@COMP_REFID\",\"TransactionNo\":\"@COMP_TRANSACTION_NO\",\"Username\":\"@USER_NAME\",\"HospitalCode\":\"@HOSP_CODE\",\"InsurerCode\":\"13\",\"ElectronicSignature\":\"@COMP_ELECT_SIGN\",\"DataJsonType\":\"@COMP_DATA_JSON_TYPE\",";
+        String HTMLPostParameterCheckStatusAIA = "{[@API_AIA_HEADER]\"DataJson\":{}}";
+        String PostData = "";
+        String PostDataSub = "";
+        boolean bIsJsonFormat = false;
+        // PostDataSub = HTMLPostParameterHeaderAIA.replace("\"TransactionNo\":\"@COMP_TRANSACTION_NO\",", "");
+        PostDataSub = HTMLPostParameterHeaderAIA;
+        PostData = HTMLPostParameterCheckStatusAIA.replace("[@API_AIA_HEADER]", PostDataSub);
+        bIsJsonFormat = isJsonFormatValid(PostData);
+        System.out.println(PostData + " : " + bIsJsonFormat);
+        System.out.println(PostData);
+        */
     }
 
     /*
@@ -305,6 +324,11 @@ public class PostWebManualV2 extends javax.swing.JFrame {
         txaAuthorizeData = new javax.swing.JTextArea();
         jrbRequestType6 = new javax.swing.JRadioButton();
         jButton10 = new javax.swing.JButton();
+        jrbRequestType7 = new javax.swing.JRadioButton();
+        jButton11 = new javax.swing.JButton();
+        jButton12 = new javax.swing.JButton();
+        jButton13 = new javax.swing.JButton();
+        jButton14 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -657,7 +681,6 @@ public class PostWebManualV2 extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                         .addComponent(jScrollPane11, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtAESReplace)
                     .addComponent(lblPatientID19, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -743,6 +766,51 @@ public class PostWebManualV2 extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton10, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 280, 140, 30));
+
+        jrbRequestType7.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
+        jrbRequestType7.setText("Get ????");
+        jrbRequestType7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jrbRequestType7ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jrbRequestType7, new org.netbeans.lib.awtextra.AbsoluteConstraints(1140, 90, 160, -1));
+
+        jButton11.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        jButton11.setText("Get Access Token");
+        jButton11.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton11ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton11, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 310, 140, 30));
+
+        jButton12.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        jButton12.setText("Check Connection");
+        jButton12.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton12ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton12, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 340, 140, 30));
+
+        jButton13.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        jButton13.setText("Write Json File");
+        jButton13.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton13ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton13, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 370, 140, 30));
+
+        jButton14.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        jButton14.setText("Json Replace Data");
+        jButton14.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton14ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton14, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 400, 140, 30));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -1038,7 +1106,7 @@ public class PostWebManualV2 extends javax.swing.JFrame {
                 sSetAuthToken = txaAuthorization.getText();
                 sSetTokenType = jtxtTokenType.getText();
                 connHttpURL.setRequestProperty("Authorization", sSetTokenType + " " + sSetAuthToken);
-            }
+            }  
             else{
                 // Send Normal Data WITHOUT Authorization
                 sSetAuthToken = txaAuthorization.getText();
@@ -1849,6 +1917,244 @@ public class PostWebManualV2 extends javax.swing.JFrame {
         return sReturnResult;
         
     }
+    
+    public String getAccessTokenFromApis(boolean bIsSSL) throws Exception {
+        String sContentType;
+        String sRequestMethod;   
+        String sAuthCode = "";
+        String sAccessToken = "";
+        String[] sArrReturnResult = new String[2]; // Array to hold the multiple values
+        
+        if (rbtContentType0.isSelected()){
+            // application/x-www-form-urlencoded
+            sContentType = "application/x-www-form-urlencoded";
+        }
+        else if (rbtContentType1.isSelected()){
+            // application/json
+            sContentType = "application/json";
+        }
+        else if (rbtContentType2.isSelected()){
+            // multipart/form-data
+            sContentType = "multipart/form-data";
+        }
+        else if (rbtContentType3.isSelected()){
+            sContentType = txaContent.getText();
+        }
+        else{
+            sContentType = "application/x-www-form-urlencoded";
+        }
+        
+        if (rbtRequestMethodGet.isSelected()){
+            sRequestMethod = "GET";
+        }
+        else{
+            sRequestMethod = "POST";
+        }           
+
+        sArrReturnResult = BrbRequestAccessToken("AUTHCODE", bIsSSL, sRequestMethod, sContentType, "");
+        System.out.println(sArrReturnResult[0]);
+        System.out.println(sArrReturnResult[1]);
+        sArrReturnResult = BrbRequestAccessToken("ACCESSTOKEN", bIsSSL, sRequestMethod, sContentType, sArrReturnResult[0]);
+        System.out.println(sArrReturnResult[0]);
+        System.out.println(sArrReturnResult[1]);         
+        return sAccessToken;
+    }    
+    
+    private String[] BrbRequestAccessToken(String sRequestType, boolean bIsSSL, String sRequestMethod, String sContentType,
+                                        String sAuthCode) throws Exception {
+        String sClientID = "68511702-b86f-4820-a6c4-1593c86c456a";
+        String sAppID = "62596a85-9a88-4be3-86c7-c5f6fe52a00b";
+        String sClientSecret = "8842b0f2-fd4c-469a-a16c-e04beffb9168";
+        
+        String sAPIRequestAuthCode = "http://5th-Element:8083/RBTApiGatewayV1/AIA/RequestAuthCode";
+        String sAPIGetAccessToken = "http://5th-Element:8083/RBTApiGatewayV1/AIA/GetAccessToken";
+        
+        String sRequestAuthCodeTemplate = "{\"clientId\":\"@API_CLIENT_ID\",\"appId\":\"@API_APP_ID\"}";
+        String sGetAccessTokenTemplate = "{\"clientId\":\"@API_CLIENT_ID\",\"clientSecret\":\"@API_CLIENT_SECRET\",\"authCode\":\"@API_AUTH_CODE\"}";
+        
+        String sURL;
+        HttpURLConnection connHttpURL = null;
+        String sParameter;
+        String sParaForPost;
+        boolean bIsConnection = false;
+        String sReturnResult;
+        String sReturnCode;
+        String sReturnMessage;
+        String sEsbModule;
+        String sAccessToken;
+        String sTokenType;
+        String sReturnAccessToken = "";
+        boolean bIsSuccess;
+        String[] sArrResult = new String[2]; // Array to hold the multiple values
+        
+        try {
+            if(sRequestType.equals("AUTHCODE")){
+                sURL = sAPIRequestAuthCode;
+                sParameter = sRequestAuthCodeTemplate;
+                sParameter = sParameter.replace("@API_APP_ID", sAppID);
+            }
+            else{
+                sURL = sAPIGetAccessToken;
+                sParameter = sGetAccessTokenTemplate;
+                sParameter = sParameter.replace("@API_CLIENT_SECRET", sClientSecret);
+                sParameter = sParameter.replace("@API_AUTH_CODE", sAuthCode);
+            }
+            sParameter = sParameter.replace("@API_CLIENT_ID", sClientID);
+            
+            connHttpURL = initHttpURLConnection(sURL, bIsSSL);
+            txaResult.append("Success: connHttpURL - " + connHttpURL.getURL() + "\n");
+            bIsConnection = true;
+            
+            // Step 2: Set request properties
+            sParaForPost = sParameter;
+            setRequestProperties(connHttpURL, sRequestMethod, sContentType, sParaForPost, false, "");
+            
+            // Step 3: Send data to the URL
+            SendDataToURL(connHttpURL, sParaForPost);
+            
+            // Step 4: Check if sending data was successful (Optional, based on your server's response)
+            int responseCode;
+            responseCode = connHttpURL.getResponseCode();
+            
+            if (responseCode >= 200 && responseCode < 300) {
+                // Successful response code range (2xx)
+                // Proceed with reading the response (Step 5)
+            } else {
+                // Failed response code range
+                txaResult.append("Error: Sending Data - Response Code: " + responseCode + "\n");
+                connHttpURL.disconnect();
+            }
+
+            // Step 5: Read response from the server
+            try {
+                sReturnResult = GetResponseFromURL(connHttpURL);
+                
+                JSONObject jsonObj = null;
+                try {
+                    jsonObj = new JSONObject(sReturnResult);
+                } 
+                catch (JSONException e) {
+                    e.printStackTrace();
+                }                
+
+                sReturnCode = jsonObj.getString("returnCode");
+                sReturnMessage = jsonObj.getString("returnMessage");
+                sEsbModule = jsonObj.getJSONObject("requestInfo").getJSONObject("serviceInfo").getString("esbModule");
+                if(sRequestType.equals("AUTHCODE")){
+                    sArrResult[0] = jsonObj.getString("authCode");
+                    sArrResult[1] = "";
+                    txaAuthCode.setText(sArrResult[0]);
+                }
+                else{
+                    sArrResult[0] = jsonObj.getJSONObject("tokenInfo").getString("accessToken");
+                    sArrResult[1] = jsonObj.getJSONObject("tokenInfo").getString("tokenType");                
+                    jtxtTokenType.setText(sArrResult[1]);
+                    txaAuthorization.setText(sArrResult[0]);   
+                }
+
+            } catch (IOException ex) {
+                txaResult.append("Error: Result - " + ex.getMessage() + "\n");
+                connHttpURL.disconnect();
+                bIsSuccess = false; // Reading response from the server failed
+            }
+
+            // Step 7: Clean up and return success
+            connHttpURL.disconnect();
+            bIsSuccess = true;
+            
+        } catch (IOException ex) {
+            txaResult.append("Error: connHttpURL - " + ex.getMessage() + "\n");
+            bIsConnection = false;
+        }
+
+        return sArrResult;
+    }
+    
+    private HttpURLConnection initHttpURLConnection(String sURL, boolean bIsSSL) throws IOException {
+        URL urlPost = new URL(sURL);
+        HttpURLConnection connHttpURL;
+        if (bIsSSL) {
+            SSLFix.execute();
+            connHttpURL = (HttpsURLConnection) urlPost.openConnection();
+            // Additional SSL-specific configuration if needed
+        } else {
+            connHttpURL = (HttpURLConnection) urlPost.openConnection();
+        }
+        connHttpURL.setConnectTimeout(CONNECT_TIMEOUT);
+        connHttpURL.setReadTimeout(READ_TIMEOUT);
+        connHttpURL.setDoInput(true);
+        connHttpURL.setDoOutput(true);
+        connHttpURL.setInstanceFollowRedirects(false);
+        return connHttpURL;
+    }    
+    
+    private void setRequestProperties(HttpURLConnection connHttpURL, String sRequestMethod, String sContentType, String sParaForPost, 
+                                    boolean isAuthorizationRequired, String sPrmAuthorization) {
+        int postDataLength;
+        
+        try {
+            connHttpURL.setRequestMethod(sRequestMethod);
+        } catch (ProtocolException ex) {
+            Logger.getLogger(PostWebManualV2.class.getName()).log(Level.SEVERE, null, ex);
+            txaResult.append("Error: POST - " + ex.getMessage() + "\n");
+        } catch (Exception ex) {
+            Logger.getLogger(PostWebManualV2.class.getName()).log(Level.SEVERE, null, ex);
+            txaResult.append("Error: POST - " + ex.getMessage() + "\n");
+        }
+        connHttpURL.setRequestProperty("Content-Type", sContentType + "; charset=utf-8");
+        connHttpURL.setRequestProperty("Accept-Charset", "utf-8");
+
+        sParaForPost = sParaForPost.replace("\\", "");
+
+        if (isAuthorizationRequired) {
+            connHttpURL.setRequestProperty("Authorization", sPrmAuthorization);
+        }
+
+        txaPostData.setText(sParaForPost);
+        byte[] postData = sParaForPost.getBytes(StandardCharsets.UTF_8);
+        postDataLength = postData.length;
+        connHttpURL.setRequestProperty("Content-Length", Integer.toString(postDataLength));
+        connHttpURL.setUseCaches(false);
+    }    
+    
+    private void SendDataToURL(HttpURLConnection connHttpURL, String sParaForPost) throws IOException {
+        try (DataOutputStream streamDO = new DataOutputStream(connHttpURL.getOutputStream())) {
+            streamDO.write(sParaForPost.getBytes(StandardCharsets.UTF_8));
+        }
+    }
+    
+    private String GetResponseFromURL(HttpURLConnection connHttpURL) throws IOException {
+        StringBuilder contentSB = new StringBuilder();
+        try (BufferedReader buffReader = new BufferedReader(new InputStreamReader(connHttpURL.getInputStream(), "utf-8"))) {
+            String sLine;
+            while ((sLine = buffReader.readLine()) != null) {
+                contentSB.append(sLine);
+                contentSB.append(System.lineSeparator());
+                txaResult.append(sLine + "\n");
+            }
+        }
+        return contentSB.toString();
+    }    
+    
+    private boolean CheckURLAvailable(String sURL) {
+        HttpURLConnection connHttpURL = null;
+        try {
+            URL url = new URL(sURL);
+            connHttpURL = (HttpURLConnection) url.openConnection();
+            connHttpURL.setRequestMethod("HEAD");
+            int responseCode = connHttpURL.getResponseCode();
+            return (responseCode == HttpURLConnection.HTTP_OK);
+        } catch (MalformedURLException ex) {
+            txaResult.append("Error: Malformed URL - " + ex.getMessage() + "\n");
+        } catch (IOException ex) {
+            txaResult.append("Error: URL Unreachable - " + ex.getMessage() + "\n");
+        } finally {
+            if (connHttpURL != null) {
+                connHttpURL.disconnect();
+            }
+        }
+        return false;
+    }    
     
     private String PostDoctorQueueToWebOriginalV2(){
         String sParaForPost;
@@ -2791,6 +3097,20 @@ public class PostWebManualV2 extends javax.swing.JFrame {
         
     }//GEN-LAST:event_jButton8ActionPerformed
 
+    public String RbtEncryptDecrypt(String sPrmCryptoType, String sPrmCryptoData, String sPrmCryptoKey, String sPrmCryptoCipher){
+        RbtEncryption RbtEn = new RbtEncryption();
+        String sCryptoResult = "";
+        
+        if(sPrmCryptoType.equals("D")){
+            sCryptoResult = RbtEn.RbtAESDecrypt(sPrmCryptoData, sPrmCryptoKey, sPrmCryptoCipher);
+        }
+        else{
+            sCryptoResult = RbtEn.RbtAESEncrypt(sPrmCryptoData, sPrmCryptoKey, sPrmCryptoCipher, "UTF-8");
+        }
+        
+        return sCryptoResult;
+    }
+    
     private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
         // TODO add your handling code here:
         RbtEncryption RbtEn = new RbtEncryption();
@@ -2812,14 +3132,16 @@ public class PostWebManualV2 extends javax.swing.JFrame {
             sCryptoType = "D";
             encryptedval = txaPostDataEncode.getText().trim();
             // decryptedval = decryptV2(encryptedval, sKey, sCipher);
-            decryptedval = RbtEn.RbtAESDecrypt(encryptedval, sKey, sCipher);
+            // decryptedval = RbtEn.RbtAESDecrypt(encryptedval, sKey, sCipher);
+            decryptedval = RbtEncryptDecrypt(sCryptoType, encryptedval, sKey, sCipher);
             txaResult.setText(decryptedval);
         }
         else{
             sCryptoType = "E";
             sData = txaParameter.getText().trim();
             // encryptedval = encryptV2(sData, sKey, sCipher);
-            encryptedval = RbtEn.RbtAESEncrypt(sData, sKey, sCipher);
+            // encryptedval = RbtEn.RbtAESEncrypt(sData, sKey, sCipher);
+            encryptedval = RbtEncryptDecrypt(sCryptoType, sData, sKey, sCipher);
             txaPostDataEncode.setText(encryptedval);
         }        
         
@@ -2880,12 +3202,231 @@ public class PostWebManualV2 extends javax.swing.JFrame {
         txaPostData.append("EncryptData = " + sEncryptData + "\n");
         
     }//GEN-LAST:event_jButton10ActionPerformed
+
+    private void jrbRequestType7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jrbRequestType7ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jrbRequestType7ActionPerformed
+
+    private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
+        // TODO add your handling code here:
+        // RequestAuthCode & GetAccessToken
+        
+        String sAccessToken = "";
+        boolean bIsSSL = false;
+        
+        try{
+            sAccessToken = getAccessTokenFromApis(bIsSSL);
+        }
+        catch (Exception ex) {
+            Logger.getLogger(PostWebManualV2.class.getName()).log(Level.SEVERE, null, ex);
+            txaResult.append("Error: getAccessTokenFromApis - " + ex.getMessage() + "\n");
+        }
+        
+    }//GEN-LAST:event_jButton11ActionPerformed
+
+    private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton12ActionPerformed
+        // TODO add your handling code here:
+        boolean bIsConnection;
+        boolean bIsSuccess;
+        String sContentType;
+        String sRequestMethod;
+        String sParaForPost;
+        
+        
+        if (rbtContentType0.isSelected()){
+            // application/x-www-form-urlencoded
+            sContentType = "application/x-www-form-urlencoded";
+        }
+        else if (rbtContentType1.isSelected()){
+            // application/json
+            sContentType = "application/json";
+        }
+        else if (rbtContentType2.isSelected()){
+            // multipart/form-data
+            sContentType = "multipart/form-data";
+        }
+        else if (rbtContentType3.isSelected()){
+            sContentType = txaContent.getText();
+        }
+        else{
+            sContentType = "application/x-www-form-urlencoded";
+        }
+        
+        if (rbtRequestMethodGet.isSelected()){
+            sRequestMethod = "GET";
+        }
+        else{
+            sRequestMethod = "POST";
+        }        
+        
+        // Step 1: Initialize the connection
+        HttpURLConnection connHttpURL;
+        try {
+            connHttpURL = initHttpURLConnection(txaURL.getText().trim(), false);
+            txaResult.append("Success: connHttpURL - " + connHttpURL.getURL() + "\n");
+            bIsConnection = true;
+            
+            // Step 2: Set request properties
+            sParaForPost = txaParameter.getText();
+            setRequestProperties(connHttpURL, sRequestMethod, sContentType, sParaForPost, false, "");
+            
+            // Step 3: Send data to the URL
+            SendDataToURL(connHttpURL, sParaForPost);
+            
+            // Step 4: Check if sending data was successful (Optional, based on your server's response)
+            int responseCode;
+            responseCode = connHttpURL.getResponseCode();
+            
+            if (responseCode >= 200 && responseCode < 300) {
+                // Successful response code range (2xx)
+                // Proceed with reading the response (Step 5)
+            } else {
+                // Failed response code range
+                txaResult.append("Error: Sending Data - Response Code: " + responseCode + "\n");
+                connHttpURL.disconnect();
+            }
+
+            // Step 5: Read response from the server
+            String sReturnResult;
+            try {
+                sReturnResult = GetResponseFromURL(connHttpURL);
+            } catch (IOException ex) {
+                txaResult.append("Error: Result - " + ex.getMessage() + "\n");
+                connHttpURL.disconnect();
+                bIsSuccess = false; // Reading response from the server failed
+            }
+
+            // Step 7: Clean up and return success
+            connHttpURL.disconnect();
+            bIsSuccess = true;
+            
+        } catch (IOException ex) {
+            txaResult.append("Error: connHttpURL - " + ex.getMessage() + "\n");
+            bIsConnection = false;
+        }
+        
+
+        
+    }//GEN-LAST:event_jButton12ActionPerformed
+
+    private void jButton13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton13ActionPerformed
+        // TODO add your handling code here:
+        String sFileName;
+        String sJsonTag;
+        String filePath = "";
+        
+        sFileName = jtxtTransactionNo.getText().trim();
+        File currentDirectory = new File(new File(".").getAbsolutePath());
+        try {
+            filePath = currentDirectory.getCanonicalPath() + "\\" + sFileName;
+        } catch (IOException ex) {
+            Logger.getLogger(PostWebManualV2.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        sFileName = jtxtTransactionNo.getText().trim();
+        sJsonTag = txaParameter.getText();
+        // WriteJsonDataToFile(sFileName, sJsonTag);
+
+        try {
+            String fileContent = ReadJsonFromFile(filePath);
+            System.out.println(fileContent);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }        
+        
+    }//GEN-LAST:event_jButton13ActionPerformed
+
+    private void jButton14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton14ActionPerformed
+        // TODO add your handling code here:
+        JsonDataMapping();
+    }//GEN-LAST:event_jButton14ActionPerformed
    
-    public static String ReplaceJsonData(String sPrmFind, String sPrmPrepareData, String sPrmNonEncryptData, String sPrmEncryptData){
+    public void WriteJsonDataToFile(String sPrmFileName, String sPrmJsonTag){
+        try (FileWriter fileWriter = new FileWriter(sPrmFileName)) {
+            fileWriter.write(sPrmJsonTag);
+        } catch (IOException ex) {
+            ex.printStackTrace();
+            txaResult.append("Error: Write Json to File" + ex.getMessage() + "\n");
+        }        
+    }
+ 
+    private String ReadJsonFromFile(String filePath) throws IOException {
+        Path path = Paths.get(filePath);
+        byte[] bytes = Files.readAllBytes(path);
+        return new String(bytes);
+    }    
+    
+    public void JsonDataMapping(){    
+        // Read JSON data from the file
+        try (FileReader fileReader = new FileReader("RequestAuthCode.json")) {
+            StringBuilder jsonData = new StringBuilder();
+            int character;
+            while ((character = fileReader.read()) != -1) {
+                jsonData.append((char) character);
+            }
+
+            // Replace placeholders with real data
+            Map<String, String> dataMap = new HashMap<>();
+            dataMap.put("@CLIENT_ID", "12345");
+            dataMap.put("@APP_ID_ENCRYPT", "JohnDoe");
+            // Add more data mappings here
+
+            String replacedJsonData = replacePlaceholders(jsonData.toString(), dataMap);
+
+            System.out.println(replacedJsonData); // Output the final JSON data with real values
+        } catch (IOException e) {
+            e.printStackTrace();
+        }        
+    }
+    
+    private String replacePlaceholders(String jsonData, Map<String, String> dataMap){
+        RbtEncryption RbtEn = new RbtEncryption();
+        String sKey = "";
+        String sCipher = "";   
+
+        sKey = txaAESKey.getText().trim();
+        sCipher = txtAESCipher.getText().trim();
+        
+        for (Map.Entry<String, String> entry : dataMap.entrySet()) {
+            String key = entry.getKey();
+            String value = entry.getValue();
+            
+            if (key.endsWith("_ENCRYPT")) {
+                // Encrypt the data before replacing
+                String dataToEncrypt = value; // Assuming you have a proper encryption logic
+                String encryptedData = RbtEncryptDecrypt("E", dataToEncrypt, sKey, sCipher); // Implement your encryption method
+                jsonData = jsonData.replace(key, encryptedData);
+            } else {
+                jsonData = jsonData.replace(entry.getKey(), entry.getValue());
+            }            
+        }
+        return jsonData;
+    }    
+    
+    public String ReplaceJsonData(String sPrmFind, String sPrmPrepareData, String sPrmNonEncryptData, String sPrmEncryptData){
         String sReplaceData = "";
 
         if(sPrmFind.contains("_ENCRYPT")){
             sReplaceData = sPrmPrepareData.replace(sPrmFind, sPrmEncryptData);
+        }
+        else{
+            sReplaceData = sPrmPrepareData.replace(sPrmFind, sPrmNonEncryptData);
+        }
+        
+        return sReplaceData;  
+    }    
+    
+    public String ReplaceJsonDataWithEncrypt(String sPrmFind, String sPrmPrepareData, String sPrmNonEncryptData){
+        String sEncryptData = "";
+        String sReplaceData = "";
+        String sKey = "";
+        String sCipher = "";
+        
+        if(sPrmFind.contains("_ENCRYPT")){
+            sKey = txaAESKey.getText().trim();
+            sCipher = txtAESCipher.getText().trim();
+            sEncryptData = RbtEncryptDecrypt("E", sPrmNonEncryptData, sKey, sCipher);
+            sReplaceData = sPrmPrepareData.replace(sPrmFind, sEncryptData);
         }
         else{
             sReplaceData = sPrmPrepareData.replace(sPrmFind, sPrmNonEncryptData);
@@ -3615,6 +4156,10 @@ public class PostWebManualV2 extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton10;
+    private javax.swing.JButton jButton11;
+    private javax.swing.JButton jButton12;
+    private javax.swing.JButton jButton13;
+    private javax.swing.JButton jButton14;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
@@ -3651,6 +4196,7 @@ public class PostWebManualV2 extends javax.swing.JFrame {
     private javax.swing.JRadioButton jrbRequestType4;
     private javax.swing.JRadioButton jrbRequestType5;
     private javax.swing.JRadioButton jrbRequestType6;
+    private javax.swing.JRadioButton jrbRequestType7;
     private javax.swing.JTextField jtxtAuthorizeDate;
     private javax.swing.JTextField jtxtAuthorizeKey;
     private javax.swing.JTextField jtxtTokenType;
