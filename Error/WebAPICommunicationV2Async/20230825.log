@@ -1,0 +1,874 @@
+25/08/2023 15:47:06: 
+25/08/2023 15:47:06 - Thread 30 (ForkJoinPool.commonPool-worker-4) is starting...
+25/08/2023 15:47:07: 
+25/08/2023 15:47:07 - Thread 30 (ForkJoinPool.commonPool-worker-4) has finished.
+25/08/2023 15:47:07: 
+25/08/2023 15:47:07 - Thread 28 (ForkJoinPool.commonPool-worker-18) has finished.
+25/08/2023 15:47:07: 
+25/08/2023 15:47:07 - Thread 29 (ForkJoinPool.commonPool-worker-11) has finished.
+25/08/2023 15:47:07: 
+25/08/2023 15:47:07 - Thread 27 (ForkJoinPool.commonPool-worker-25) has finished.
+25/08/2023 15:49:08: 
+25/08/2023 15:49:08 - Thread 28 (ForkJoinPool.commonPool-worker-18) is starting...
+25/08/2023 15:49:08: 
+25/08/2023 15:49:08 - Thread 30 (ForkJoinPool.commonPool-worker-4) is starting...
+25/08/2023 15:49:08: 
+25/08/2023 15:49:08 - Thread 27 (ForkJoinPool.commonPool-worker-25) is starting...
+25/08/2023 15:49:08: 
+25/08/2023 15:49:08 - Thread 29 (ForkJoinPool.commonPool-worker-11) is starting...
+25/08/2023 15:49:08: 
+25/08/2023 15:49:08 - Thread 29 (ForkJoinPool.commonPool-worker-11) has finished.
+25/08/2023 15:49:08: 
+25/08/2023 15:49:08 - Thread 27 (ForkJoinPool.commonPool-worker-25) has finished.
+25/08/2023 15:49:08: 
+25/08/2023 15:49:08 - Thread 28 (ForkJoinPool.commonPool-worker-18) has finished.
+25/08/2023 15:49:08: 
+25/08/2023 15:49:08 - Thread 30 (ForkJoinPool.commonPool-worker-4) has finished.
+25/08/2023 15:49:41: 
+25/08/2023 15:49:41 - Thread 31 (ForkJoinPool.commonPool-worker-29) is starting...
+25/08/2023 15:49:41: 
+25/08/2023 15:49:41 - Thread 28 (ForkJoinPool.commonPool-worker-18) is starting...
+25/08/2023 15:49:41: 
+25/08/2023 15:49:41 - Thread 27 (ForkJoinPool.commonPool-worker-25) is starting...
+25/08/2023 15:49:41: 
+25/08/2023 15:49:41 - Thread 29 (ForkJoinPool.commonPool-worker-11) is starting...
+25/08/2023 15:49:42: 
+25/08/2023 15:49:42 - Thread 27 (ForkJoinPool.commonPool-worker-25) has finished.
+25/08/2023 15:49:42: 
+25/08/2023 15:49:42 - Thread 28 (ForkJoinPool.commonPool-worker-18) has finished.
+25/08/2023 15:49:42: 
+25/08/2023 15:49:42 - Thread 31 (ForkJoinPool.commonPool-worker-29) has finished.
+25/08/2023 15:49:42: 
+25/08/2023 15:49:42 - Thread 29 (ForkJoinPool.commonPool-worker-11) has finished.
+25/08/2023 15:53:23: 
+25/08/2023 15:53:23 - Thread 29 (ForkJoinPool.commonPool-worker-11) is starting...
+25/08/2023 15:53:23: 
+25/08/2023 15:53:23 - Thread 28 (ForkJoinPool.commonPool-worker-18) is starting...
+25/08/2023 15:53:23: 
+25/08/2023 15:53:23 - Thread 27 (ForkJoinPool.commonPool-worker-25) is starting...
+25/08/2023 15:53:23: 
+25/08/2023 15:53:23 - Thread 30 (ForkJoinPool.commonPool-worker-4) is starting...
+25/08/2023 15:53:23: 
+25/08/2023 15:53:23 - Thread 27 (ForkJoinPool.commonPool-worker-25) has finished.[00:00:00:409]
+25/08/2023 15:53:23: 
+25/08/2023 15:53:23 - Thread 28 (ForkJoinPool.commonPool-worker-18) has finished.[00:00:00:409]
+25/08/2023 15:53:23: 
+25/08/2023 15:53:23 - Thread 29 (ForkJoinPool.commonPool-worker-11) has finished.[00:00:00:409]
+25/08/2023 15:53:23: 
+25/08/2023 15:53:23 - Thread 30 (ForkJoinPool.commonPool-worker-4) has finished.[00:00:00:440]
+25/08/2023 15:54:02: 
+25/08/2023 15:54:02 - Thread 28 (ForkJoinPool.commonPool-worker-18) is starting...
+25/08/2023 15:54:02: 
+25/08/2023 15:54:02 - Thread 29 (ForkJoinPool.commonPool-worker-11) is starting...
+25/08/2023 15:54:02: 
+25/08/2023 15:54:02 - Thread 31 (ForkJoinPool.commonPool-worker-29) is starting...
+25/08/2023 15:54:02: 
+25/08/2023 15:54:02 - Thread 27 (ForkJoinPool.commonPool-worker-25) is starting...
+25/08/2023 15:54:03: 
+25/08/2023 15:54:03 - Thread 29 (ForkJoinPool.commonPool-worker-11) has finished.[00:00:00:104]
+25/08/2023 15:54:03: 
+25/08/2023 15:54:03 - Thread 27 (ForkJoinPool.commonPool-worker-25) has finished.[00:00:00:136]
+25/08/2023 15:54:03: 
+25/08/2023 15:54:03 - Thread 31 (ForkJoinPool.commonPool-worker-29) has finished.[00:00:00:167]
+25/08/2023 15:54:03: 
+25/08/2023 15:54:03 - Thread 28 (ForkJoinPool.commonPool-worker-18) has finished.[00:00:00:167]
+25/08/2023 15:59:58: 
+25/08/2023 15:59:58 - Thread 28 (ForkJoinPool.commonPool-worker-18) is starting...
+25/08/2023 15:59:58: 
+25/08/2023 15:59:58 - Thread 27 (ForkJoinPool.commonPool-worker-25) is starting...
+25/08/2023 15:59:58: 
+25/08/2023 15:59:58 - Thread 29 (ForkJoinPool.commonPool-worker-11) is starting...
+25/08/2023 15:59:58: 
+25/08/2023 15:59:58 - Thread 30 (ForkJoinPool.commonPool-worker-4) is starting...
+25/08/2023 15:59:58: 
+25/08/2023 15:59:58 - Thread 30 (ForkJoinPool.commonPool-worker-4) has finished.[00:00:00:395]
+25/08/2023 15:59:58: 
+25/08/2023 15:59:58 - Thread 29 (ForkJoinPool.commonPool-worker-11) has finished.[00:00:00:411]
+25/08/2023 15:59:58: 
+25/08/2023 15:59:58 - Thread 28 (ForkJoinPool.commonPool-worker-18) has finished.[00:00:00:427]
+25/08/2023 15:59:58: 
+25/08/2023 15:59:58 - Thread 27 (ForkJoinPool.commonPool-worker-25) has finished.[00:00:00:458]
+25/08/2023 16:00:11: 
+25/08/2023 16:00:11 - Thread 30 (ForkJoinPool.commonPool-worker-4) is starting...
+25/08/2023 16:00:11: 
+25/08/2023 16:00:11 - Thread 27 (ForkJoinPool.commonPool-worker-25) is starting...
+25/08/2023 16:00:11: 
+25/08/2023 16:00:11 - Thread 29 (ForkJoinPool.commonPool-worker-11) is starting...
+25/08/2023 16:00:11: 
+25/08/2023 16:00:11 - Thread 28 (ForkJoinPool.commonPool-worker-18) is starting...
+25/08/2023 16:00:11: 
+25/08/2023 16:00:11 - Thread 28 (ForkJoinPool.commonPool-worker-18) has finished.[00:00:00:110]
+25/08/2023 16:00:11: 
+25/08/2023 16:00:11 - Thread 30 (ForkJoinPool.commonPool-worker-4) has finished.[00:00:00:110]
+25/08/2023 16:00:11: 
+25/08/2023 16:00:11 - Thread 29 (ForkJoinPool.commonPool-worker-11) has finished.[00:00:00:268]
+25/08/2023 16:00:11: 
+25/08/2023 16:00:11 - Thread 27 (ForkJoinPool.commonPool-worker-25) has finished.[00:00:00:299]
+25/08/2023 16:00:27: 
+25/08/2023 16:00:27 - Thread 30 (ForkJoinPool.commonPool-worker-4) is starting...
+25/08/2023 16:00:27: 
+25/08/2023 16:00:27 - Thread 31 (ForkJoinPool.commonPool-worker-29) is starting...
+25/08/2023 16:00:27: 
+25/08/2023 16:00:27 - Thread 29 (ForkJoinPool.commonPool-worker-11) is starting...
+25/08/2023 16:00:27: 
+25/08/2023 16:00:27 - Thread 27 (ForkJoinPool.commonPool-worker-25) is starting...
+25/08/2023 16:00:28: 
+25/08/2023 16:00:28 - Thread 29 (ForkJoinPool.commonPool-worker-11) has finished.[00:00:00:078]
+25/08/2023 16:00:28: 
+25/08/2023 16:00:28 - Thread 27 (ForkJoinPool.commonPool-worker-25) has finished.[00:00:00:093]
+25/08/2023 16:00:28: 
+25/08/2023 16:00:28 - Thread 30 (ForkJoinPool.commonPool-worker-4) has finished.[00:00:00:188]
+25/08/2023 16:00:28: 
+25/08/2023 16:00:28 - Thread 31 (ForkJoinPool.commonPool-worker-29) has finished.[00:00:00:188]
+25/08/2023 16:00:39: 
+25/08/2023 16:00:39 - Thread 31 (ForkJoinPool.commonPool-worker-29) is starting...
+25/08/2023 16:00:39: 
+25/08/2023 16:00:39 - Thread 34 (ForkJoinPool.commonPool-worker-22) is starting...
+25/08/2023 16:00:39: 
+25/08/2023 16:00:39 - Thread 27 (ForkJoinPool.commonPool-worker-25) is starting...
+25/08/2023 16:00:39: 
+25/08/2023 16:00:39 - Thread 30 (ForkJoinPool.commonPool-worker-4) is starting...
+25/08/2023 16:00:39: 
+25/08/2023 16:00:39 - Thread 30 (ForkJoinPool.commonPool-worker-4) has finished.[00:00:00:221]
+25/08/2023 16:00:39: 
+25/08/2023 16:00:39 - Thread 27 (ForkJoinPool.commonPool-worker-25) has finished.[00:00:00:221]
+25/08/2023 16:00:39: 
+25/08/2023 16:00:39 - Thread 31 (ForkJoinPool.commonPool-worker-29) has finished.[00:00:00:290]
+25/08/2023 16:00:39: 
+25/08/2023 16:00:39 - Thread 34 (ForkJoinPool.commonPool-worker-22) has finished.[00:00:00:394]
+25/08/2023 16:00:50: 
+25/08/2023 16:00:50 - Thread 34 (ForkJoinPool.commonPool-worker-22) is starting...
+25/08/2023 16:00:50: 
+25/08/2023 16:00:50 - Thread 29 (ForkJoinPool.commonPool-worker-11) is starting...
+25/08/2023 16:00:50: 
+25/08/2023 16:00:50 - Thread 31 (ForkJoinPool.commonPool-worker-29) is starting...
+25/08/2023 16:00:50: 
+25/08/2023 16:00:50 - Thread 27 (ForkJoinPool.commonPool-worker-25) is starting...
+25/08/2023 16:00:50: 
+25/08/2023 16:00:50 - Thread 29 (ForkJoinPool.commonPool-worker-11) has finished.[00:00:00:079]
+25/08/2023 16:00:50: 
+25/08/2023 16:00:50 - Thread 34 (ForkJoinPool.commonPool-worker-22) has finished.[00:00:00:126]
+25/08/2023 16:00:50: 
+25/08/2023 16:00:50 - Thread 31 (ForkJoinPool.commonPool-worker-29) has finished.[00:00:00:141]
+25/08/2023 16:00:50: 
+25/08/2023 16:00:50 - Thread 27 (ForkJoinPool.commonPool-worker-25) has finished.[00:00:00:143]
+25/08/2023 16:00:58: 
+25/08/2023 16:00:58 - Thread 27 (ForkJoinPool.commonPool-worker-25) is starting...
+25/08/2023 16:00:58: 
+25/08/2023 16:00:58 - Thread 30 (ForkJoinPool.commonPool-worker-4) is starting...
+25/08/2023 16:00:58: 
+25/08/2023 16:00:58 - Thread 31 (ForkJoinPool.commonPool-worker-29) is starting...
+25/08/2023 16:00:58: 
+25/08/2023 16:00:58 - Thread 29 (ForkJoinPool.commonPool-worker-11) is starting...
+25/08/2023 16:00:58: 
+25/08/2023 16:00:58 - Thread 27 (ForkJoinPool.commonPool-worker-25) has finished.[00:00:00:094]
+25/08/2023 16:00:58: 
+25/08/2023 16:00:58 - Thread 30 (ForkJoinPool.commonPool-worker-4) has finished.[00:00:00:157]
+25/08/2023 16:00:58: 
+25/08/2023 16:00:58 - Thread 31 (ForkJoinPool.commonPool-worker-29) has finished.[00:00:00:172]
+25/08/2023 16:00:58: 
+25/08/2023 16:00:58 - Thread 29 (ForkJoinPool.commonPool-worker-11) has finished.[00:00:00:188]
+25/08/2023 16:01:10: 
+25/08/2023 16:01:10 - Thread 30 (ForkJoinPool.commonPool-worker-4) is starting...
+25/08/2023 16:01:10: 
+25/08/2023 16:01:10 - Thread 27 (ForkJoinPool.commonPool-worker-25) is starting...
+25/08/2023 16:01:10: 
+25/08/2023 16:01:10 - Thread 29 (ForkJoinPool.commonPool-worker-11) is starting...
+25/08/2023 16:01:10: 
+25/08/2023 16:01:10 - Thread 31 (ForkJoinPool.commonPool-worker-29) is starting...
+25/08/2023 16:01:10: 
+25/08/2023 16:01:10 - Thread 27 (ForkJoinPool.commonPool-worker-25) has finished.[00:00:00:094]
+25/08/2023 16:01:10: 
+25/08/2023 16:01:10 - Thread 30 (ForkJoinPool.commonPool-worker-4) has finished.[00:00:00:162]
+25/08/2023 16:01:11: 
+25/08/2023 16:01:11 - Thread 29 (ForkJoinPool.commonPool-worker-11) has finished.[00:00:00:189]
+25/08/2023 16:01:11: 
+25/08/2023 16:01:11 - Thread 31 (ForkJoinPool.commonPool-worker-29) has finished.[00:00:00:283]
+25/08/2023 16:01:22: 
+25/08/2023 16:01:22 - Thread 34 (ForkJoinPool.commonPool-worker-22) is starting...
+25/08/2023 16:01:22: 
+25/08/2023 16:01:22 - Thread 31 (ForkJoinPool.commonPool-worker-29) is starting...
+25/08/2023 16:01:22: 
+25/08/2023 16:01:22 - Thread 29 (ForkJoinPool.commonPool-worker-11) is starting...
+25/08/2023 16:01:22: 
+25/08/2023 16:01:22 - Thread 30 (ForkJoinPool.commonPool-worker-4) is starting...
+25/08/2023 16:01:22: 
+25/08/2023 16:01:22 - Thread 29 (ForkJoinPool.commonPool-worker-11) has finished.[00:00:00:094]
+25/08/2023 16:01:22: 
+25/08/2023 16:01:22 - Thread 30 (ForkJoinPool.commonPool-worker-4) has finished.[00:00:00:094]
+25/08/2023 16:01:22: 
+25/08/2023 16:01:22 - Thread 31 (ForkJoinPool.commonPool-worker-29) has finished.[00:00:00:110]
+25/08/2023 16:01:22: 
+25/08/2023 16:01:22 - Thread 34 (ForkJoinPool.commonPool-worker-22) has finished.[00:00:00:144]
+25/08/2023 16:01:32: 
+25/08/2023 16:01:32 - Thread 34 (ForkJoinPool.commonPool-worker-22) is starting...
+25/08/2023 16:01:32: 
+25/08/2023 16:01:32 - Thread 31 (ForkJoinPool.commonPool-worker-29) is starting...
+25/08/2023 16:01:32: 
+25/08/2023 16:01:32 - Thread 30 (ForkJoinPool.commonPool-worker-4) is starting...
+25/08/2023 16:01:32: 
+25/08/2023 16:01:32 - Thread 27 (ForkJoinPool.commonPool-worker-25) is starting...
+25/08/2023 16:01:32: 
+25/08/2023 16:01:32 - Thread 34 (ForkJoinPool.commonPool-worker-22) has finished.[00:00:00:078]
+25/08/2023 16:01:32: 
+25/08/2023 16:01:32 - Thread 31 (ForkJoinPool.commonPool-worker-29) has finished.[00:00:00:110]
+25/08/2023 16:01:32: 
+25/08/2023 16:01:32 - Thread 27 (ForkJoinPool.commonPool-worker-25) has finished.[00:00:00:141]
+25/08/2023 16:01:32: 
+25/08/2023 16:01:32 - Thread 30 (ForkJoinPool.commonPool-worker-4) has finished.[00:00:00:173]
+25/08/2023 16:01:38: 
+25/08/2023 16:01:38 - Thread 27 (ForkJoinPool.commonPool-worker-25) is starting...
+25/08/2023 16:01:38: 
+25/08/2023 16:01:38 - Thread 31 (ForkJoinPool.commonPool-worker-29) is starting...
+25/08/2023 16:01:38: 
+25/08/2023 16:01:38 - Thread 30 (ForkJoinPool.commonPool-worker-4) is starting...
+25/08/2023 16:01:38: 
+25/08/2023 16:01:38 - Thread 29 (ForkJoinPool.commonPool-worker-11) is starting...
+25/08/2023 16:01:38: 
+25/08/2023 16:01:38 - Thread 31 (ForkJoinPool.commonPool-worker-29) has finished.[00:00:00:094]
+25/08/2023 16:01:38: 
+25/08/2023 16:01:38 - Thread 27 (ForkJoinPool.commonPool-worker-25) has finished.[00:00:00:141]
+25/08/2023 16:01:38: 
+25/08/2023 16:01:38 - Thread 30 (ForkJoinPool.commonPool-worker-4) has finished.[00:00:00:141]
+25/08/2023 16:01:39: 
+25/08/2023 16:01:39 - Thread 29 (ForkJoinPool.commonPool-worker-11) has finished.[00:00:00:236]
+25/08/2023 16:04:04: 
+25/08/2023 16:04:04 - Thread 28 (ForkJoinPool.commonPool-worker-18) is starting...
+25/08/2023 16:04:04: 
+25/08/2023 16:04:04 - Thread 34 (ForkJoinPool.commonPool-worker-22) is starting...
+25/08/2023 16:04:04: 
+25/08/2023 16:04:04 - Thread 41 (ForkJoinPool.commonPool-worker-15) is starting...
+25/08/2023 16:04:04: 
+25/08/2023 16:04:04 - Thread 43 (ForkJoinPool.commonPool-worker-1) is starting...
+25/08/2023 16:04:04: 
+25/08/2023 16:04:04 - Thread 43 (ForkJoinPool.commonPool-worker-1) has finished.[00:00:00:179]
+25/08/2023 16:04:04: 
+25/08/2023 16:04:04 - Thread 41 (ForkJoinPool.commonPool-worker-15) has finished.[00:00:00:186]
+25/08/2023 16:04:04: 
+25/08/2023 16:04:04 - Thread 34 (ForkJoinPool.commonPool-worker-22) has finished.[00:00:00:256]
+25/08/2023 16:04:04: 
+25/08/2023 16:04:04 - Thread 28 (ForkJoinPool.commonPool-worker-18) has finished.[00:00:00:272]
+25/08/2023 16:04:12: 
+25/08/2023 16:04:12 - Thread 44 (ForkJoinPool.commonPool-worker-26) is starting...
+25/08/2023 16:04:12: 
+25/08/2023 16:04:12 - Thread 34 (ForkJoinPool.commonPool-worker-22) is starting...
+25/08/2023 16:04:12: 
+25/08/2023 16:04:12 - Thread 28 (ForkJoinPool.commonPool-worker-18) is starting...
+25/08/2023 16:04:12: 
+25/08/2023 16:04:12 - Thread 43 (ForkJoinPool.commonPool-worker-1) is starting...
+25/08/2023 16:04:12: 
+25/08/2023 16:04:12 - Thread 34 (ForkJoinPool.commonPool-worker-22) has finished.[00:00:00:117]
+25/08/2023 16:04:12: 
+25/08/2023 16:04:12 - Thread 28 (ForkJoinPool.commonPool-worker-18) has finished.[00:00:00:132]
+25/08/2023 16:04:12: 
+25/08/2023 16:04:12 - Thread 44 (ForkJoinPool.commonPool-worker-26) has finished.[00:00:00:163]
+25/08/2023 16:04:12: 
+25/08/2023 16:04:12 - Thread 43 (ForkJoinPool.commonPool-worker-1) has finished.[00:00:00:243]
+25/08/2023 16:04:19: 
+25/08/2023 16:04:19 - Thread 28 (ForkJoinPool.commonPool-worker-18) is starting...
+25/08/2023 16:04:19: 
+25/08/2023 16:04:19 - Thread 41 (ForkJoinPool.commonPool-worker-15) is starting...
+25/08/2023 16:04:19: 
+25/08/2023 16:04:19 - Thread 43 (ForkJoinPool.commonPool-worker-1) is starting...
+25/08/2023 16:04:19: 
+25/08/2023 16:04:19 - Thread 44 (ForkJoinPool.commonPool-worker-26) is starting...
+25/08/2023 16:04:19: 
+25/08/2023 16:04:19 - Thread 28 (ForkJoinPool.commonPool-worker-18) has finished.[00:00:00:106]
+25/08/2023 16:04:19: 
+25/08/2023 16:04:19 - Thread 41 (ForkJoinPool.commonPool-worker-15) has finished.[00:00:00:169]
+25/08/2023 16:04:19: 
+25/08/2023 16:04:19 - Thread 43 (ForkJoinPool.commonPool-worker-1) has finished.[00:00:00:186]
+25/08/2023 16:04:19: 
+25/08/2023 16:04:19 - Thread 44 (ForkJoinPool.commonPool-worker-26) has finished.[00:00:00:234]
+25/08/2023 16:04:27: 
+25/08/2023 16:04:27 - Thread 44 (ForkJoinPool.commonPool-worker-26) is starting...
+25/08/2023 16:04:27: 
+25/08/2023 16:04:27 - Thread 43 (ForkJoinPool.commonPool-worker-1) is starting...
+25/08/2023 16:04:27: 
+25/08/2023 16:04:27 - Thread 28 (ForkJoinPool.commonPool-worker-18) is starting...
+25/08/2023 16:04:27: 
+25/08/2023 16:04:27 - Thread 41 (ForkJoinPool.commonPool-worker-15) is starting...
+25/08/2023 16:04:27: 
+25/08/2023 16:04:27 - Thread 41 (ForkJoinPool.commonPool-worker-15) has finished.[00:00:00:127]
+25/08/2023 16:04:27: 
+25/08/2023 16:04:27 - Thread 43 (ForkJoinPool.commonPool-worker-1) has finished.[00:00:00:158]
+25/08/2023 16:04:27: 
+25/08/2023 16:04:27 - Thread 44 (ForkJoinPool.commonPool-worker-26) has finished.[00:00:00:191]
+25/08/2023 16:04:27: 
+25/08/2023 16:04:27 - Thread 28 (ForkJoinPool.commonPool-worker-18) has finished.[00:00:00:190]
+25/08/2023 20:38:34: 
+25/08/2023 20:38:34 - Thread 30 (ForkJoinPool.commonPool-worker-4) is starting...
+25/08/2023 20:38:34: 
+25/08/2023 20:38:34 - Thread 28 (ForkJoinPool.commonPool-worker-18) is starting...
+25/08/2023 20:38:34: 
+25/08/2023 20:38:34 - Thread 29 (ForkJoinPool.commonPool-worker-11) is starting...
+25/08/2023 20:38:34: 
+25/08/2023 20:38:34 - Thread 27 (ForkJoinPool.commonPool-worker-25) is starting...
+25/08/2023 20:38:35: 
+25/08/2023 20:38:35 - Thread 27 (ForkJoinPool.commonPool-worker-25) has finished.[00:00:00:271]
+25/08/2023 20:38:35: 
+25/08/2023 20:38:35 - Thread 28 (ForkJoinPool.commonPool-worker-18) has finished.[00:00:00:285]
+25/08/2023 20:38:35: 
+25/08/2023 20:38:35 - Thread 29 (ForkJoinPool.commonPool-worker-11) has finished.[00:00:00:285]
+25/08/2023 20:38:35: 
+25/08/2023 20:38:35 - Thread 30 (ForkJoinPool.commonPool-worker-4) has finished.[00:00:00:316]
+25/08/2023 20:39:34: 
+25/08/2023 20:39:34 - Thread 28 (ForkJoinPool.commonPool-worker-18) is starting...
+25/08/2023 20:39:34: 
+25/08/2023 20:39:34 - Thread 29 (ForkJoinPool.commonPool-worker-11) is starting...
+25/08/2023 20:39:34: 
+25/08/2023 20:39:34 - Thread 31 (ForkJoinPool.commonPool-worker-29) is starting...
+25/08/2023 20:39:34: 
+25/08/2023 20:39:34 - Thread 27 (ForkJoinPool.commonPool-worker-25) is starting...
+25/08/2023 20:39:34: 
+25/08/2023 20:39:34 - Thread 28 (ForkJoinPool.commonPool-worker-18) has finished.[00:00:00:145]
+25/08/2023 20:39:34: 
+25/08/2023 20:39:34 - Thread 31 (ForkJoinPool.commonPool-worker-29) has finished.[00:00:00:161]
+25/08/2023 20:39:34: 
+25/08/2023 20:39:34 - Thread 27 (ForkJoinPool.commonPool-worker-25) has finished.[00:00:00:161]
+25/08/2023 20:39:34: 
+25/08/2023 20:39:34 - Thread 29 (ForkJoinPool.commonPool-worker-11) has finished.[00:00:00:177]
+25/08/2023 20:39:47: 
+25/08/2023 20:39:47 - Thread 31 (ForkJoinPool.commonPool-worker-29) is starting...
+25/08/2023 20:39:47: 
+25/08/2023 20:39:47 - Thread 28 (ForkJoinPool.commonPool-worker-18) is starting...
+25/08/2023 20:39:47: 
+25/08/2023 20:39:47 - Thread 27 (ForkJoinPool.commonPool-worker-25) is starting...
+25/08/2023 20:39:47: 
+25/08/2023 20:39:47 - Thread 29 (ForkJoinPool.commonPool-worker-11) is starting...
+25/08/2023 20:39:47: 
+25/08/2023 20:39:47 - Thread 27 (ForkJoinPool.commonPool-worker-25) has finished.[00:00:00:157]
+25/08/2023 20:39:47: 
+25/08/2023 20:39:47 - Thread 29 (ForkJoinPool.commonPool-worker-11) has finished.[00:00:00:157]
+25/08/2023 20:39:47: 
+25/08/2023 20:39:47 - Thread 31 (ForkJoinPool.commonPool-worker-29) has finished.[00:00:00:221]
+25/08/2023 20:39:47: 
+25/08/2023 20:39:47 - Thread 28 (ForkJoinPool.commonPool-worker-18) has finished.[00:00:00:346]
+25/08/2023 20:39:54: 
+25/08/2023 20:39:54 - Thread 29 (ForkJoinPool.commonPool-worker-11) is starting...
+25/08/2023 20:39:54: 
+25/08/2023 20:39:54 - Thread 31 (ForkJoinPool.commonPool-worker-29) is starting...
+25/08/2023 20:39:54: 
+25/08/2023 20:39:54 - Thread 27 (ForkJoinPool.commonPool-worker-25) is starting...
+25/08/2023 20:39:54: 
+25/08/2023 20:39:54 - Thread 28 (ForkJoinPool.commonPool-worker-18) is starting...
+25/08/2023 20:39:54: 
+25/08/2023 20:39:54 - Thread 31 (ForkJoinPool.commonPool-worker-29) has finished.[00:00:00:142]
+25/08/2023 20:39:54: 
+25/08/2023 20:39:54 - Thread 28 (ForkJoinPool.commonPool-worker-18) has finished.[00:00:00:157]
+25/08/2023 20:39:54: 
+25/08/2023 20:39:54 - Thread 27 (ForkJoinPool.commonPool-worker-25) has finished.[00:00:00:188]
+25/08/2023 20:39:54: 
+25/08/2023 20:39:54 - Thread 29 (ForkJoinPool.commonPool-worker-11) has finished.[00:00:00:298]
+25/08/2023 20:40:02: 
+25/08/2023 20:40:02 - Thread 29 (ForkJoinPool.commonPool-worker-11) is starting...
+25/08/2023 20:40:02: 
+25/08/2023 20:40:02 - Thread 31 (ForkJoinPool.commonPool-worker-29) is starting...
+25/08/2023 20:40:02: 
+25/08/2023 20:40:02 - Thread 34 (ForkJoinPool.commonPool-worker-22) is starting...
+25/08/2023 20:40:02: 
+25/08/2023 20:40:02 - Thread 27 (ForkJoinPool.commonPool-worker-25) is starting...
+25/08/2023 20:40:02: 
+25/08/2023 20:40:02 - Thread 29 (ForkJoinPool.commonPool-worker-11) has finished.[00:00:00:094]
+25/08/2023 20:40:02: 
+25/08/2023 20:40:02 - Thread 34 (ForkJoinPool.commonPool-worker-22) has finished.[00:00:00:157]
+25/08/2023 20:40:02: 
+25/08/2023 20:40:02 - Thread 31 (ForkJoinPool.commonPool-worker-29) has finished.[00:00:00:164]
+25/08/2023 20:40:02: 
+25/08/2023 20:40:02 - Thread 27 (ForkJoinPool.commonPool-worker-25) has finished.[00:00:00:205]
+25/08/2023 20:40:28: 
+25/08/2023 20:40:28 - Thread 34 (ForkJoinPool.commonPool-worker-22) is starting...
+25/08/2023 20:40:28: 
+25/08/2023 20:40:28 - Thread 27 (ForkJoinPool.commonPool-worker-25) is starting...
+25/08/2023 20:40:28: 
+25/08/2023 20:40:28 - Thread 31 (ForkJoinPool.commonPool-worker-29) is starting...
+25/08/2023 20:40:28: 
+25/08/2023 20:40:28 - Thread 29 (ForkJoinPool.commonPool-worker-11) is starting...
+25/08/2023 20:40:28: 
+25/08/2023 20:40:28 - Thread 31 (ForkJoinPool.commonPool-worker-29) has finished.[00:00:00:142]
+25/08/2023 20:40:29: 
+25/08/2023 20:40:29 - Thread 34 (ForkJoinPool.commonPool-worker-22) has finished.[00:00:00:170]
+25/08/2023 20:40:29: 
+25/08/2023 20:40:29 - Thread 29 (ForkJoinPool.commonPool-worker-11) has finished.[00:00:00:174]
+25/08/2023 20:40:29: 
+25/08/2023 20:40:29 - Thread 27 (ForkJoinPool.commonPool-worker-25) has finished.[00:00:00:190]
+25/08/2023 20:40:31: 
+25/08/2023 20:40:31 - Thread 27 (ForkJoinPool.commonPool-worker-25) is starting...
+25/08/2023 20:40:31: 
+25/08/2023 20:40:31 - Thread 29 (ForkJoinPool.commonPool-worker-11) is starting...
+25/08/2023 20:40:31: 
+25/08/2023 20:40:31 - Thread 31 (ForkJoinPool.commonPool-worker-29) is starting...
+25/08/2023 20:40:31: 
+25/08/2023 20:40:31 - Thread 34 (ForkJoinPool.commonPool-worker-22) is starting...
+25/08/2023 20:40:31: 
+25/08/2023 20:40:31 - Thread 31 (ForkJoinPool.commonPool-worker-29) has finished.[00:00:00:503]
+25/08/2023 20:40:31: 
+25/08/2023 20:40:31 - Thread 27 (ForkJoinPool.commonPool-worker-25) has finished.[00:00:00:503]
+25/08/2023 20:40:31: 
+25/08/2023 20:40:31 - Thread 34 (ForkJoinPool.commonPool-worker-22) has finished.[00:00:00:515]
+25/08/2023 20:40:32: 
+25/08/2023 20:40:32 - Thread 29 (ForkJoinPool.commonPool-worker-11) has finished.[00:00:00:829]
+25/08/2023 20:44:33: 
+25/08/2023 20:44:33 - Thread 28 (ForkJoinPool.commonPool-worker-18) is starting...
+25/08/2023 20:44:33: 
+25/08/2023 20:44:33 - Thread 27 (ForkJoinPool.commonPool-worker-25) is starting...
+25/08/2023 20:44:33: 
+25/08/2023 20:44:33 - Thread 29 (ForkJoinPool.commonPool-worker-11) is starting...
+25/08/2023 20:44:33: 
+25/08/2023 20:44:33 - Thread 30 (ForkJoinPool.commonPool-worker-4) is starting...
+25/08/2023 20:44:35: 
+25/08/2023 20:44:35 - Thread 28 (ForkJoinPool.commonPool-worker-18) has finished.[00:00:02:149]
+25/08/2023 20:44:35: 
+25/08/2023 20:44:35 - Thread 29 (ForkJoinPool.commonPool-worker-11) has finished.[00:00:02:149]
+25/08/2023 20:44:35: 
+25/08/2023 20:44:35 - Thread 30 (ForkJoinPool.commonPool-worker-4) has finished.[00:00:02:149]
+25/08/2023 20:44:35: 
+25/08/2023 20:44:35 - Thread 27 (ForkJoinPool.commonPool-worker-25) has finished.[00:00:02:149]
+25/08/2023 20:44:43: 
+25/08/2023 20:44:43 - Thread 30 (ForkJoinPool.commonPool-worker-4) is starting...
+25/08/2023 20:44:43: 
+25/08/2023 20:44:43 - Thread 28 (ForkJoinPool.commonPool-worker-18) is starting...
+25/08/2023 20:44:43: 
+25/08/2023 20:44:43 - Thread 29 (ForkJoinPool.commonPool-worker-11) is starting...
+25/08/2023 20:44:43: 
+25/08/2023 20:44:43 - Thread 27 (ForkJoinPool.commonPool-worker-25) is starting...
+25/08/2023 20:44:44: 
+25/08/2023 20:44:44 - Thread 30 (ForkJoinPool.commonPool-worker-4) has finished.[00:00:00:094]
+25/08/2023 20:44:44: 
+25/08/2023 20:44:44 - Thread 27 (ForkJoinPool.commonPool-worker-25) has finished.[00:00:00:136]
+25/08/2023 20:44:44: 
+25/08/2023 20:44:44 - Thread 28 (ForkJoinPool.commonPool-worker-18) has finished.[00:00:00:173]
+25/08/2023 20:44:44: 
+25/08/2023 20:44:44 - Thread 29 (ForkJoinPool.commonPool-worker-11) has finished.[00:00:00:173]
+25/08/2023 20:44:50: 
+25/08/2023 20:44:50 - Thread 29 (ForkJoinPool.commonPool-worker-11) is starting...
+25/08/2023 20:44:50: 
+25/08/2023 20:44:50 - Thread 28 (ForkJoinPool.commonPool-worker-18) is starting...
+25/08/2023 20:44:50: 
+25/08/2023 20:44:50 - Thread 30 (ForkJoinPool.commonPool-worker-4) is starting...
+25/08/2023 20:44:50: 
+25/08/2023 20:44:50 - Thread 31 (ForkJoinPool.commonPool-worker-29) is starting...
+25/08/2023 20:44:50: 
+25/08/2023 20:44:50 - Thread 28 (ForkJoinPool.commonPool-worker-18) has finished.[00:00:00:206]
+25/08/2023 20:44:50: 
+25/08/2023 20:44:50 - Thread 29 (ForkJoinPool.commonPool-worker-11) has finished.[00:00:00:253]
+25/08/2023 20:44:50: 
+25/08/2023 20:44:50 - Thread 30 (ForkJoinPool.commonPool-worker-4) has finished.[00:00:00:269]
+25/08/2023 20:44:50: 
+25/08/2023 20:44:50 - Thread 31 (ForkJoinPool.commonPool-worker-29) has finished.[00:00:00:284]
+25/08/2023 20:44:56: 
+25/08/2023 20:44:56 - Thread 31 (ForkJoinPool.commonPool-worker-29) is starting...
+25/08/2023 20:44:56: 
+25/08/2023 20:44:56 - Thread 29 (ForkJoinPool.commonPool-worker-11) is starting...
+25/08/2023 20:44:56: 
+25/08/2023 20:44:56 - Thread 30 (ForkJoinPool.commonPool-worker-4) is starting...
+25/08/2023 20:44:56: 
+25/08/2023 20:44:56 - Thread 28 (ForkJoinPool.commonPool-worker-18) is starting...
+25/08/2023 20:44:56: 
+25/08/2023 20:44:56 - Thread 30 (ForkJoinPool.commonPool-worker-4) has finished.[00:00:00:125]
+25/08/2023 20:44:56: 
+25/08/2023 20:44:56 - Thread 29 (ForkJoinPool.commonPool-worker-11) has finished.[00:00:00:160]
+25/08/2023 20:44:56: 
+25/08/2023 20:44:56 - Thread 31 (ForkJoinPool.commonPool-worker-29) has finished.[00:00:00:173]
+25/08/2023 20:44:56: 
+25/08/2023 20:44:56 - Thread 28 (ForkJoinPool.commonPool-worker-18) has finished.[00:00:00:173]
+25/08/2023 20:45:01: 
+25/08/2023 20:45:01 - Thread 28 (ForkJoinPool.commonPool-worker-18) is starting...
+25/08/2023 20:45:01: 
+25/08/2023 20:45:01 - Thread 31 (ForkJoinPool.commonPool-worker-29) is starting...
+25/08/2023 20:45:01: 
+25/08/2023 20:45:01 - Thread 29 (ForkJoinPool.commonPool-worker-11) is starting...
+25/08/2023 20:45:01: 
+25/08/2023 20:45:01 - Thread 30 (ForkJoinPool.commonPool-worker-4) is starting...
+25/08/2023 20:45:02: 
+25/08/2023 20:45:02 - Thread 30 (ForkJoinPool.commonPool-worker-4) has finished.[00:00:00:118]
+25/08/2023 20:45:02: 
+25/08/2023 20:45:02 - Thread 28 (ForkJoinPool.commonPool-worker-18) has finished.[00:00:00:165]
+25/08/2023 20:45:02: 
+25/08/2023 20:45:02 - Thread 31 (ForkJoinPool.commonPool-worker-29) has finished.[00:00:00:165]
+25/08/2023 20:45:02: 
+25/08/2023 20:45:02 - Thread 29 (ForkJoinPool.commonPool-worker-11) has finished.[00:00:00:180]
+25/08/2023 20:45:09: 
+25/08/2023 20:45:09 - Thread 28 (ForkJoinPool.commonPool-worker-18) is starting...
+25/08/2023 20:45:09: 
+25/08/2023 20:45:09 - Thread 31 (ForkJoinPool.commonPool-worker-29) is starting...
+25/08/2023 20:45:09: 
+25/08/2023 20:45:09 - Thread 29 (ForkJoinPool.commonPool-worker-11) is starting...
+25/08/2023 20:45:09: 
+25/08/2023 20:45:09 - Thread 30 (ForkJoinPool.commonPool-worker-4) is starting...
+25/08/2023 20:45:10: 
+25/08/2023 20:45:10 - Thread 31 (ForkJoinPool.commonPool-worker-29) has finished.[00:00:00:801]
+25/08/2023 20:45:10: 
+25/08/2023 20:45:10 - Thread 29 (ForkJoinPool.commonPool-worker-11) has finished.[00:00:00:801]
+25/08/2023 20:45:10: 
+25/08/2023 20:45:10 - Thread 30 (ForkJoinPool.commonPool-worker-4) has finished.[00:00:00:801]
+25/08/2023 20:45:10: 
+25/08/2023 20:45:10 - Thread 28 (ForkJoinPool.commonPool-worker-18) has finished.[00:00:00:801]
+25/08/2023 20:45:15: 
+25/08/2023 20:45:15 - Thread 28 (ForkJoinPool.commonPool-worker-18) is starting...
+25/08/2023 20:45:15: 
+25/08/2023 20:45:15 - Thread 30 (ForkJoinPool.commonPool-worker-4) is starting...
+25/08/2023 20:45:15: 
+25/08/2023 20:45:15 - Thread 46 (ForkJoinPool.commonPool-worker-22) is starting...
+25/08/2023 20:45:15: 
+25/08/2023 20:45:15 - Thread 29 (ForkJoinPool.commonPool-worker-11) is starting...
+25/08/2023 20:45:15: 
+25/08/2023 20:45:15 - Thread 46 (ForkJoinPool.commonPool-worker-22) has finished.[00:00:00:173]
+25/08/2023 20:45:15: 
+25/08/2023 20:45:15 - Thread 28 (ForkJoinPool.commonPool-worker-18) has finished.[00:00:00:173]
+25/08/2023 20:45:16: 
+25/08/2023 20:45:16 - Thread 29 (ForkJoinPool.commonPool-worker-11) has finished.[00:00:00:189]
+25/08/2023 20:45:16: 
+25/08/2023 20:45:16 - Thread 30 (ForkJoinPool.commonPool-worker-4) has finished.[00:00:00:189]
+25/08/2023 20:45:21: 
+25/08/2023 20:45:21 - Thread 29 (ForkJoinPool.commonPool-worker-11) is starting...
+25/08/2023 20:45:21: 
+25/08/2023 20:45:21 - Thread 46 (ForkJoinPool.commonPool-worker-22) is starting...
+25/08/2023 20:45:21: 
+25/08/2023 20:45:21 - Thread 30 (ForkJoinPool.commonPool-worker-4) is starting...
+25/08/2023 20:45:21: 
+25/08/2023 20:45:21 - Thread 28 (ForkJoinPool.commonPool-worker-18) is starting...
+25/08/2023 20:45:22: 
+25/08/2023 20:45:22 - Thread 29 (ForkJoinPool.commonPool-worker-11) has finished.[00:00:00:597]
+25/08/2023 20:45:22: 
+25/08/2023 20:45:22 - Thread 30 (ForkJoinPool.commonPool-worker-4) has finished.[00:00:00:597]
+25/08/2023 20:45:22: 
+25/08/2023 20:45:22 - Thread 46 (ForkJoinPool.commonPool-worker-22) has finished.[00:00:00:597]
+25/08/2023 20:45:22: 
+25/08/2023 20:45:22 - Thread 28 (ForkJoinPool.commonPool-worker-18) has finished.[00:00:00:597]
+25/08/2023 20:45:27: 
+25/08/2023 20:45:27 - Thread 29 (ForkJoinPool.commonPool-worker-11) is starting...
+25/08/2023 20:45:27: 
+25/08/2023 20:45:27 - Thread 46 (ForkJoinPool.commonPool-worker-22) is starting...
+25/08/2023 20:45:27: 
+25/08/2023 20:45:27 - Thread 30 (ForkJoinPool.commonPool-worker-4) is starting...
+25/08/2023 20:45:27: 
+25/08/2023 20:45:27 - Thread 28 (ForkJoinPool.commonPool-worker-18) is starting...
+25/08/2023 20:45:27: 
+25/08/2023 20:45:27 - Thread 29 (ForkJoinPool.commonPool-worker-11) has finished.[00:00:00:141]
+25/08/2023 20:45:27: 
+25/08/2023 20:45:27 - Thread 46 (ForkJoinPool.commonPool-worker-22) has finished.[00:00:00:172]
+25/08/2023 20:45:27: 
+25/08/2023 20:45:27 - Thread 30 (ForkJoinPool.commonPool-worker-4) has finished.[00:00:00:204]
+25/08/2023 20:45:27: 
+25/08/2023 20:45:27 - Thread 28 (ForkJoinPool.commonPool-worker-18) has finished.[00:00:00:219]
+25/08/2023 20:45:34: 
+25/08/2023 20:45:34 - Thread 28 (ForkJoinPool.commonPool-worker-18) is starting...
+25/08/2023 20:45:34: 
+25/08/2023 20:45:34 - Thread 30 (ForkJoinPool.commonPool-worker-4) is starting...
+25/08/2023 20:45:34: 
+25/08/2023 20:45:34 - Thread 46 (ForkJoinPool.commonPool-worker-22) is starting...
+25/08/2023 20:45:34: 
+25/08/2023 20:45:34 - Thread 29 (ForkJoinPool.commonPool-worker-11) is starting...
+25/08/2023 20:45:35: 
+25/08/2023 20:45:35 - Thread 30 (ForkJoinPool.commonPool-worker-4) has finished.[00:00:00:475]
+25/08/2023 20:45:35: 
+25/08/2023 20:45:35 - Thread 46 (ForkJoinPool.commonPool-worker-22) has finished.[00:00:00:475]
+25/08/2023 20:45:35: 
+25/08/2023 20:45:35 - Thread 29 (ForkJoinPool.commonPool-worker-11) has finished.[00:00:00:475]
+25/08/2023 20:45:35: 
+25/08/2023 20:45:35 - Thread 28 (ForkJoinPool.commonPool-worker-18) has finished.[00:00:00:475]
+25/08/2023 20:45:41: 
+25/08/2023 20:45:41 - Thread 30 (ForkJoinPool.commonPool-worker-4) is starting...
+25/08/2023 20:45:41: 
+25/08/2023 20:45:41 - Thread 46 (ForkJoinPool.commonPool-worker-22) is starting...
+25/08/2023 20:45:41: 
+25/08/2023 20:45:41 - Thread 29 (ForkJoinPool.commonPool-worker-11) is starting...
+25/08/2023 20:45:41: 
+25/08/2023 20:45:41 - Thread 28 (ForkJoinPool.commonPool-worker-18) is starting...
+25/08/2023 20:45:41: 
+25/08/2023 20:45:41 - Thread 29 (ForkJoinPool.commonPool-worker-11) has finished.[00:00:00:189]
+25/08/2023 20:45:41: 
+25/08/2023 20:45:41 - Thread 30 (ForkJoinPool.commonPool-worker-4) has finished.[00:00:00:252]
+25/08/2023 20:45:41: 
+25/08/2023 20:45:41 - Thread 28 (ForkJoinPool.commonPool-worker-18) has finished.[00:00:00:268]
+25/08/2023 20:45:41: 
+25/08/2023 20:45:41 - Thread 46 (ForkJoinPool.commonPool-worker-22) has finished.[00:00:00:285]
+25/08/2023 20:45:49: 
+25/08/2023 20:45:49 - Thread 28 (ForkJoinPool.commonPool-worker-18) is starting...
+25/08/2023 20:45:49: 
+25/08/2023 20:45:49 - Thread 29 (ForkJoinPool.commonPool-worker-11) is starting...
+25/08/2023 20:45:49: 
+25/08/2023 20:45:49 - Thread 30 (ForkJoinPool.commonPool-worker-4) is starting...
+25/08/2023 20:45:49: 
+25/08/2023 20:45:49 - Thread 46 (ForkJoinPool.commonPool-worker-22) is starting...
+25/08/2023 20:45:49: 
+25/08/2023 20:45:49 - Thread 46 (ForkJoinPool.commonPool-worker-22) has finished.[00:00:00:159]
+25/08/2023 20:45:49: 
+25/08/2023 20:45:49 - Thread 29 (ForkJoinPool.commonPool-worker-11) has finished.[00:00:00:166]
+25/08/2023 20:45:49: 
+25/08/2023 20:45:49 - Thread 30 (ForkJoinPool.commonPool-worker-4) has finished.[00:00:00:174]
+25/08/2023 20:45:49: 
+25/08/2023 20:45:49 - Thread 28 (ForkJoinPool.commonPool-worker-18) has finished.[00:00:00:174]
+25/08/2023 20:45:56: 
+25/08/2023 20:45:56 - Thread 28 (ForkJoinPool.commonPool-worker-18) is starting...
+25/08/2023 20:45:56: 
+25/08/2023 20:45:56 - Thread 30 (ForkJoinPool.commonPool-worker-4) is starting...
+25/08/2023 20:45:56: 
+25/08/2023 20:45:56 - Thread 46 (ForkJoinPool.commonPool-worker-22) is starting...
+25/08/2023 20:45:56: 
+25/08/2023 20:45:56 - Thread 29 (ForkJoinPool.commonPool-worker-11) is starting...
+25/08/2023 20:45:57: 
+25/08/2023 20:45:57 - Thread 29 (ForkJoinPool.commonPool-worker-11) has finished.[00:00:00:282]
+25/08/2023 20:45:57: 
+25/08/2023 20:45:57 - Thread 28 (ForkJoinPool.commonPool-worker-18) has finished.[00:00:00:282]
+25/08/2023 20:45:57: 
+25/08/2023 20:45:57 - Thread 46 (ForkJoinPool.commonPool-worker-22) has finished.[00:00:00:282]
+25/08/2023 20:45:57: 
+25/08/2023 20:45:57 - Thread 30 (ForkJoinPool.commonPool-worker-4) has finished.[00:00:00:282]
+25/08/2023 20:46:03: 
+25/08/2023 20:46:03 - Thread 29 (ForkJoinPool.commonPool-worker-11) is starting...
+25/08/2023 20:46:03: 
+25/08/2023 20:46:03 - Thread 28 (ForkJoinPool.commonPool-worker-18) is starting...
+25/08/2023 20:46:03: 
+25/08/2023 20:46:03 - Thread 46 (ForkJoinPool.commonPool-worker-22) is starting...
+25/08/2023 20:46:03: 
+25/08/2023 20:46:03 - Thread 30 (ForkJoinPool.commonPool-worker-4) is starting...
+25/08/2023 20:46:03: 
+25/08/2023 20:46:03 - Thread 28 (ForkJoinPool.commonPool-worker-18) has finished.[00:00:00:095]
+25/08/2023 20:46:03: 
+25/08/2023 20:46:03 - Thread 29 (ForkJoinPool.commonPool-worker-11) has finished.[00:00:00:159]
+25/08/2023 20:46:03: 
+25/08/2023 20:46:03 - Thread 30 (ForkJoinPool.commonPool-worker-4) has finished.[00:00:00:239]
+25/08/2023 20:46:03: 
+25/08/2023 20:46:03 - Thread 46 (ForkJoinPool.commonPool-worker-22) has finished.[00:00:00:335]
+25/08/2023 20:46:06: 
+25/08/2023 20:46:06 - Thread 46 (ForkJoinPool.commonPool-worker-22) is starting...
+25/08/2023 20:46:06: 
+25/08/2023 20:46:06 - Thread 30 (ForkJoinPool.commonPool-worker-4) is starting...
+25/08/2023 20:46:06: 
+25/08/2023 20:46:06 - Thread 29 (ForkJoinPool.commonPool-worker-11) is starting...
+25/08/2023 20:46:06: 
+25/08/2023 20:46:06 - Thread 91 (ForkJoinPool.commonPool-worker-15) is starting...
+25/08/2023 20:46:06: 
+25/08/2023 20:46:06 - Thread 29 (ForkJoinPool.commonPool-worker-11) has finished.[00:00:00:064]
+25/08/2023 20:46:06: 
+25/08/2023 20:46:06 - Thread 46 (ForkJoinPool.commonPool-worker-22) has finished.[00:00:00:079]
+25/08/2023 20:46:06: 
+25/08/2023 20:46:06 - Thread 30 (ForkJoinPool.commonPool-worker-4) has finished.[00:00:00:142]
+25/08/2023 20:46:06: 
+25/08/2023 20:46:06 - Thread 91 (ForkJoinPool.commonPool-worker-15) has finished.[00:00:00:174]
+25/08/2023 20:46:08: 
+25/08/2023 20:46:08 - Thread 30 (ForkJoinPool.commonPool-worker-4) is starting...
+25/08/2023 20:46:08: 
+25/08/2023 20:46:08 - Thread 29 (ForkJoinPool.commonPool-worker-11) is starting...
+25/08/2023 20:46:08: 
+25/08/2023 20:46:08 - Thread 91 (ForkJoinPool.commonPool-worker-15) is starting...
+25/08/2023 20:46:08: 
+25/08/2023 20:46:08 - Thread 27 (ForkJoinPool.commonPool-worker-25) is starting...
+25/08/2023 20:46:08: 
+25/08/2023 20:46:08 - Thread 29 (ForkJoinPool.commonPool-worker-11) has finished.[00:00:00:103]
+25/08/2023 20:46:08: 
+25/08/2023 20:46:08 - Thread 30 (ForkJoinPool.commonPool-worker-4) has finished.[00:00:00:119]
+25/08/2023 20:46:08: 
+25/08/2023 20:46:08 - Thread 27 (ForkJoinPool.commonPool-worker-25) has finished.[00:00:00:150]
+25/08/2023 20:46:08: 
+25/08/2023 20:46:08 - Thread 91 (ForkJoinPool.commonPool-worker-15) has finished.[00:00:00:166]
+25/08/2023 20:46:08: 
+25/08/2023 20:46:08 - Thread 91 (ForkJoinPool.commonPool-worker-15) is starting...
+25/08/2023 20:46:08: 
+25/08/2023 20:46:08 - Thread 46 (ForkJoinPool.commonPool-worker-22) is starting...
+25/08/2023 20:46:08: 
+25/08/2023 20:46:08 - Thread 30 (ForkJoinPool.commonPool-worker-4) is starting...
+25/08/2023 20:46:08: 
+25/08/2023 20:46:08 - Thread 27 (ForkJoinPool.commonPool-worker-25) is starting...
+25/08/2023 20:46:09: 
+25/08/2023 20:46:09 - Thread 91 (ForkJoinPool.commonPool-worker-15) has finished.[00:00:00:506]
+25/08/2023 20:46:09: 
+25/08/2023 20:46:09 - Thread 46 (ForkJoinPool.commonPool-worker-22) has finished.[00:00:00:506]
+25/08/2023 20:46:09: 
+25/08/2023 20:46:09 - Thread 30 (ForkJoinPool.commonPool-worker-4) has finished.[00:00:00:506]
+25/08/2023 20:46:09: 
+25/08/2023 20:46:09 - Thread 27 (ForkJoinPool.commonPool-worker-25) has finished.[00:00:00:506]
+25/08/2023 20:46:14: 
+25/08/2023 20:46:14 - Thread 27 (ForkJoinPool.commonPool-worker-25) is starting...
+25/08/2023 20:46:14: 
+25/08/2023 20:46:14 - Thread 46 (ForkJoinPool.commonPool-worker-22) is starting...
+25/08/2023 20:46:14: 
+25/08/2023 20:46:14 - Thread 30 (ForkJoinPool.commonPool-worker-4) is starting...
+25/08/2023 20:46:14: 
+25/08/2023 20:46:14 - Thread 91 (ForkJoinPool.commonPool-worker-15) is starting...
+25/08/2023 20:46:14: 
+25/08/2023 20:46:14 - Thread 30 (ForkJoinPool.commonPool-worker-4) has finished.[00:00:00:175]
+25/08/2023 20:46:14: 
+25/08/2023 20:46:14 - Thread 27 (ForkJoinPool.commonPool-worker-25) has finished.[00:00:00:181]
+25/08/2023 20:46:14: 
+25/08/2023 20:46:14 - Thread 46 (ForkJoinPool.commonPool-worker-22) has finished.[00:00:00:269]
+25/08/2023 20:46:14: 
+25/08/2023 20:46:14 - Thread 91 (ForkJoinPool.commonPool-worker-15) has finished.[00:00:00:320]
+25/08/2023 20:46:17: 
+25/08/2023 20:46:17 - Thread 30 (ForkJoinPool.commonPool-worker-4) is starting...
+25/08/2023 20:46:17: 
+25/08/2023 20:46:17 - Thread 91 (ForkJoinPool.commonPool-worker-15) is starting...
+25/08/2023 20:46:17: 
+25/08/2023 20:46:17 - Thread 46 (ForkJoinPool.commonPool-worker-22) is starting...
+25/08/2023 20:46:17: 
+25/08/2023 20:46:17 - Thread 27 (ForkJoinPool.commonPool-worker-25) is starting...
+25/08/2023 20:46:17: 
+25/08/2023 20:46:17 - Thread 27 (ForkJoinPool.commonPool-worker-25) has finished.[00:00:00:079]
+25/08/2023 20:46:17: 
+25/08/2023 20:46:17 - Thread 91 (ForkJoinPool.commonPool-worker-15) has finished.[00:00:00:094]
+25/08/2023 20:46:17: 
+25/08/2023 20:46:17 - Thread 30 (ForkJoinPool.commonPool-worker-4) has finished.[00:00:00:110]
+25/08/2023 20:46:17: 
+25/08/2023 20:46:17 - Thread 46 (ForkJoinPool.commonPool-worker-22) has finished.[00:00:00:134]
+25/08/2023 20:46:21: 
+25/08/2023 20:46:21 - Thread 30 (ForkJoinPool.commonPool-worker-4) is starting...
+25/08/2023 20:46:21: 
+25/08/2023 20:46:21 - Thread 46 (ForkJoinPool.commonPool-worker-22) is starting...
+25/08/2023 20:46:21: 
+25/08/2023 20:46:21 - Thread 91 (ForkJoinPool.commonPool-worker-15) is starting...
+25/08/2023 20:46:21: 
+25/08/2023 20:46:21 - Thread 29 (ForkJoinPool.commonPool-worker-11) is starting...
+25/08/2023 20:46:21: 
+25/08/2023 20:46:21 - Thread 29 (ForkJoinPool.commonPool-worker-11) has finished.[00:00:00:374]
+25/08/2023 20:46:21: 
+25/08/2023 20:46:21 - Thread 30 (ForkJoinPool.commonPool-worker-4) has finished.[00:00:00:374]
+25/08/2023 20:46:21: 
+25/08/2023 20:46:21 - Thread 91 (ForkJoinPool.commonPool-worker-15) has finished.[00:00:00:374]
+25/08/2023 20:46:21: 
+25/08/2023 20:46:21 - Thread 46 (ForkJoinPool.commonPool-worker-22) has finished.[00:00:00:374]
+25/08/2023 20:46:26: 
+25/08/2023 20:46:26 - Thread 30 (ForkJoinPool.commonPool-worker-4) is starting...
+25/08/2023 20:46:26: 
+25/08/2023 20:46:26 - Thread 27 (ForkJoinPool.commonPool-worker-25) is starting...
+25/08/2023 20:46:26: 
+25/08/2023 20:46:26 - Thread 91 (ForkJoinPool.commonPool-worker-15) is starting...
+25/08/2023 20:46:26: 
+25/08/2023 20:46:26 - Thread 46 (ForkJoinPool.commonPool-worker-22) is starting...
+25/08/2023 20:46:26: 
+25/08/2023 20:46:26 - Thread 27 (ForkJoinPool.commonPool-worker-25) has finished.[00:00:00:080]
+25/08/2023 20:46:26: 
+25/08/2023 20:46:26 - Thread 91 (ForkJoinPool.commonPool-worker-15) has finished.[00:00:00:080]
+25/08/2023 20:46:26: 
+25/08/2023 20:46:26 - Thread 46 (ForkJoinPool.commonPool-worker-22) has finished.[00:00:00:080]
+25/08/2023 20:46:26: 
+25/08/2023 20:46:26 - Thread 30 (ForkJoinPool.commonPool-worker-4) has finished.[00:00:00:096]
+25/08/2023 20:46:29: 
+25/08/2023 20:46:29 - Thread 91 (ForkJoinPool.commonPool-worker-15) is starting...
+25/08/2023 20:46:29: 
+25/08/2023 20:46:29 - Thread 27 (ForkJoinPool.commonPool-worker-25) is starting...
+25/08/2023 20:46:29: 
+25/08/2023 20:46:29 - Thread 30 (ForkJoinPool.commonPool-worker-4) is starting...
+25/08/2023 20:46:29: 
+25/08/2023 20:46:29 - Thread 46 (ForkJoinPool.commonPool-worker-22) is starting...
+25/08/2023 20:46:29: 
+25/08/2023 20:46:29 - Thread 30 (ForkJoinPool.commonPool-worker-4) has finished.[00:00:00:064]
+25/08/2023 20:46:29: 
+25/08/2023 20:46:29 - Thread 27 (ForkJoinPool.commonPool-worker-25) has finished.[00:00:00:080]
+25/08/2023 20:46:29: 
+25/08/2023 20:46:29 - Thread 91 (ForkJoinPool.commonPool-worker-15) has finished.[00:00:00:080]
+25/08/2023 20:46:29: 
+25/08/2023 20:46:29 - Thread 46 (ForkJoinPool.commonPool-worker-22) has finished.[00:00:00:086]
+25/08/2023 20:46:31: 
+25/08/2023 20:46:31 - Thread 30 (ForkJoinPool.commonPool-worker-4) is starting...
+25/08/2023 20:46:31: 
+25/08/2023 20:46:31 - Thread 27 (ForkJoinPool.commonPool-worker-25) is starting...
+25/08/2023 20:46:31: 
+25/08/2023 20:46:31 - Thread 46 (ForkJoinPool.commonPool-worker-22) is starting...
+25/08/2023 20:46:31: 
+25/08/2023 20:46:31 - Thread 91 (ForkJoinPool.commonPool-worker-15) is starting...
+25/08/2023 20:46:31: 
+25/08/2023 20:46:31 - Thread 30 (ForkJoinPool.commonPool-worker-4) has finished.[00:00:00:076]
+25/08/2023 20:46:31: 
+25/08/2023 20:46:31 - Thread 46 (ForkJoinPool.commonPool-worker-22) has finished.[00:00:00:076]
+25/08/2023 20:46:31: 
+25/08/2023 20:46:31 - Thread 91 (ForkJoinPool.commonPool-worker-15) has finished.[00:00:00:140]
+25/08/2023 20:46:31: 
+25/08/2023 20:46:31 - Thread 27 (ForkJoinPool.commonPool-worker-25) has finished.[00:00:00:156]
+25/08/2023 20:46:34: 
+25/08/2023 20:46:34 - Thread 27 (ForkJoinPool.commonPool-worker-25) is starting...
+25/08/2023 20:46:34: 
+25/08/2023 20:46:34 - Thread 46 (ForkJoinPool.commonPool-worker-22) is starting...
+25/08/2023 20:46:34: 
+25/08/2023 20:46:34 - Thread 30 (ForkJoinPool.commonPool-worker-4) is starting...
+25/08/2023 20:46:34: 
+25/08/2023 20:46:34 - Thread 91 (ForkJoinPool.commonPool-worker-15) is starting...
+25/08/2023 20:46:35: 
+25/08/2023 20:46:35 - Thread 46 (ForkJoinPool.commonPool-worker-22) has finished.[00:00:00:521]
+25/08/2023 20:46:35: 
+25/08/2023 20:46:35 - Thread 30 (ForkJoinPool.commonPool-worker-4) has finished.[00:00:00:521]
+25/08/2023 20:46:35: 
+25/08/2023 20:46:35 - Thread 91 (ForkJoinPool.commonPool-worker-15) has finished.[00:00:00:521]
+25/08/2023 20:46:35: 
+25/08/2023 20:46:35 - Thread 27 (ForkJoinPool.commonPool-worker-25) has finished.[00:00:00:521]
+25/08/2023 22:38:49: 
+25/08/2023 22:38:49 - Thread 27 (ForkJoinPool.commonPool-worker-25) is starting...
+25/08/2023 22:38:50: 
+25/08/2023 22:38:50 - Thread 27 (ForkJoinPool.commonPool-worker-25) has finished.[00:00:01:294]
+25/08/2023 22:38:50: 
+25/08/2023 22:38:50 - Thread 27 (ForkJoinPool.commonPool-worker-25) is starting...
+25/08/2023 22:38:51: 
+25/08/2023 22:38:51 - Thread 27 (ForkJoinPool.commonPool-worker-25) has finished.[00:00:00:318]
+25/08/2023 22:38:51: 
+25/08/2023 22:38:51 - Thread 27 (ForkJoinPool.commonPool-worker-25) is starting...
+25/08/2023 22:38:51: 
+25/08/2023 22:38:51 - Thread 27 (ForkJoinPool.commonPool-worker-25) has finished.[00:00:00:314]
+25/08/2023 22:38:51: 
+25/08/2023 22:38:51 - Thread 27 (ForkJoinPool.commonPool-worker-25) is starting...
+25/08/2023 22:38:51: 
+25/08/2023 22:38:51 - Thread 27 (ForkJoinPool.commonPool-worker-25) has finished.[00:00:00:282]
+25/08/2023 22:39:21: 
+25/08/2023 22:39:21 - Thread 27 (ForkJoinPool.commonPool-worker-25) is starting...
+25/08/2023 22:39:22: 
+25/08/2023 22:39:22 - Thread 27 (ForkJoinPool.commonPool-worker-25) has finished.[00:00:00:979]
+25/08/2023 22:39:22: 
+25/08/2023 22:39:22 - Thread 27 (ForkJoinPool.commonPool-worker-25) is starting...
+25/08/2023 22:39:22: 
+25/08/2023 22:39:22 - Thread 27 (ForkJoinPool.commonPool-worker-25) has finished.[00:00:00:116]
+25/08/2023 22:39:22: 
+25/08/2023 22:39:22 - Thread 27 (ForkJoinPool.commonPool-worker-25) is starting...
+25/08/2023 22:39:22: 
+25/08/2023 22:39:22 - Thread 27 (ForkJoinPool.commonPool-worker-25) has finished.[00:00:00:062]
+25/08/2023 22:39:22: 
+25/08/2023 22:39:22 - Thread 27 (ForkJoinPool.commonPool-worker-25) is starting...
+25/08/2023 22:39:22: 
+25/08/2023 22:39:22 - Thread 27 (ForkJoinPool.commonPool-worker-25) has finished.[00:00:00:067]
+25/08/2023 22:41:59: 
+25/08/2023 22:41:59 - Thread 27 (ForkJoinPool.commonPool-worker-25) is starting...
+25/08/2023 22:42:00: 
+25/08/2023 22:42:00 - Thread 27 (ForkJoinPool.commonPool-worker-25) has finished.[00:00:01:014]
+25/08/2023 22:42:00: 
+25/08/2023 22:42:00 - Thread 30 (ForkJoinPool.commonPool-worker-18) is starting...
+25/08/2023 22:42:00: 
+25/08/2023 22:42:00 - Thread 30 (ForkJoinPool.commonPool-worker-18) has finished.[00:00:00:129]
+25/08/2023 22:42:00: 
+25/08/2023 22:42:00 - Thread 27 (ForkJoinPool.commonPool-worker-25) is starting...
+25/08/2023 22:42:00: 
+25/08/2023 22:42:00 - Thread 27 (ForkJoinPool.commonPool-worker-25) has finished.[00:00:00:084]
+25/08/2023 22:42:00: 
+25/08/2023 22:42:00 - Thread 30 (ForkJoinPool.commonPool-worker-18) is starting...
+25/08/2023 22:42:01: 
+25/08/2023 22:42:01 - Thread 30 (ForkJoinPool.commonPool-worker-18) has finished.[00:00:00:293]
+25/08/2023 22:43:49: 
+25/08/2023 22:43:49 - Thread 27 (ForkJoinPool.commonPool-worker-25) is starting...
+25/08/2023 22:43:50: 
+25/08/2023 22:43:50 - Thread 27 (ForkJoinPool.commonPool-worker-25) has finished.[00:00:01:117]
+25/08/2023 22:43:50: 
+25/08/2023 22:43:50 - Thread 27 (ForkJoinPool.commonPool-worker-25) is starting...
+25/08/2023 22:43:50: 
+25/08/2023 22:43:50 - Thread 27 (ForkJoinPool.commonPool-worker-25) has finished.[00:00:00:060]
+25/08/2023 22:43:50: 
+25/08/2023 22:43:50 - Thread 30 (ForkJoinPool.commonPool-worker-18) is starting...
+25/08/2023 22:43:50: 
+25/08/2023 22:43:50 - Thread 30 (ForkJoinPool.commonPool-worker-18) has finished.[00:00:00:068]
+25/08/2023 22:43:50: 
+25/08/2023 22:43:50 - Thread 27 (ForkJoinPool.commonPool-worker-25) is starting...
+25/08/2023 22:43:50: 
+25/08/2023 22:43:50 - Thread 27 (ForkJoinPool.commonPool-worker-25) has finished.[00:00:00:063]
+25/08/2023 22:44:40: 
+25/08/2023 22:44:40 - Thread 27 (ForkJoinPool.commonPool-worker-25) is starting...
+25/08/2023 22:44:42: 
+25/08/2023 22:44:42 - Thread 27 (ForkJoinPool.commonPool-worker-25) has finished.[00:00:01:432]
+25/08/2023 22:44:42: 
+25/08/2023 22:44:42 - Thread 30 (ForkJoinPool.commonPool-worker-18) is starting...
+25/08/2023 22:44:42: 
+25/08/2023 22:44:42 - Thread 30 (ForkJoinPool.commonPool-worker-18) has finished.[00:00:00:273]
+25/08/2023 22:44:42: 
+25/08/2023 22:44:42 - Thread 27 (ForkJoinPool.commonPool-worker-25) is starting...
+25/08/2023 22:44:42: 
+25/08/2023 22:44:42 - Thread 27 (ForkJoinPool.commonPool-worker-25) has finished.[00:00:00:325]
+25/08/2023 22:44:42: 
+25/08/2023 22:44:42 - Thread 30 (ForkJoinPool.commonPool-worker-18) is starting...
+25/08/2023 22:44:43: 
+25/08/2023 22:44:43 - Thread 30 (ForkJoinPool.commonPool-worker-18) has finished.[00:00:00:326]

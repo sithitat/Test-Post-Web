@@ -6,12 +6,13 @@
 package testpostweb;
 
 import java.awt.BorderLayout;
-import java.awt.List;
+// import java.awt.List;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
 import java.io.BufferedOutputStream;
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.ByteArrayOutputStream;
 import java.io.DataOutputStream;
 import java.io.File;
@@ -23,12 +24,14 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
+import java.io.PrintWriter;
 import java.io.UnsupportedEncodingException;
 import java.io.Writer;
 import java.math.BigInteger;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.ProtocolException;
+import java.net.SocketTimeoutException;
 import java.net.URL;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
@@ -42,10 +45,26 @@ import java.security.cert.CertificateException;
 import java.security.cert.X509Certificate;
 import java.security.spec.InvalidKeySpecException;
 import java.security.spec.KeySpec;
+import java.sql.SQLException;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Base64;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
+import java.util.List;
+import java.util.Locale;
+import java.util.concurrent.CompletableFuture;
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.Future;
+import java.util.concurrent.FutureTask;
+import java.util.concurrent.TimeUnit;
+import java.util.concurrent.TimeoutException;
+import java.util.concurrent.atomic.AtomicReference;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.util.regex.Matcher;
@@ -80,6 +99,7 @@ import javax.swing.JFileChooser;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.filechooser.FileNameExtensionFilter;
+
 /**
  *
  * @author Administrator
@@ -96,6 +116,15 @@ public class PostWebManualV2 extends javax.swing.JFrame {
     private HttpURLConnection httpConn;
     private String postData;
     private String charset;    
+    
+    private static String formatDate = "yyyyMMdd";
+    private static String formatDateTime = "yyyyMMddHHmm";
+    private static String formatDateTimeSecond = "yyyyMMddHHmmss";
+    private static String formatDateTimeSecondMili = "yyyyMMddHHmmssSSS";
+    private static String formatDateFull = "dd/MM/yyyy";
+    private static String formatDateTimeFull = "dd/MM/yyyy HH:mm:ss";
+    private static String formatDateTimeFullAll = "E dd/MM/yyyy HH:mm:ss";    
+    public static final String LOG_DIRECTORY = "Error";
     
     /**
      * Creates new form PostWebManual
@@ -123,14 +152,41 @@ public class PostWebManualV2 extends javax.swing.JFrame {
         gRdbRequestType.add(jrbRequestType5);
         gRdbRequestType.add(jrbRequestType6);
         gRdbRequestType.add(jrbRequestType7);
+        gRdbRequestType.add(jrbRequestType8);
         
         ButtonGroup gRdbCrypte = new ButtonGroup();
         gRdbCrypte.add(rbtEncrypte);
         gRdbCrypte.add(rbtDecrypte);
-        
 
+        
+        
         // Test Code
+        // TestMultiThread();
+        // TestMultiThreadRunnable();
+
+        
+        
+        
+        //sReturnResult = WebAPICommunicationV3("http://5th-Element:8083/RBTApiGatewayV1/AIA/GetAccessToken", "{\"clientId\":\"68511702-b86f-4820-a6c4-1593c86c456a\",\"clientSecret\":\"8842b0f2-fd4c-469a-a16c-e04beffb9168\",\"authCode\":\"9c837368e417462fa6c0d9784d7eee26\"}", "application/json", "POST", 30, 180, sUseAccessToken, sArrAccessToken, 20000);
         /*
+        System.out.println(sReturnResult);
+        
+        String sNum = "4";
+        switch (sNum) {
+            case "2":
+            case "3":
+                sReturnResult = "2,3";
+                break;
+
+            default:
+                sReturnResult = "0";
+        }        
+        
+        System.out.println(sReturnResult);
+        System.out.println(sReturnResult);
+        
+        
+        
         String HTMLPostParameterHeaderAIA="\"RefId\":\"@COMP_REFID\",\"TransactionNo\":\"@COMP_TRANSACTION_NO\",\"Username\":\"@USER_NAME\",\"HospitalCode\":\"@HOSP_CODE\",\"InsurerCode\":\"13\",\"ElectronicSignature\":\"@COMP_ELECT_SIGN\",\"DataJsonType\":\"@COMP_DATA_JSON_TYPE\",";
         String HTMLPostParameterCheckStatusAIA = "{[@API_AIA_HEADER]\"DataJson\":{}}";
         String PostData = "";
@@ -289,15 +345,17 @@ public class PostWebManualV2 extends javax.swing.JFrame {
         jScrollPane9 = new javax.swing.JScrollPane();
         txaAuthCode = new javax.swing.JTextArea();
         lblPatientID12 = new javax.swing.JLabel();
+        lblPatientID13 = new javax.swing.JLabel();
+        jtxtTokenType = new javax.swing.JTextField();
+        jtxtTransactionNo = new javax.swing.JTextField();
         jrbRequestType0 = new javax.swing.JRadioButton();
         jrbRequestType1 = new javax.swing.JRadioButton();
         jrbRequestType2 = new javax.swing.JRadioButton();
-        jtxtTokenType = new javax.swing.JTextField();
-        lblPatientID13 = new javax.swing.JLabel();
-        jtxtTransactionNo = new javax.swing.JTextField();
         jrbRequestType3 = new javax.swing.JRadioButton();
         jrbRequestType4 = new javax.swing.JRadioButton();
         jrbRequestType5 = new javax.swing.JRadioButton();
+        jrbRequestType6 = new javax.swing.JRadioButton();
+        jrbRequestType7 = new javax.swing.JRadioButton();
         jButton6 = new javax.swing.JButton();
         jButton7 = new javax.swing.JButton();
         jButton8 = new javax.swing.JButton();
@@ -329,13 +387,13 @@ public class PostWebManualV2 extends javax.swing.JFrame {
         lblPatientID15 = new javax.swing.JLabel();
         jScrollPane10 = new javax.swing.JScrollPane();
         txaAuthorizeData = new javax.swing.JTextArea();
-        jrbRequestType6 = new javax.swing.JRadioButton();
         jButton10 = new javax.swing.JButton();
-        jrbRequestType7 = new javax.swing.JRadioButton();
         jButton11 = new javax.swing.JButton();
         jButton12 = new javax.swing.JButton();
         jButton13 = new javax.swing.JButton();
         jButton14 = new javax.swing.JButton();
+        jButton15 = new javax.swing.JButton();
+        jrbRequestType8 = new javax.swing.JRadioButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -516,6 +574,17 @@ public class PostWebManualV2 extends javax.swing.JFrame {
         lblPatientID12.setText("Request Type");
         getContentPane().add(lblPatientID12, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 60, 120, 40));
 
+        lblPatientID13.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        lblPatientID13.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        lblPatientID13.setText("Transaction No");
+        getContentPane().add(lblPatientID13, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 200, 130, 40));
+
+        jtxtTokenType.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
+        getContentPane().add(jtxtTokenType, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 160, 120, 30));
+
+        jtxtTransactionNo.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
+        getContentPane().add(jtxtTransactionNo, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 200, 740, 30));
+
         jrbRequestType0.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
         jrbRequestType0.setText("Get Auth Code");
         getContentPane().add(jrbRequestType0, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 70, -1, 20));
@@ -533,20 +602,9 @@ public class PostWebManualV2 extends javax.swing.JFrame {
         });
         getContentPane().add(jrbRequestType2, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 90, -1, -1));
 
-        jtxtTokenType.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
-        getContentPane().add(jtxtTokenType, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 160, 120, 30));
-
-        lblPatientID13.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        lblPatientID13.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        lblPatientID13.setText("Transaction No");
-        getContentPane().add(lblPatientID13, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 200, 130, 40));
-
-        jtxtTransactionNo.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
-        getContentPane().add(jtxtTransactionNo, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 200, 740, 30));
-
         jrbRequestType3.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
         jrbRequestType3.setText("Check Eligible");
-        getContentPane().add(jrbRequestType3, new org.netbeans.lib.awtextra.AbsoluteConstraints(1080, 70, 120, 20));
+        getContentPane().add(jrbRequestType3, new org.netbeans.lib.awtextra.AbsoluteConstraints(1250, 65, 120, -1));
 
         jrbRequestType4.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
         jrbRequestType4.setText("Payment QR");
@@ -555,7 +613,7 @@ public class PostWebManualV2 extends javax.swing.JFrame {
                 jrbRequestType4ActionPerformed(evt);
             }
         });
-        getContentPane().add(jrbRequestType4, new org.netbeans.lib.awtextra.AbsoluteConstraints(1200, 70, 120, 20));
+        getContentPane().add(jrbRequestType4, new org.netbeans.lib.awtextra.AbsoluteConstraints(1250, 90, 120, 20));
 
         jrbRequestType5.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
         jrbRequestType5.setText("Normal Data(Auth)");
@@ -565,6 +623,24 @@ public class PostWebManualV2 extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jrbRequestType5, new org.netbeans.lib.awtextra.AbsoluteConstraints(980, 90, -1, -1));
+
+        jrbRequestType6.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
+        jrbRequestType6.setText("AES 256");
+        jrbRequestType6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jrbRequestType6ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jrbRequestType6, new org.netbeans.lib.awtextra.AbsoluteConstraints(1480, 90, 120, -1));
+
+        jrbRequestType7.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
+        jrbRequestType7.setText("Get Token(PRD)");
+        jrbRequestType7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jrbRequestType7ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jrbRequestType7, new org.netbeans.lib.awtextra.AbsoluteConstraints(1080, 65, 160, 30));
 
         jButton6.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jButton6.setText("Json Parser");
@@ -756,15 +832,6 @@ public class PostWebManualV2 extends javax.swing.JFrame {
 
         getContentPane().add(tabRequestDetail, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 200, 410, 240));
 
-        jrbRequestType6.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
-        jrbRequestType6.setText("AES 256");
-        jrbRequestType6.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jrbRequestType6ActionPerformed(evt);
-            }
-        });
-        getContentPane().add(jrbRequestType6, new org.netbeans.lib.awtextra.AbsoluteConstraints(1480, 90, 120, -1));
-
         jButton10.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jButton10.setText("AES Replace");
         jButton10.addActionListener(new java.awt.event.ActionListener() {
@@ -773,15 +840,6 @@ public class PostWebManualV2 extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton10, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 280, 140, 30));
-
-        jrbRequestType7.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
-        jrbRequestType7.setText("Get ????");
-        jrbRequestType7.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jrbRequestType7ActionPerformed(evt);
-            }
-        });
-        getContentPane().add(jrbRequestType7, new org.netbeans.lib.awtextra.AbsoluteConstraints(1140, 90, 160, -1));
 
         jButton11.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jButton11.setText("Get Access Token");
@@ -819,9 +877,145 @@ public class PostWebManualV2 extends javax.swing.JFrame {
         });
         getContentPane().add(jButton14, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 400, 140, 30));
 
+        jButton15.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        jButton15.setText("Test MultiThread");
+        jButton15.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton15ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton15, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 430, 140, 30));
+
+        jrbRequestType8.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
+        jrbRequestType8.setText("Normal Data(PRD A+S)");
+        jrbRequestType8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jrbRequestType8ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jrbRequestType8, new org.netbeans.lib.awtextra.AbsoluteConstraints(1110, 90, 140, -1));
+
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    
+    private void TestMultiThreadRunnable(){
+        int iLoopCount = 0;
+
+        for (int iLoop = 0; iLoop < 4; iLoop++) {
+            AtomicReference<String> sReturnResultWrapper = new AtomicReference<>();
+            iLoopCount++;
+            final String sCount = String.valueOf(iLoopCount);
+            
+            String sReturnResult = "";
+
+            String sUseAccessToken; // <<<<< BRBBK >>>>>
+            String[] sArrAccessToken = new String[2];   // <<<<< BRBBK >>>>>          
+            sUseAccessToken = "N";
+            sArrAccessToken[0] = "";
+            sArrAccessToken[1] = "";                        
+            // sReturnResult = WebAPICommunicationV2("http://5th-Element:8083/RBTApiGatewayV1/AIA/RequestAuthCode", "{\"clientId\":\"68511702-b86f-4820-a6c4-1593c86c456a\",\"appId\":\"62596a85-9a88-4be3-86c7-c5f6fe52a00b\"}", "application/json", "POST", 30, 180, sUseAccessToken, sArrAccessToken);
+            // System.out.println("WebAPICommunicationV3 - Timeout 10 sec: " + sReturnResult);
+            
+            // https://apigw-uat.aia.co.th/TokenManager/1.0/autherize/RequestAuthCode
+            // http://5th-Element:8083/RBTApiGatewayV1/AIA/RequestAuthCode
+            CompletableFuture<String> sReturnResultAsync = WebAPICommunicationV2Async("https://apigw-uat.aia.co.th/TokenManager/1.0/autherize/RequestAuthCode", 
+                    "{\"clientId\":\"68511702-b86f-4820-a6c4-1593c86c456a\",\"appId\":\"62596a85-9a88-4be3-86c7-c5f6fe52a00b\"}", 
+                    "application/json", "POST", 30, 180, sUseAccessToken, sArrAccessToken);
+
+            
+            sReturnResultAsync.thenAccept(sResultAsync -> {
+                // Handle the result here
+                // System.out.println(sCount + ") API call result: " + sResultAsync);
+                sReturnResultWrapper.set(sResultAsync);
+                txaResult.append(sCount + ") API call result[in sResultAsync]: " + sResultAsync + "\n");
+                WriteErrorToFile("TestMultiThreadRunnable", sCount + ") API call result: " + sResultAsync);
+            });
+            
+            sReturnResult = sReturnResultAsync.join();
+            txaResult.append(sCount + ") API call result[use sReturnResultAsync.join]: " + sReturnResult + "\n");
+            String sReturnResultWrap = sReturnResultWrapper.get();
+            txaResult.append(sCount + ") API call result[use AtomicReference]: " + sReturnResultWrap + "\n");
+            // Optionally, you can wait for the CompletableFuture to complete using resultFuture.join() or resultFuture.get().
+            // However, using thenAccept is generally preferred to avoid blocking the main thread.
+            
+            
+            
+        }
+    }    
+    
+    
+    private void TestMultiThread(){
+        int iLoopCount = 0;
+        int numThreads = 4; // Number of threads in the thread pool
+        ExecutorService executor = Executors.newFixedThreadPool(numThreads);
+        //List<Future> futures = new ArrayList<>(); // Store Future objects for monitoring
+        List<Future<?>> futures = new ArrayList<>(); // Store Future objects for monitoring
+        
+        for (int iLoop = 0; iLoop < 4; iLoop++) {
+            iLoopCount++;
+            final String sCount = String.valueOf(iLoopCount);
+            // Wrap the CheckRequestClaimOneByOne call in a lambda and submit it to the executor
+            Future<?> future = executor.submit(() -> {
+                try {
+                    long threadId = Thread.currentThread().getId(); // Get the ID of the current thread
+                    String threadName = Thread.currentThread().getName(); // Get the name of the current thread
+
+                    System.out.println("Thread " + threadId + " (" + threadName + ") is starting...");
+
+                    String sReturnResult = "";
+
+                    String sUseAccessToken; // <<<<< BRBBK >>>>>
+                    String[] sArrAccessToken = new String[2];   // <<<<< BRBBK >>>>>          
+                    sUseAccessToken = "N";
+                    sArrAccessToken[0] = "";
+                    sArrAccessToken[1] = "";                        
+                    // sReturnResult = WebAPICommunicationV3("http://5th-Element:8083/RBTApiGatewayV1/AIA/RequestAuthCode", "{\"clientId\":\"68511702-b86f-4820-a6c4-1593c86c456a\",\"appId\":\"62596a85-9a88-4be3-86c7-c5f6fe52a00b\"}", "application/json", "POST", 30, 180, sUseAccessToken, sArrAccessToken, 10000);
+                    sReturnResult = WebAPICommunicationV2("http://5th-Element:8083/RBTApiGatewayV1/AIA/RequestAuthCode", "{\"clientId\":\"68511702-b86f-4820-a6c4-1593c86c456a\",\"appId\":\"62596a85-9a88-4be3-86c7-c5f6fe52a00b\"}", "application/json", "POST", 30, 180, sUseAccessToken, sArrAccessToken);
+                    //System.out.println("WebAPICommunicationV3 - Timeout 10 sec: " + sReturnResult);
+                    txaResult.append(sCount + ") API call result: " + sReturnResult + "\n");
+                        
+                    System.out.println("Thread " + threadId + " (" + threadName + ") has finished.");
+                } catch (Exception e) {
+                    // Handle exceptions here
+                    e.printStackTrace();
+                }
+            });
+
+            futures.add(future); // Store the Future object for monitoring
+        }
+
+        // Wait for all tasks to complete
+        for (Future<?> future : futures) {
+            try {
+                future.get(); // Wait for each task to complete
+            } catch (InterruptedException | ExecutionException e) {
+                // Handle exceptions if needed
+                e.printStackTrace();
+            }
+        }
+
+        // Shut down the executor after all tasks are done
+        executor.shutdown();
+
+        // Monitor and display thread statuses
+        for (int i = 0; i < futures.size(); i++) {
+            Future<?> future = futures.get(i);
+            long threadId = Thread.currentThread().getId(); // Get the ID of the current thread
+            String threadName = Thread.currentThread().getName(); // Get the name of the current thread
+
+            String someValue = String.valueOf(iLoopCount); // Adjust as needed based on your logic
+
+            if (future.isDone()) {
+                System.out.println("Thread " + threadId + " (" + threadName + ") with Value " + someValue + " is finished.");
+            } else if (future.isCancelled()) {
+                System.out.println("Thread " + threadId + " (" + threadName + ") with Value " + someValue + " is cancelled.");
+            } else {
+                System.out.println("Thread " + threadId + " (" + threadName + ") with Value " + someValue + " is still running.");
+            }
+        }
+    }
+    
     private String PostToWebWithOutSSL(){
         String sParaForPost;
         URL urlPost = null;
@@ -986,6 +1180,7 @@ public class PostWebManualV2 extends javax.swing.JFrame {
         String sAuthorizeKeyMD5;
         String sAuthorizeDate;
         String sAuthorizeData;        
+        String sSubscriptionKey;
         
         HttpURLConnection connHttpURL = null;
         
@@ -1113,13 +1308,28 @@ public class PostWebManualV2 extends javax.swing.JFrame {
                 sSetAuthToken = txaAuthorization.getText();
                 sSetTokenType = jtxtTokenType.getText();
                 connHttpURL.setRequestProperty("Authorization", sSetTokenType + " " + sSetAuthToken);
-            }  
+            }
+            else if (jrbRequestType8.isSelected()){
+                // Send Normal Data with Authorization
+                sSetAuthToken = txaAuthorization.getText();
+                sSetTokenType = jtxtTokenType.getText();
+                connHttpURL.setRequestProperty("Apim-Auth-Secure-Token", sSetAuthToken);
+                
+                // Set the Ocp-Apim-Subscription-Key header
+                sSubscriptionKey = txaAuthCode.getText();
+                connHttpURL.setRequestProperty("Ocp-Apim-Subscription-Key", sSubscriptionKey);
+            }
+            else if (jrbRequestType7.isSelected()){
+                // Set the Ocp-Apim-Subscription-Key header
+                sSubscriptionKey = txaAuthCode.getText();
+                connHttpURL.setRequestProperty("Ocp-Apim-Subscription-Key", sSubscriptionKey);
+            }
             else{
                 // Send Normal Data WITHOUT Authorization
                 sSetAuthToken = txaAuthorization.getText();
                 sSetTokenType = jtxtTokenType.getText();
             }     
-            
+
             txaPostData.setText(sParaForPost);
             byte[] postData = sParaForPost.getBytes(StandardCharsets.UTF_8);       // StandardCharsets.UTF_8
             postDataLength = postData.length;             
@@ -1161,14 +1371,14 @@ public class PostWebManualV2 extends javax.swing.JFrame {
                 if (jrbRequestType0.isSelected()){
                     sReturnCode = jsonObj.getString("returnCode");
                     sReturnMessage = jsonObj.getString("returnMessage");
-                    sEsbModule = jsonObj.getJSONObject("requestInfo").getJSONObject("serviceInfo").getString("esbModule");
+                    // sEsbModule = jsonObj.getJSONObject("requestInfo").getJSONObject("serviceInfo").getString("esbModule");
                     sAuthCode = jsonObj.getString("authCode");
                     txaAuthCode.setText(sAuthCode);
                 }
                 else if (jrbRequestType1.isSelected()){
                     sReturnCode = jsonObj.getString("returnCode");
                     sReturnMessage = jsonObj.getString("returnMessage");
-                    sEsbModule = jsonObj.getJSONObject("requestInfo").getJSONObject("serviceInfo").getString("esbModule");
+                    // sEsbModule = jsonObj.getJSONObject("requestInfo").getJSONObject("serviceInfo").getString("esbModule");
                     sAccessToken = jsonObj.getJSONObject("tokenInfo").getString("accessToken");
                     sTokenType = jsonObj.getJSONObject("tokenInfo").getString("tokenType");                
                     jtxtTokenType.setText(sTokenType);
@@ -1181,6 +1391,15 @@ public class PostWebManualV2 extends javax.swing.JFrame {
                     sTransactionNo = jsonObj.getJSONObject("Data").getString("TransactionNo");
                     jtxtTransactionNo.setText(sTransactionNo);
                 }
+                else if (jrbRequestType7.isSelected()){
+                    sReturnCode = jsonObj.getString("returnCode");
+                    sReturnMessage = jsonObj.getString("returnMessage");
+                    // sEsbModule = jsonObj.getJSONObject("requestInfo").getJSONObject("serviceInfo").getString("esbModule");
+                    sAccessToken = jsonObj.getJSONObject("accessTokenInfo").getString("accessToken");
+                    sTokenType = jsonObj.getJSONObject("accessTokenInfo").getString("tokenType");                
+                    jtxtTokenType.setText(sTokenType);
+                    txaAuthorization.setText(sAccessToken);                    
+                }                
                 else{
                     
                 }
@@ -2077,6 +2296,383 @@ public class PostWebManualV2 extends javax.swing.JFrame {
         return sArrResult;
     }
     
+    private CompletableFuture<String> WebAPICommunicationV2Async(String sPrmURL, String sPrmParameter, String sPrmContentType, String sPrmRequestMethod,
+                                                                int iConnectionTimeOut, int iPostTimeOut, String sPrmUseAccessToken, String[] sPrmArrAccessToken) {
+        return CompletableFuture.supplyAsync(() -> {
+            String sExecuteTime;
+            long startTime, endTime;
+            long threadId = Thread.currentThread().getId(); // Get the ID of the current thread
+            String threadName = Thread.currentThread().getName(); // Get the name of the current thread
+            
+            String sLofDateTime = getSystemDate(formatDateTimeFull);
+            startTime = System.currentTimeMillis();
+            WriteErrorToFile("WebAPICommunicationV2Async", sLofDateTime + " - Thread " + threadId + " (" + threadName + ") is starting...");
+            System.out.println("Thread " + threadId + " (" + threadName + ") is starting...");
+            
+            StringBuilder contentSB = new StringBuilder();
+            String sReturnResult = "";
+            String sLine;
+            int postDataLength;
+
+            try {
+                URL urlPost = new URL(sPrmURL);
+                HttpURLConnection connHttpURL = (HttpURLConnection) urlPost.openConnection();
+                connHttpURL.setDoOutput(true);
+                connHttpURL.setInstanceFollowRedirects(false);
+                connHttpURL.setRequestMethod(sPrmRequestMethod);
+                connHttpURL.setRequestProperty("Content-Type", sPrmContentType + "; charset=utf-8");
+                connHttpURL.setRequestProperty("Accept-Charset", "utf-8");
+
+                if (sPrmUseAccessToken.equals("Y")) {
+                    connHttpURL.setRequestProperty("Authorization", sPrmArrAccessToken[1] + " " + sPrmArrAccessToken[0]);
+                }
+
+                byte[] postData = sPrmParameter.getBytes(StandardCharsets.UTF_8);
+                postDataLength = postData.length;
+                connHttpURL.setRequestProperty("Content-Length", Integer.toString(postDataLength));
+                connHttpURL.setUseCaches(false);
+
+                try (DataOutputStream streamDO = new DataOutputStream(connHttpURL.getOutputStream())) {
+                    streamDO.write(postData);
+                }
+
+                connHttpURL.setConnectTimeout(30000); // Convert to milliseconds iConnectionTimeOut * 1000
+                connHttpURL.setReadTimeout(180000); // Convert to milliseconds iPostTimeOut * 1000
+
+                try (BufferedReader buffReader = new BufferedReader(new InputStreamReader(connHttpURL.getInputStream(), "UTF-8"))) {
+                    while ((sLine = buffReader.readLine()) != null) {
+                        contentSB.append(sLine);
+                        contentSB.append(System.lineSeparator());
+                    }
+                    sReturnResult = contentSB.toString();
+                } catch (SocketTimeoutException ex) {
+                    // HandleException("WebAPICommunicationV2", "Error", "ERR", ex, true, true, true);
+                    txaResult.append("WebAPICommunicationV2Async[Error-SocketTimeoutException]: POST - " + ex.getMessage() + "\n");
+                    sReturnResult = "{\"error\":\"SocketTimeoutException: " + ex.getMessage() + "\"}";
+                }
+
+                connHttpURL.disconnect();
+            } catch (MalformedURLException ex) {
+                // HandleException("WebAPICommunicationV2", "Error", "ERR", ex, true, true, true);
+                txaResult.append("WebAPICommunicationV2Async[Error-MalformedURLException]: POST - " + ex.getMessage() + "\n");
+                sReturnResult = "{\"error\":\"MalformedURLException: " + ex.getMessage() + "\"}";
+            } catch (IOException ex) {
+                // HandleException("WebAPICommunicationV2", "Error", "ERR", ex, true, true, true);
+                txaResult.append("WebAPICommunicationV2Async[Error-IOException]: POST - " + ex.getMessage() + "\n");
+                sReturnResult = "{\"error\":\"IOException: " + ex.getMessage() + "\"}";
+            } catch (Exception ex) {
+                // HandleException("WebAPICommunicationV2", "Error", "ERR", ex, true, true, true);
+                txaResult.append("WebAPICommunicationV2Async[Error-Exception]: POST - " + ex.getMessage() + "\n");
+                sReturnResult = "{\"error\":\"Exception: " + ex.getMessage() + "\"}";
+            }
+
+            endTime = System.currentTimeMillis();
+            System.out.println("Thread " + threadId + " (" + threadName + ") has finished.");
+            sLofDateTime = getSystemDate(formatDateTimeFull);
+            sExecuteTime = CalculateExecutionTime(endTime - startTime);
+            WriteErrorToFile("WebAPICommunicationV2Async", sLofDateTime + " - Thread " + threadId + " (" + threadName + ") has finished.[" + sExecuteTime + "]");
+            return sReturnResult;
+        });
+    }
+    
+    public String WebAPICommunicationV3(String sPrmURL, String sPrmParameter, String sPrmContentType, String sPrmRequestMethod,
+                                         int iConnectionTimeOut, int iPostTimeOut, String sPrmUseAccessToken, String[] sPrmArrAccessToken, 
+                                         int iSetTestTimeout) {
+        ExecutorService executor = Executors.newSingleThreadExecutor();
+        // String sReturnResult = "";
+        AtomicReference<String> sReturnResult = new AtomicReference<>(""); // Using AtomicReference
+
+        try {
+            Future<String> future = executor.submit(() -> {
+                StringBuilder contentSB = new StringBuilder();
+                String sLine;
+                int postDataLength;
+
+                try {
+                    URL urlPost = new URL(sPrmURL);
+
+                    HttpURLConnection connHttpURL = (HttpURLConnection) urlPost.openConnection();
+                    connHttpURL.setDoOutput(true);
+                    connHttpURL.setInstanceFollowRedirects(false);
+                    connHttpURL.setRequestMethod(sPrmRequestMethod);
+                    connHttpURL.setRequestProperty("Content-Type", sPrmContentType + "; charset=utf-8");
+                    connHttpURL.setRequestProperty("Accept-Charset", "utf-8");
+
+                    if (sPrmUseAccessToken.equals("Y")) {
+                        connHttpURL.setRequestProperty("Authorization", sPrmArrAccessToken[1] + " " + sPrmArrAccessToken[0]);
+                    }
+
+                    byte[] postData = sPrmParameter.getBytes(StandardCharsets.UTF_8);
+                    postDataLength = postData.length;
+                    connHttpURL.setRequestProperty("Content-Length", Integer.toString(postDataLength));
+                    connHttpURL.setUseCaches(false);
+
+                    try (DataOutputStream streamDO = new DataOutputStream(connHttpURL.getOutputStream())) {
+                        streamDO.write(postData);
+                        // Thread.sleep(iSetTestTimeout); // 10000 milliseconds = 10 seconds
+                    }
+
+                    connHttpURL.setConnectTimeout(iConnectionTimeOut * 1000); // Convert to milliseconds
+                    connHttpURL.setReadTimeout(iPostTimeOut * 1000); // Convert to milliseconds
+
+                    try (BufferedReader buffReader = new BufferedReader(new InputStreamReader(connHttpURL.getInputStream(), "UTF-8"))) {
+                        while ((sLine = buffReader.readLine()) != null) {
+                            contentSB.append(sLine);
+                            contentSB.append(System.lineSeparator());
+                        }
+                        // sReturnResult = contentSB.toString();
+                        sReturnResult.set(contentSB.toString()); // Modify the AtomicReference value
+                    } catch (SocketTimeoutException ex) {
+                        // Handle timeout exception if needed
+                        // HandleException("WebAPICommunicationV3", "Error", "ERR", ex, true, true, true);
+                        txaResult.append("WebAPICommunicationV3[Error-SocketTimeoutException]: POST - " + ex.getMessage() + "\n");
+                    } finally {
+                        connHttpURL.disconnect();
+                    }
+                } catch (MalformedURLException ex) {
+                    // Handle URL exception if needed
+                    // HandleException("WebAPICommunicationV3", "Error", "ERR", ex, true, true, true);
+                    txaResult.append("WebAPICommunicationV3[Error-MalformedURLException]: POST - " + ex.getMessage() + "\n");
+                } catch (IOException ex) {
+                    // Handle IO exception if needed
+                    // HandleException("WebAPICommunicationV3", "Error", "ERR", ex, true, true, true);
+                    txaResult.append("WebAPICommunicationV3[Error-IOException]: POST - " + ex.getMessage() + "\n");
+                }
+                catch (Exception ex) {
+                    // HandleException("WebAPICommunicationV3", "Error", "ERR", ex, true, true, true);
+                    txaResult.append("WebAPICommunicationV3[Error-Exception]: POST - " + ex.getMessage() + "\n");
+                }
+                // return sReturnResult;
+                return sReturnResult.get(); // Retrieve the value from AtomicReference
+            });
+
+            // sReturnResult = future.get(TIMEOUT_MINUTES, TimeUnit.MINUTES);
+            sReturnResult.set(future.get(1, TimeUnit.MINUTES)); // Modify the AtomicReference value
+        } catch (InterruptedException | ExecutionException | TimeoutException ex) {
+            // Handle exceptions if needed
+            // HandleException("WebAPICommunicationV3", "Error", "ERR", ex, true, true, true);
+            txaResult.append("WebAPICommunicationV3[Error-InterruptedException-ExecutionException-TimeoutException]: POST - " + ex.getMessage() + "\n");
+        } 
+        catch (Exception ex) {
+            // HandleException("WebAPICommunicationV3", "Error", "ERR", ex, true, true, true);
+            txaResult.append("WebAPICommunicationV3[Error-Exception]: POST - " + ex.getMessage() + "\n");
+        }
+        finally {
+            executor.shutdownNow();
+        }
+
+        // return sReturnResult;
+        return sReturnResult.get(); // Retrieve the value from AtomicReference
+    }
+    
+    public String WebAPICommunicationV3(String sPrmURL, String sPrmParameter, String sPrmContentType, String sPrmRequestMethod,
+                                         int iConnectionTimeOut, int iPostTimeOut, String sPrmUseAccessToken, String[] sPrmArrAccessToken) {
+        ExecutorService executor = Executors.newSingleThreadExecutor();
+        // String sReturnResult = "";
+        AtomicReference<String> sReturnResult = new AtomicReference<>(""); // Using AtomicReference
+
+        try {
+            Future<String> future = executor.submit(() -> {
+                StringBuilder contentSB = new StringBuilder();
+                String sLine;
+                int postDataLength;
+
+                try {
+                    URL urlPost = new URL(sPrmURL);
+
+                    HttpURLConnection connHttpURL = (HttpURLConnection) urlPost.openConnection();
+                    connHttpURL.setDoOutput(true);
+                    connHttpURL.setInstanceFollowRedirects(false);
+                    connHttpURL.setRequestMethod(sPrmRequestMethod);
+                    connHttpURL.setRequestProperty("Content-Type", sPrmContentType + "; charset=utf-8");
+                    connHttpURL.setRequestProperty("Accept-Charset", "utf-8");
+
+                    if (sPrmUseAccessToken.equals("Y")) {
+                        connHttpURL.setRequestProperty("Authorization", sPrmArrAccessToken[1] + " " + sPrmArrAccessToken[0]);
+                    }
+
+                    byte[] postData = sPrmParameter.getBytes(StandardCharsets.UTF_8);
+                    postDataLength = postData.length;
+                    connHttpURL.setRequestProperty("Content-Length", Integer.toString(postDataLength));
+                    connHttpURL.setUseCaches(false);
+
+                    try (DataOutputStream streamDO = new DataOutputStream(connHttpURL.getOutputStream())) {
+                        streamDO.write(postData);
+                    }
+
+                    connHttpURL.setConnectTimeout(iConnectionTimeOut * 1000); // Convert to milliseconds
+                    connHttpURL.setReadTimeout(iPostTimeOut * 1000); // Convert to milliseconds
+
+                    try (BufferedReader buffReader = new BufferedReader(new InputStreamReader(connHttpURL.getInputStream(), "UTF-8"))) {
+                        while ((sLine = buffReader.readLine()) != null) {
+                            contentSB.append(sLine);
+                            contentSB.append(System.lineSeparator());
+                        }
+                        // sReturnResult = contentSB.toString();
+                        sReturnResult.set(contentSB.toString()); // Modify the AtomicReference value
+                    } catch (SocketTimeoutException ex) {
+                        // Handle timeout exception if needed
+                        // HandleException("WebAPICommunicationV3", "Error", "ERR", ex, true, true, true);
+                        txaResult.append("WebAPICommunicationV3[Error-SocketTimeoutException]: POST - " + ex.getMessage() + "\n");
+                    } finally {
+                        connHttpURL.disconnect();
+                    }
+                } catch (MalformedURLException ex) {
+                    // Handle URL exception if needed
+                    // HandleException("WebAPICommunicationV3", "Error", "ERR", ex, true, true, true);
+                    txaResult.append("WebAPICommunicationV3[Error-MalformedURLException]: POST - " + ex.getMessage() + "\n");
+                } catch (IOException ex) {
+                    // Handle IO exception if needed
+                    // HandleException("WebAPICommunicationV3", "Error", "ERR", ex, true, true, true);
+                    txaResult.append("WebAPICommunicationV3[Error-IOException]: POST - " + ex.getMessage() + "\n");
+                }
+                catch (Exception ex) {
+                    // HandleException("WebAPICommunicationV3", "Error", "ERR", ex, true, true, true);
+                    txaResult.append("WebAPICommunicationV3[Error-Exception]: POST - " + ex.getMessage() + "\n");
+                }
+                // return sReturnResult;
+                return sReturnResult.get(); // Retrieve the value from AtomicReference
+            });
+
+            // sReturnResult = future.get(TIMEOUT_MINUTES, TimeUnit.MINUTES);
+            sReturnResult.set(future.get(1, TimeUnit.MINUTES)); // Modify the AtomicReference value
+        } catch (InterruptedException | ExecutionException | TimeoutException ex) {
+            // Handle exceptions if needed
+            // HandleException("WebAPICommunicationV3", "Error", "ERR", ex, true, true, true);
+            txaResult.append("WebAPICommunicationV3[Error-InterruptedException-ExecutionException-TimeoutException]: POST - " + ex.getMessage() + "\n");
+        } 
+        catch (Exception ex) {
+            // HandleException("WebAPICommunicationV3", "Error", "ERR", ex, true, true, true);
+            txaResult.append("WebAPICommunicationV3[Error-Exception]: POST - " + ex.getMessage() + "\n");
+        }
+        finally {
+            executor.shutdownNow();
+        }
+
+        // return sReturnResult;
+        return sReturnResult.get(); // Retrieve the value from AtomicReference
+    }
+
+    private String WebAPICommunicationV2(String sPrmURL, String sPrmParameter, String sPrmContentType, String sPrmRequestMethod,
+                                         int iConnectionTimeOut, int iPostTimeOut, String sPrmUseAccessToken, String[] sPrmArrAccessToken,
+                                         int iSetTestTimeout) {
+        StringBuilder contentSB = new StringBuilder();
+        String sReturnResult = "";
+        String sLine;
+        int postDataLength;
+                
+        try {
+            URL urlPost = new URL(sPrmURL);
+            
+            HttpURLConnection connHttpURL = (HttpURLConnection) urlPost.openConnection();
+            connHttpURL.setDoOutput(true);
+            connHttpURL.setInstanceFollowRedirects(false);
+            connHttpURL.setRequestMethod(sPrmRequestMethod);
+            connHttpURL.setRequestProperty("Content-Type", sPrmContentType + "; charset=utf-8");
+            connHttpURL.setRequestProperty("Accept-Charset", "utf-8");
+
+            if(sPrmUseAccessToken.equals("Y")){
+                connHttpURL.setRequestProperty("Authorization", sPrmArrAccessToken[1] + " " + sPrmArrAccessToken[0]);
+            }
+            
+            byte[] postData = sPrmParameter.getBytes(StandardCharsets.UTF_8);
+            postDataLength = postData.length;
+            connHttpURL.setRequestProperty("Content-Length", Integer.toString(postDataLength));
+            connHttpURL.setUseCaches(false);
+
+            try (DataOutputStream streamDO = new DataOutputStream(connHttpURL.getOutputStream())) {
+                streamDO.write(postData);
+                Thread.sleep(iSetTestTimeout); // 10000 milliseconds = 10 seconds
+            }
+
+            connHttpURL.setConnectTimeout(iConnectionTimeOut * 1000); // Convert to milliseconds
+            connHttpURL.setReadTimeout(iPostTimeOut * 1000); // Convert to milliseconds
+
+            try (BufferedReader buffReader = new BufferedReader(new InputStreamReader(connHttpURL.getInputStream(), "UTF-8"))) {
+                while ((sLine = buffReader.readLine()) != null) {
+                    contentSB.append(sLine);
+                    contentSB.append(System.lineSeparator());
+                }
+                sReturnResult = contentSB.toString();
+            } catch (SocketTimeoutException ex) {
+                // HandleException("WebAPICommunicationV2", "Error", "ERR", ex, true, true, true);
+                txaResult.append("WebAPICommunicationV2[Error-SocketTimeoutException]: POST - " + ex.getMessage() + "\n");
+            }
+
+            connHttpURL.disconnect();
+        } catch (MalformedURLException ex) {
+            // HandleException("WebAPICommunicationV2", "Error", "ERR", ex, true, true, true);
+            txaResult.append("WebAPICommunicationV2[Error-MalformedURLException]: POST - " + ex.getMessage() + "\n");
+        } catch (IOException ex) {
+            // HandleException("WebAPICommunicationV2", "Error", "ERR", ex, true, true, true);
+            txaResult.append("WebAPICommunicationV2[Error-IOException]: POST - " + ex.getMessage() + "\n");
+        } catch (Exception ex) {
+            // HandleException("WebAPICommunicationV2", "Error", "ERR", ex, true, true, true);
+            txaResult.append("WebAPICommunicationV2[Error-Exception]: POST - " + ex.getMessage() + "\n");
+        }
+
+        return sReturnResult;
+    }    
+    
+    private String WebAPICommunicationV2(String sPrmURL, String sPrmParameter, String sPrmContentType, String sPrmRequestMethod,
+                                         int iConnectionTimeOut, int iPostTimeOut, String sPrmUseAccessToken, String[] sPrmArrAccessToken) {
+        StringBuilder contentSB = new StringBuilder();
+        String sReturnResult = "";
+        String sLine;
+        int postDataLength;
+                
+        try {
+            URL urlPost = new URL(sPrmURL);
+            
+            HttpURLConnection connHttpURL = (HttpURLConnection) urlPost.openConnection();
+            connHttpURL.setDoOutput(true);
+            connHttpURL.setInstanceFollowRedirects(false);
+            connHttpURL.setRequestMethod(sPrmRequestMethod);
+            connHttpURL.setRequestProperty("Content-Type", sPrmContentType + "; charset=utf-8");
+            connHttpURL.setRequestProperty("Accept-Charset", "utf-8");
+
+            if(sPrmUseAccessToken.equals("Y")){
+                connHttpURL.setRequestProperty("Authorization", sPrmArrAccessToken[1] + " " + sPrmArrAccessToken[0]);
+            }
+            
+            byte[] postData = sPrmParameter.getBytes(StandardCharsets.UTF_8);
+            postDataLength = postData.length;
+            connHttpURL.setRequestProperty("Content-Length", Integer.toString(postDataLength));
+            connHttpURL.setUseCaches(false);
+
+            try (DataOutputStream streamDO = new DataOutputStream(connHttpURL.getOutputStream())) {
+                streamDO.write(postData);
+            }
+
+            connHttpURL.setConnectTimeout(iConnectionTimeOut * 1000); // Convert to milliseconds
+            connHttpURL.setReadTimeout(iPostTimeOut * 1000); // Convert to milliseconds
+
+            try (BufferedReader buffReader = new BufferedReader(new InputStreamReader(connHttpURL.getInputStream(), "UTF-8"))) {
+                while ((sLine = buffReader.readLine()) != null) {
+                    contentSB.append(sLine);
+                    contentSB.append(System.lineSeparator());
+                }
+                sReturnResult = contentSB.toString();
+            } catch (SocketTimeoutException ex) {
+                // HandleException("WebAPICommunicationV2", "Error", "ERR", ex, true, true, true);
+                txaResult.append("WebAPICommunicationV2[Error-SocketTimeoutException]: POST - " + ex.getMessage() + "\n");
+            }
+
+            connHttpURL.disconnect();
+        } catch (MalformedURLException ex) {
+            // HandleException("WebAPICommunicationV2", "Error", "ERR", ex, true, true, true);
+            txaResult.append("WebAPICommunicationV2[Error-MalformedURLException]: POST - " + ex.getMessage() + "\n");
+        } catch (IOException ex) {
+            // HandleException("WebAPICommunicationV2", "Error", "ERR", ex, true, true, true);
+            txaResult.append("WebAPICommunicationV2[Error-IOException]: POST - " + ex.getMessage() + "\n");
+        } catch (Exception ex) {
+            // HandleException("WebAPICommunicationV2", "Error", "ERR", ex, true, true, true);
+            txaResult.append("WebAPICommunicationV2[Error-Exception]: POST - " + ex.getMessage() + "\n");
+        }
+
+        return sReturnResult;
+    }    
+    
     private HttpURLConnection initHttpURLConnection(String sURL, boolean bIsSSL) throws IOException {
         URL urlPost = new URL(sURL);
         HttpURLConnection connHttpURL;
@@ -2820,7 +3416,14 @@ public class PostWebManualV2 extends javax.swing.JFrame {
         boolean bIsJsonFormatValid = false;
         
         sPostData = txaParameter.getText();
-        bIsJsonFormatValid = isJsonFormatValid(sPostData);
+        
+        if (rbtContentType1.isSelected()){
+            // application/json
+            bIsJsonFormatValid = isJsonFormatValid(sPostData);
+        }
+        else{
+            bIsJsonFormatValid = true;
+        }        
         
         if(bIsJsonFormatValid == true){
             // With Out SSL
@@ -2844,7 +3447,14 @@ public class PostWebManualV2 extends javax.swing.JFrame {
         boolean bIsJsonFormatValid = false;
         
         sPostData = txaParameter.getText();
-        bIsJsonFormatValid = isJsonFormatValid(sPostData);
+
+        if (rbtContentType1.isSelected()){
+            // application/json
+            bIsJsonFormatValid = isJsonFormatValid(sPostData);
+        }
+        else{
+            bIsJsonFormatValid = true;
+        }   
         
         if(bIsJsonFormatValid == true){
             // With SSL
@@ -2999,7 +3609,8 @@ public class PostWebManualV2 extends javax.swing.JFrame {
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         // TODO add your handling code here:
-        txaResult.append(PostToWebWithSSL());
+        // txaResult.append(PostToWebWithSSL());
+        RunTimerFunction();
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jrbRequestType2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jrbRequestType2ActionPerformed
@@ -3352,8 +3963,17 @@ public class PostWebManualV2 extends javax.swing.JFrame {
 
     private void jButton14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton14ActionPerformed
         // TODO add your handling code here:
-        JsonDataMapping();
+        JsonDataMappingV4();
     }//GEN-LAST:event_jButton14ActionPerformed
+
+    private void jButton15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton15ActionPerformed
+        // TODO add your handling code here:
+        TestMultiThreadRunnable();
+    }//GEN-LAST:event_jButton15ActionPerformed
+
+    private void jrbRequestType8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jrbRequestType8ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jrbRequestType8ActionPerformed
    
     public void WriteJsonDataToFile(String sPrmFileName, String sPrmJsonTag){
         try (FileWriter fileWriter = new FileWriter(sPrmFileName)) {
@@ -3391,6 +4011,136 @@ public class PostWebManualV2 extends javax.swing.JFrame {
         } catch (IOException e) {
             e.printStackTrace();
         }        
+    }
+    
+    public void JsonDataMappingV2(){    
+        String dateJsonString = "{\"SystemHosCode\":\"H111\",\"ReserveNo\":\"R222\",\"RefId\":\"ID333\",\"TransactionNo\":\"T444\",\"ClaimType\":\"C555\",\"Title\":\"NT666\",\"FirstName\":\"NF777\",\"LastName\":\"NF888\",\"HN\":\"HN999\",\"ANorVN\":\"VN101010\",\"MedicalLicenseNo\":\"DL111111\",\"DoctorName\":\"DN121212\"}";
+
+        String variableJsonString = "{\"Data\":{\"SystemHosCode\":\"@HOSP_CODE_NUM\",\"ReserveNo\":\"@COMP_RESERVE_NO\",\"RefId\":\"@COMP_REFID\",\"TransactionNo\":\"@COMP_TRANSACTION_NO\",\"ClaimType\":\"@COMP_ILLNESS_TYPE\",\"Title\":\"@PAT_NAME_TITLE\",\"FirstName\":\"@PAT_NAME_FIRST\",\"LastName\":\"@PAT_NAME_FAMILY\",\"HN\":\"@HN\",\"ANorVN\":\"@VN_AN\",\"MedicalLicenseNo\":\"@COMP_DOCTOR_LICENSE\",\"DoctorName\":\"@COMP_DOCTOR_NAME\"}}";
+
+        // Parse JSON strings
+        JSONObject dateJson = null;
+        try {
+            dateJson = new JSONObject(dateJsonString);
+        } catch (JSONException ex) {
+            Logger.getLogger(PostWebManualV2.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        JSONObject variableJson = null;
+        try {
+            variableJson = new JSONObject(variableJsonString);
+        } catch (JSONException ex) {
+            Logger.getLogger(PostWebManualV2.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        JSONObject dataObject = null;
+        try {
+            // Extract the "Data" object from the variableJson
+            dataObject = variableJson.getJSONObject("Data");
+        } catch (JSONException ex) {
+            Logger.getLogger(PostWebManualV2.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        // Replace placeholder values in the "Variable" JSON
+        Iterator<String> keys = dataObject.keys();
+        while (keys.hasNext()) {
+            String key = keys.next();
+            try {
+                String placeholder = dataObject.getString(key);
+            } catch (JSONException ex) {
+                Logger.getLogger(PostWebManualV2.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            String replacement = dateJson.optString(key, ""); // Replace with an empty string if key is not found
+            try {
+                dataObject.put(key, replacement);
+            } catch (JSONException ex) {
+                Logger.getLogger(PostWebManualV2.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+
+        try {
+            // Output the processed JSON
+            // System.out.println(variableJson.toString(2));
+            txaResult.setText(variableJson.toString(2));
+        } catch (JSONException ex) {
+            Logger.getLogger(PostWebManualV2.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    public void JsonDataMappingV3(){    
+        String jsonData = "{\"Data\":{\"SystemHosCode\":\"@HOSP_CODE_NUM\",\"ReserveNo\":\"@COMP_RESERVE_NO\",\"RefId\":\"@COMP_REFID\",\"TransactionNo\":\"@COMP_TRANSACTION_NO\",\"ClaimType\":\"@COMP_ILLNESS_TYPE\",\"Title\":\"@PAT_NAME_TITLE\",\"FirstName\":\"@PAT_NAME_FIRST\",\"LastName\":\"@PAT_NAME_FAMILY\",\"HN\":\"@HN\",\"ANorVN\":\"@VN_AN\",\"MedicalLicenseNo\":\"@COMP_DOCTOR_LICENSE\",\"DoctorName\":\"@COMP_DOCTOR_NAME\"}}";
+
+        String sqlStatements = convertJsonToSql(jsonData);
+        txaResult.setText(sqlStatements);
+        // System.out.println(sqlStatements);
+    }    
+    
+    public void JsonDataMappingV4(){
+        String dateJsonString = "{\"SystemHosCode\":\"H111\",\"ReserveNo\":\"R222\",\"RefId\":\"ID333\",\"TransactionNo\":\"T444\",\"ClaimType\":\"C555\",\"Title\":\"NT666\",\"FirstName\":\"NF777\",\"LastName\":\"NF888\",\"HN\":\"HN999\",\"ANorVN\":\"VN101010\",\"MedicalLicenseNo\":\"DL111111\",\"DoctorName\":\"DN121212\"}";
+
+        // Key to search
+        String searchKey = "ReserveNo";
+
+        // Parse JSON string
+        JSONObject jsonObject = null;
+        try {
+            jsonObject = new JSONObject(dateJsonString);
+        } catch (JSONException ex) {
+            Logger.getLogger(PostWebManualV2.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        // Search for the value associated with the key
+        String searchValue = jsonObject.optString(searchKey);
+
+        txaResult.setText(dateJsonString + "\n");
+        // Output the result
+        if (searchValue.isEmpty()) {
+            // System.out.println("Key not found in JSON.");
+            txaResult.append("Key not found in JSON.");
+        } else {
+            // System.out.println("Value for key '" + searchKey + "': " + searchValue);
+            txaResult.append("Value for key '" + searchKey + "': " + searchValue);
+        }
+    }
+    
+    public static String convertJsonToSql(String jsonData) {
+        StringBuilder sqlStatements = new StringBuilder();
+
+        // Parse JSON string
+        JSONObject jsonObject = null;
+        try {
+            jsonObject = new JSONObject(jsonData);
+        } catch (JSONException ex) {
+            Logger.getLogger(PostWebManualV2.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        JSONObject dataObject = null;
+        try {
+            dataObject = jsonObject.getJSONObject("Data");
+        } catch (JSONException ex) {
+            Logger.getLogger(PostWebManualV2.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        // Extract values with "@" prefix
+        Iterator<String> keys = dataObject.keys();
+        while (keys.hasNext()) {
+            String key = keys.next();
+            String value = "";
+            try {
+                value = dataObject.getString(key);
+            } catch (JSONException ex) {
+                Logger.getLogger(PostWebManualV2.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            if (value.startsWith("@")) {
+                String sqlStatement = generateInsertStatement(key, value);
+                sqlStatements.append(sqlStatement).append("\n");
+            }
+        }
+
+        return sqlStatements.toString();
+    }
+
+    private static String generateInsertStatement(String key, String value) {
+        // Assuming 'tblJson' is the table name
+        return String.format("INSERT INTO tblJson VALUES('%s', '%s');", key, value);
     }
     
     private String replacePlaceholders(String jsonData, Map<String, String> dataMap){
@@ -3741,6 +4491,114 @@ public class PostWebManualV2 extends javax.swing.JFrame {
         frame.setLocationRelativeTo(null);
         frame.setSize(800, 600);
         frame.setVisible(true);
+    }    
+    
+    public static void RunTimerFunction() {
+        long startTime, endTime;
+
+        // Measure the execution time of functionOne
+        startTime = System.currentTimeMillis();
+        functionOne();
+        endTime = System.currentTimeMillis();
+        displayExecutionTime("Function One", endTime - startTime);
+
+        // Measure the execution time of functionTwo
+        startTime = System.currentTimeMillis();
+        functionTwo();
+        endTime = System.currentTimeMillis();
+        displayExecutionTime("Function Two", endTime - startTime);
+    }
+
+    public static void functionOne() {
+        try {
+            // Code for functionOne
+            Thread.sleep(2000);
+            /*
+            for (int i = 0; i < 100000000; i++) {
+            Math.sqrt(i);
+            }
+            */
+        } catch (InterruptedException ex) {
+            Logger.getLogger(PostWebManualV2.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    public static void functionTwo() {
+        try {
+            // Code for functionTwo
+            Thread.sleep(5000);
+            /*
+            for (int i = 0; i < 20000000; i++) {
+            Math.pow(i, 2);
+            }
+            */
+        } catch (InterruptedException ex) {
+            Logger.getLogger(PostWebManualV2.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    public static void displayExecutionTime(String functionName, long millis) {
+        long totalMillis = millis;
+        long hours = totalMillis / 3600000;
+        totalMillis %= 3600000;
+        long minutes = totalMillis / 60000;
+        totalMillis %= 60000;
+        long seconds = totalMillis / 1000;
+        long milliseconds = totalMillis % 1000;
+
+        String formattedTime = String.format("%02d:%02d:%02d:%03d", hours, minutes, seconds, milliseconds);
+        System.out.println(functionName + " Execution Time: " + formattedTime);
+    }    
+    
+    public String CalculateExecutionTime(long millis) {
+        long totalMillis = millis;
+        long hours = totalMillis / 3600000;
+        totalMillis %= 3600000;
+        long minutes = totalMillis / 60000;
+        totalMillis %= 60000;
+        long seconds = totalMillis / 1000;
+        long milliseconds = totalMillis % 1000;
+
+        String formattedTime = String.format("%02d:%02d:%02d:%03d", hours, minutes, seconds, milliseconds);
+        return formattedTime;
+    }    
+    
+    public void WriteErrorToFile(String sPrmErrTitle, String sPrmErrDesc){
+        String sFileDate = getSystemDate(formatDate);
+        String sFileName = sFileDate + ".log";
+        String sPathFile = "";
+        String sErrorDisplay = "";
+
+        try {
+            Path basePath = Paths.get(".").toAbsolutePath().normalize();
+            sPathFile = basePath.resolve(LOG_DIRECTORY).resolve(sPrmErrTitle).resolve(sFileName).toString();
+
+            Path parentDir = Paths.get(sPathFile).getParent();
+            if (!Files.exists(parentDir)) {
+                Files.createDirectories(parentDir);
+                Files.createFile(parentDir.resolve(sFileName));
+            }
+
+            try (PrintWriter pWriter = new PrintWriter(new BufferedWriter(new FileWriter(sPathFile, true)))) {
+                pWriter.println(getSystemDate(formatDateTimeFull) + ": ");
+                pWriter.println(sPrmErrDesc);
+            }
+        } catch (IOException ex) {
+            //sErrorDisplay = DisplayLogMessage(ex);
+            Logger.getLogger(PostWebManualV2.class.getName()).log(Level.SEVERE, null, sErrorDisplay);
+        }
+
+    }
+    
+    public String getSystemDate(String format) {
+        try{
+            DateFormat dateFormat = new SimpleDateFormat(format,Locale.US);
+            Date date = new Date();
+            return dateFormat.format(date).toString();
+        }
+        catch (Exception e){
+            return null;
+        }
     }    
     
     public static String JsonParser(String sPrmJsonData) throws JSONException{
@@ -4275,6 +5133,7 @@ public class PostWebManualV2 extends javax.swing.JFrame {
     private javax.swing.JButton jButton12;
     private javax.swing.JButton jButton13;
     private javax.swing.JButton jButton14;
+    private javax.swing.JButton jButton15;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
@@ -4312,6 +5171,7 @@ public class PostWebManualV2 extends javax.swing.JFrame {
     private javax.swing.JRadioButton jrbRequestType5;
     private javax.swing.JRadioButton jrbRequestType6;
     private javax.swing.JRadioButton jrbRequestType7;
+    private javax.swing.JRadioButton jrbRequestType8;
     private javax.swing.JTextField jtxtAuthorizeDate;
     private javax.swing.JTextField jtxtAuthorizeKey;
     private javax.swing.JTextField jtxtTokenType;

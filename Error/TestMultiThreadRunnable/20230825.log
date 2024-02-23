@@ -1,0 +1,404 @@
+25/08/2023 20:38:35: 
+2) API call result: {"returnCode":"S","returnMessage":"Success","requestInfo":{"serviceInfo":{"trxCode":"31a08a0b6ff79@THAZEULAP0002-DEFAULT","esbModule":"AIAApi.restful.oauth.autherize:CallbackRequestAuthCode"}},"authCode":"795fccb40bf94f16b196d9f9f69308be"}
+
+25/08/2023 20:38:35: 
+3) API call result: {"returnCode":"S","returnMessage":"Success","requestInfo":{"serviceInfo":{"trxCode":"31a089fa6d167@THAZEULAP0002-DEFAULT","esbModule":"AIAApi.restful.oauth.autherize:CallbackRequestAuthCode"}},"authCode":"e4343586cee24e3f9822339aa8344b92"}
+
+25/08/2023 20:38:35: 
+4) API call result: {"returnCode":"S","returnMessage":"Success","requestInfo":{"serviceInfo":{"trxCode":"3168539e32674@THAZEULAP0001-DEFAULT","esbModule":"AIAApi.restful.oauth.autherize:CallbackRequestAuthCode"}},"authCode":"51fb24f99a374d0bb7d6ae91d12ce874"}
+
+25/08/2023 20:39:34: 
+2) API call result: {"returnCode":"S","returnMessage":"Success","requestInfo":{"serviceInfo":{"trxCode":"31a1665e88b3c@THAZEULAP0002-DEFAULT","esbModule":"AIAApi.restful.oauth.autherize:CallbackRequestAuthCode"}},"authCode":"2491154d61044c3cb5164ee8ecbb66a8"}
+
+25/08/2023 20:39:34: 
+3) API call result: {"returnCode":"S","returnMessage":"Success","requestInfo":{"serviceInfo":{"trxCode":"31a1666d496e7@THAZEULAP0002-DEFAULT","esbModule":"AIAApi.restful.oauth.autherize:CallbackRequestAuthCode"}},"authCode":"37d834712a2d4fd79fb9029d08f11a2a"}
+
+25/08/2023 20:39:34: 
+1) API call result: {"returnCode":"S","returnMessage":"Success","requestInfo":{"serviceInfo":{"trxCode":"31692fdd7f5fa@THAZEULAP0001-DEFAULT","esbModule":"AIAApi.restful.oauth.autherize:CallbackRequestAuthCode"}},"authCode":"88014cc75d344795be412de1e6e1930d"}
+
+25/08/2023 20:39:34: 
+4) API call result: {"returnCode":"S","returnMessage":"Success","requestInfo":{"serviceInfo":{"trxCode":"31692ff4dd795@THAZEULAP0001-DEFAULT","esbModule":"AIAApi.restful.oauth.autherize:CallbackRequestAuthCode"}},"authCode":"a3fbbaa3eea14970a55b6529d7bd2413"}
+
+25/08/2023 20:39:47: 
+2) API call result: {"returnCode":"S","returnMessage":"Success","requestInfo":{"serviceInfo":{"trxCode":"31a19886482d0@THAZEULAP0002-DEFAULT","esbModule":"AIAApi.restful.oauth.autherize:CallbackRequestAuthCode"}},"authCode":"a200fb52af534a298e939def3f9c16dd"}
+
+25/08/2023 20:39:47: 
+1) API call result: {"returnCode":"S","returnMessage":"Success","requestInfo":{"serviceInfo":{"trxCode":"316961fd0e023@THAZEULAP0001-DEFAULT","esbModule":"AIAApi.restful.oauth.autherize:CallbackRequestAuthCode"}},"authCode":"886fa9898d55458987aad666610089bb"}
+
+25/08/2023 20:39:47: 
+3) API call result: {"returnCode":"S","returnMessage":"Success","requestInfo":{"serviceInfo":{"trxCode":"31696236603d5@THAZEULAP0001-DEFAULT","esbModule":"AIAApi.restful.oauth.autherize:CallbackRequestAuthCode"}},"authCode":"15c4a06f63aa4b83b77c7f9a5db7859a"}
+
+25/08/2023 20:39:47: 
+4) API call result: {"returnCode":"S","returnMessage":"Success","requestInfo":{"serviceInfo":{"trxCode":"31a199029a36a@THAZEULAP0002-DEFAULT","esbModule":"AIAApi.restful.oauth.autherize:CallbackRequestAuthCode"}},"authCode":"4e8e7269ce7d4c7dad481c3085245ead"}
+
+25/08/2023 20:39:54: 
+1) API call result: {"returnCode":"S","returnMessage":"Success","requestInfo":{"serviceInfo":{"trxCode":"31697af2329c4@THAZEULAP0001-DEFAULT","esbModule":"AIAApi.restful.oauth.autherize:CallbackRequestAuthCode"}},"authCode":"75bea4253e284829bbc3c95652d9cdd7"}
+
+25/08/2023 20:39:54: 
+2) API call result: {"returnCode":"S","returnMessage":"Success","requestInfo":{"serviceInfo":{"trxCode":"31697afe5c79f@THAZEULAP0001-DEFAULT","esbModule":"AIAApi.restful.oauth.autherize:CallbackRequestAuthCode"}},"authCode":"ab2a7223b9964166bbc6770c3d5c99eb"}
+
+25/08/2023 20:39:54: 
+4) API call result: {"returnCode":"S","returnMessage":"Success","requestInfo":{"serviceInfo":{"trxCode":"31a1b187e8888@THAZEULAP0002-DEFAULT","esbModule":"AIAApi.restful.oauth.autherize:CallbackRequestAuthCode"}},"authCode":"7fe50c7ab79d4260974db383ecd5ec4c"}
+
+25/08/2023 20:39:54: 
+3) API call result: {"returnCode":"S","returnMessage":"Success","requestInfo":{"serviceInfo":{"trxCode":"31a1b1d33199b@THAZEULAP0002-DEFAULT","esbModule":"AIAApi.restful.oauth.autherize:CallbackRequestAuthCode"}},"authCode":"c59167b8eb39462b80792a86e5c21370"}
+
+25/08/2023 20:40:02: 
+2) API call result: {"returnCode":"S","returnMessage":"Success","requestInfo":{"serviceInfo":{"trxCode":"31699a7487a17@THAZEULAP0001-DEFAULT","esbModule":"AIAApi.restful.oauth.autherize:CallbackRequestAuthCode"}},"authCode":"cb77e24ccf1f450c9a843c20aaa0f19c"}
+
+25/08/2023 20:40:02: 
+4) API call result: {"returnCode":"S","returnMessage":"Success","requestInfo":{"serviceInfo":{"trxCode":"31a1d13c608f4@THAZEULAP0002-DEFAULT","esbModule":"AIAApi.restful.oauth.autherize:CallbackRequestAuthCode"}},"authCode":"5b2e9c361e80468cb678c43107bb9f50"}
+
+25/08/2023 20:40:02: 
+3) API call result: {"returnCode":"S","returnMessage":"Success","requestInfo":{"serviceInfo":{"trxCode":"31699a893c096@THAZEULAP0001-DEFAULT","esbModule":"AIAApi.restful.oauth.autherize:CallbackRequestAuthCode"}},"authCode":"8284ede2d1444c48b4a5a188d22167bf"}
+
+25/08/2023 20:40:02: 
+1) API call result: {"returnCode":"S","returnMessage":"Success","requestInfo":{"serviceInfo":{"trxCode":"31a1d14102d7a@THAZEULAP0002-DEFAULT","esbModule":"AIAApi.restful.oauth.autherize:CallbackRequestAuthCode"}},"authCode":"25ad32c337d3460988474bcfa9c5759b"}
+
+25/08/2023 20:40:28: 
+1) API call result: {"returnCode":"S","returnMessage":"Success","requestInfo":{"serviceInfo":{"trxCode":"3169fc06ea47f@THAZEULAP0001-DEFAULT","esbModule":"AIAApi.restful.oauth.autherize:CallbackRequestAuthCode"}},"authCode":"36bbc3c2a89545aaa89147b0991e04b1"}
+
+25/08/2023 20:40:29: 
+2) API call result: {"returnCode":"S","returnMessage":"Success","requestInfo":{"serviceInfo":{"trxCode":"3169fc0e37504@THAZEULAP0001-DEFAULT","esbModule":"AIAApi.restful.oauth.autherize:CallbackRequestAuthCode"}},"authCode":"633c8cfaa1fc4979874118f01a881479"}
+
+25/08/2023 20:40:29: 
+3) API call result: {"returnCode":"S","returnMessage":"Success","requestInfo":{"serviceInfo":{"trxCode":"31a232b5031ed@THAZEULAP0002-DEFAULT","esbModule":"AIAApi.restful.oauth.autherize:CallbackRequestAuthCode"}},"authCode":"75bb14821ddd4fe9ba710f231e08b926"}
+
+25/08/2023 20:40:29: 
+4) API call result: {"returnCode":"S","returnMessage":"Success","requestInfo":{"serviceInfo":{"trxCode":"31a232af2a856@THAZEULAP0002-DEFAULT","esbModule":"AIAApi.restful.oauth.autherize:CallbackRequestAuthCode"}},"authCode":"07d86c0630cf4bceb2ffbe142e3d8b0c"}
+
+25/08/2023 20:40:31: 
+3) API call result: {"returnCode":"S","returnMessage":"Success","requestInfo":{"serviceInfo":{"trxCode":"31a23c9a28eff@THAZEULAP0002-DEFAULT","esbModule":"AIAApi.restful.oauth.autherize:CallbackRequestAuthCode"}},"authCode":"4f4fe5ca473e4e52aaf0bb221a1de95f"}
+
+25/08/2023 20:40:31: 
+1) API call result: {"returnCode":"S","returnMessage":"Success","requestInfo":{"serviceInfo":{"trxCode":"31a23cf7f28ab@THAZEULAP0002-DEFAULT","esbModule":"AIAApi.restful.oauth.autherize:CallbackRequestAuthCode"}},"authCode":"137820d7e0ae4a968c953d29113b94b8"}
+
+25/08/2023 20:40:31: 
+4) API call result: {"error":"IOException: Server returned HTTP response code: 500 for URL: http://5th-Element:8083/RBTApiGatewayV1/AIA/RequestAuthCode"}
+25/08/2023 20:40:32: 
+2) API call result: {"returnCode":"S","returnMessage":"Success","requestInfo":{"serviceInfo":{"trxCode":"316a06ca48cd9@THAZEULAP0001-DEFAULT","esbModule":"AIAApi.restful.oauth.autherize:CallbackRequestAuthCode"}},"authCode":"e98ade931493434d888e0832e613ac80"}
+
+25/08/2023 20:44:35: 
+1) API call result: {"returnCode":"S","returnMessage":"Success","requestInfo":{"serviceInfo":{"trxCode":"31a5ca3c99c83@THAZEULAP0002-DEFAULT","esbModule":"AIAApi.restful.oauth.autherize:CallbackRequestAuthCode"}},"authCode":"e36dea572d124a869cfd2ceddd588b95"}
+
+25/08/2023 20:44:35: 
+2) API call result: {"returnCode":"S","returnMessage":"Success","requestInfo":{"serviceInfo":{"trxCode":"316d939296d19@THAZEULAP0001-DEFAULT","esbModule":"AIAApi.restful.oauth.autherize:CallbackRequestAuthCode"}},"authCode":"e2452fb02a7a4e319d1ef22c8e53ecba"}
+
+25/08/2023 20:44:35: 
+4) API call result: {"returnCode":"S","returnMessage":"Success","requestInfo":{"serviceInfo":{"trxCode":"31a5ca3c0229f@THAZEULAP0002-DEFAULT","esbModule":"AIAApi.restful.oauth.autherize:CallbackRequestAuthCode"}},"authCode":"32601bab443d4815938168d267cc6479"}
+
+25/08/2023 20:44:35: 
+3) API call result: {"returnCode":"S","returnMessage":"Success","requestInfo":{"serviceInfo":{"trxCode":"316d937dd5ca6@THAZEULAP0001-DEFAULT","esbModule":"AIAApi.restful.oauth.autherize:CallbackRequestAuthCode"}},"authCode":"1223c58c89cc463a997133f64a373184"}
+
+25/08/2023 20:44:44: 
+1) API call result: {"returnCode":"S","returnMessage":"Success","requestInfo":{"serviceInfo":{"trxCode":"31a5e8da4ee6c@THAZEULAP0002-DEFAULT","esbModule":"AIAApi.restful.oauth.autherize:CallbackRequestAuthCode"}},"authCode":"6f3c105a6464462496cfbfa95462e784"}
+
+25/08/2023 20:44:44: 
+4) API call result: {"returnCode":"S","returnMessage":"Success","requestInfo":{"serviceInfo":{"trxCode":"31a5e8f910072@THAZEULAP0002-DEFAULT","esbModule":"AIAApi.restful.oauth.autherize:CallbackRequestAuthCode"}},"authCode":"7497ae79b6cb441fb0d9e34e08d92b5e"}
+
+25/08/2023 20:44:44: 
+2) API call result: {"returnCode":"S","returnMessage":"Success","requestInfo":{"serviceInfo":{"trxCode":"316db288c9ca8@THAZEULAP0001-DEFAULT","esbModule":"AIAApi.restful.oauth.autherize:CallbackRequestAuthCode"}},"authCode":"7f1a03f906c4487aa15e11cf9c7154e7"}
+
+25/08/2023 20:44:44: 
+3) API call result: {"returnCode":"S","returnMessage":"Success","requestInfo":{"serviceInfo":{"trxCode":"316db29011549@THAZEULAP0001-DEFAULT","esbModule":"AIAApi.restful.oauth.autherize:CallbackRequestAuthCode"}},"authCode":"60e3cfe97eea4262a05bfc7de5d70e60"}
+
+25/08/2023 20:44:50: 
+1) API call result: {"returnCode":"S","returnMessage":"Success","requestInfo":{"serviceInfo":{"trxCode":"31a60195d3f5b@THAZEULAP0002-DEFAULT","esbModule":"AIAApi.restful.oauth.autherize:CallbackRequestAuthCode"}},"authCode":"d3307d21bf5043f0bb6f075eed76e774"}
+
+25/08/2023 20:44:50: 
+2) API call result: {"returnCode":"S","returnMessage":"Success","requestInfo":{"serviceInfo":{"trxCode":"316dcb0e0019e@THAZEULAP0001-DEFAULT","esbModule":"AIAApi.restful.oauth.autherize:CallbackRequestAuthCode"}},"authCode":"63b9deee25514234a7710b1ce5182890"}
+
+25/08/2023 20:44:50: 
+3) API call result: {"returnCode":"S","returnMessage":"Success","requestInfo":{"serviceInfo":{"trxCode":"316dcb2587a1f@THAZEULAP0001-DEFAULT","esbModule":"AIAApi.restful.oauth.autherize:CallbackRequestAuthCode"}},"authCode":"55c3fe736d0f4fa29676e14ddfd69384"}
+
+25/08/2023 20:44:50: 
+4) API call result: {"returnCode":"S","returnMessage":"Success","requestInfo":{"serviceInfo":{"trxCode":"31a601c04836b@THAZEULAP0002-DEFAULT","esbModule":"AIAApi.restful.oauth.autherize:CallbackRequestAuthCode"}},"authCode":"90740a1b622643c4ab53f54329cf94cb"}
+
+25/08/2023 20:44:56: 
+2) API call result: {"returnCode":"S","returnMessage":"Success","requestInfo":{"serviceInfo":{"trxCode":"31a6177047160@THAZEULAP0002-DEFAULT","esbModule":"AIAApi.restful.oauth.autherize:CallbackRequestAuthCode"}},"authCode":"b0e2654fbf0c443296cde7f406ec6ab6"}
+
+25/08/2023 20:44:56: 
+4) API call result: {"returnCode":"S","returnMessage":"Success","requestInfo":{"serviceInfo":{"trxCode":"316de113fc50f@THAZEULAP0001-DEFAULT","esbModule":"AIAApi.restful.oauth.autherize:CallbackRequestAuthCode"}},"authCode":"1bffa95bb71443ffb0b97e8dcd8024fe"}
+
+25/08/2023 20:44:56: 
+1) API call result: {"returnCode":"S","returnMessage":"Success","requestInfo":{"serviceInfo":{"trxCode":"316de11ea7837@THAZEULAP0001-DEFAULT","esbModule":"AIAApi.restful.oauth.autherize:CallbackRequestAuthCode"}},"authCode":"13e370a22e2147edbe86fc1b23181699"}
+
+25/08/2023 20:44:56: 
+3) API call result: {"returnCode":"S","returnMessage":"Success","requestInfo":{"serviceInfo":{"trxCode":"31a617b42c7e9@THAZEULAP0002-DEFAULT","esbModule":"AIAApi.restful.oauth.autherize:CallbackRequestAuthCode"}},"authCode":"957ae3aff4cd4304afbb3ac448c67c42"}
+
+25/08/2023 20:45:02: 
+4) API call result: {"returnCode":"S","returnMessage":"Success","requestInfo":{"serviceInfo":{"trxCode":"316df54601068@THAZEULAP0001-DEFAULT","esbModule":"AIAApi.restful.oauth.autherize:CallbackRequestAuthCode"}},"authCode":"f3022a1409114c12bd09b74b7af6d9a1"}
+
+25/08/2023 20:45:02: 
+1) API call result: {"returnCode":"S","returnMessage":"Success","requestInfo":{"serviceInfo":{"trxCode":"31a62be9b6e8c@THAZEULAP0002-DEFAULT","esbModule":"AIAApi.restful.oauth.autherize:CallbackRequestAuthCode"}},"authCode":"9c41cad23bb74ec0ae4cbedc3ecd960d"}
+
+25/08/2023 20:45:02: 
+3) API call result: {"returnCode":"S","returnMessage":"Success","requestInfo":{"serviceInfo":{"trxCode":"316df57d02de8@THAZEULAP0001-DEFAULT","esbModule":"AIAApi.restful.oauth.autherize:CallbackRequestAuthCode"}},"authCode":"2f75d472f35c4b44a970d3f11296a929"}
+
+25/08/2023 20:45:02: 
+2) API call result: {"returnCode":"S","returnMessage":"Success","requestInfo":{"serviceInfo":{"trxCode":"31a62c1ed3113@THAZEULAP0002-DEFAULT","esbModule":"AIAApi.restful.oauth.autherize:CallbackRequestAuthCode"}},"authCode":"37df262c02b246298ed23248fe606c66"}
+
+25/08/2023 20:45:10: 
+2) API call result: {"returnCode":"S","returnMessage":"Success","requestInfo":{"serviceInfo":{"trxCode":"31a6494a0e0be@THAZEULAP0002-DEFAULT","esbModule":"AIAApi.restful.oauth.autherize:CallbackRequestAuthCode"}},"authCode":"509709922f3d4c2c8111cd1dec86330c"}
+
+25/08/2023 20:45:10: 
+3) API call result: {"returnCode":"S","returnMessage":"Success","requestInfo":{"serviceInfo":{"trxCode":"31a64954ad22f@THAZEULAP0002-DEFAULT","esbModule":"AIAApi.restful.oauth.autherize:CallbackRequestAuthCode"}},"authCode":"18bc1f5244a2453f9b9d40a080f5f673"}
+
+25/08/2023 20:45:10: 
+1) API call result: {"returnCode":"S","returnMessage":"Success","requestInfo":{"serviceInfo":{"trxCode":"316e12cc35368@THAZEULAP0001-DEFAULT","esbModule":"AIAApi.restful.oauth.autherize:CallbackRequestAuthCode"}},"authCode":"514ab1593e3e4adca71e684aa294b7f4"}
+
+25/08/2023 20:45:10: 
+4) API call result: {"returnCode":"S","returnMessage":"Success","requestInfo":{"serviceInfo":{"trxCode":"316e12b506abe@THAZEULAP0001-DEFAULT","esbModule":"AIAApi.restful.oauth.autherize:CallbackRequestAuthCode"}},"authCode":"02d4c8d371db4720b0038177bd4ce362"}
+
+25/08/2023 20:45:15: 
+4) API call result: {"returnCode":"S","returnMessage":"Success","requestInfo":{"serviceInfo":{"trxCode":"316e291e671ec@THAZEULAP0001-DEFAULT","esbModule":"AIAApi.restful.oauth.autherize:CallbackRequestAuthCode"}},"authCode":"8f1b251e735b45319e9f5c05694535cf"}
+
+25/08/2023 20:45:15: 
+1) API call result: {"returnCode":"S","returnMessage":"Success","requestInfo":{"serviceInfo":{"trxCode":"316e2929f4a97@THAZEULAP0001-DEFAULT","esbModule":"AIAApi.restful.oauth.autherize:CallbackRequestAuthCode"}},"authCode":"eb6cda45d4a54925b3f533a0324c814a"}
+
+25/08/2023 20:45:16: 
+3) API call result: {"returnCode":"S","returnMessage":"Success","requestInfo":{"serviceInfo":{"trxCode":"31a65fb6e58c0@THAZEULAP0002-DEFAULT","esbModule":"AIAApi.restful.oauth.autherize:CallbackRequestAuthCode"}},"authCode":"be25494b44594c6ca0d77c79b90c2cff"}
+
+25/08/2023 20:45:16: 
+2) API call result: {"returnCode":"S","returnMessage":"Success","requestInfo":{"serviceInfo":{"trxCode":"31a65fc41ad94@THAZEULAP0002-DEFAULT","esbModule":"AIAApi.restful.oauth.autherize:CallbackRequestAuthCode"}},"authCode":"0efe420c71ec4610a89708207820c060"}
+
+25/08/2023 20:45:22: 
+3) API call result: {"returnCode":"S","returnMessage":"Success","requestInfo":{"serviceInfo":{"trxCode":"316e3f20b7f90@THAZEULAP0001-DEFAULT","esbModule":"AIAApi.restful.oauth.autherize:CallbackRequestAuthCode"}},"authCode":"f1b51cc6a8584ae2b9db850c1a1cf28d"}
+
+25/08/2023 20:45:22: 
+1) API call result: {"returnCode":"S","returnMessage":"Success","requestInfo":{"serviceInfo":{"trxCode":"316e3f289f732@THAZEULAP0001-DEFAULT","esbModule":"AIAApi.restful.oauth.autherize:CallbackRequestAuthCode"}},"authCode":"27d6fc36b0444db09a7067505e3ce353"}
+
+25/08/2023 20:45:22: 
+2) API call result: {"returnCode":"S","returnMessage":"Success","requestInfo":{"serviceInfo":{"trxCode":"31a675b328514@THAZEULAP0002-DEFAULT","esbModule":"AIAApi.restful.oauth.autherize:CallbackRequestAuthCode"}},"authCode":"6126ff58c40d483e893df82297eb9b0e"}
+
+25/08/2023 20:45:22: 
+4) API call result: {"returnCode":"S","returnMessage":"Success","requestInfo":{"serviceInfo":{"trxCode":"31a675c5b1be0@THAZEULAP0002-DEFAULT","esbModule":"AIAApi.restful.oauth.autherize:CallbackRequestAuthCode"}},"authCode":"736d80ea9a6648ba89d024267b6d88aa"}
+
+25/08/2023 20:45:27: 
+2) API call result: {"returnCode":"S","returnMessage":"Success","requestInfo":{"serviceInfo":{"trxCode":"316e53dd88778@THAZEULAP0001-DEFAULT","esbModule":"AIAApi.restful.oauth.autherize:CallbackRequestAuthCode"}},"authCode":"0f6bc379edd44ee1910abacf9e7488fe"}
+
+25/08/2023 20:45:27: 
+4) API call result: {"returnCode":"S","returnMessage":"Success","requestInfo":{"serviceInfo":{"trxCode":"31a68a7ac0f8d@THAZEULAP0002-DEFAULT","esbModule":"AIAApi.restful.oauth.autherize:CallbackRequestAuthCode"}},"authCode":"a20844f4b68f462dbdbd13e63552e70d"}
+
+25/08/2023 20:45:27: 
+3) API call result: {"returnCode":"S","returnMessage":"Success","requestInfo":{"serviceInfo":{"trxCode":"316e5419b63f0@THAZEULAP0001-DEFAULT","esbModule":"AIAApi.restful.oauth.autherize:CallbackRequestAuthCode"}},"authCode":"ff0b4d00167e4b79a3ed1ae743a8e9ef"}
+
+25/08/2023 20:45:27: 
+1) API call result: {"returnCode":"S","returnMessage":"Success","requestInfo":{"serviceInfo":{"trxCode":"31a68ab4c4437@THAZEULAP0002-DEFAULT","esbModule":"AIAApi.restful.oauth.autherize:CallbackRequestAuthCode"}},"authCode":"7174c6d972094723bb4bb499452b9e9e"}
+
+25/08/2023 20:45:35: 
+3) API call result: {"returnCode":"S","returnMessage":"Success","requestInfo":{"serviceInfo":{"trxCode":"316e6f9117b9a@THAZEULAP0001-DEFAULT","esbModule":"AIAApi.restful.oauth.autherize:CallbackRequestAuthCode"}},"authCode":"9173103aa5a845b48f8051889c2f20b5"}
+
+25/08/2023 20:45:35: 
+1) API call result: {"returnCode":"S","returnMessage":"Success","requestInfo":{"serviceInfo":{"trxCode":"31a6a66bdb8b6@THAZEULAP0002-DEFAULT","esbModule":"AIAApi.restful.oauth.autherize:CallbackRequestAuthCode"}},"authCode":"6d383192790649779c7316d3fba06cad"}
+
+25/08/2023 20:45:35: 
+2) API call result: {"returnCode":"S","returnMessage":"Success","requestInfo":{"serviceInfo":{"trxCode":"316e6fff09a9e@THAZEULAP0001-DEFAULT","esbModule":"AIAApi.restful.oauth.autherize:CallbackRequestAuthCode"}},"authCode":"298a3052931e40aea95f7643c702172f"}
+
+25/08/2023 20:45:35: 
+4) API call result: {"returnCode":"S","returnMessage":"Success","requestInfo":{"serviceInfo":{"trxCode":"31a6a640cf3b9@THAZEULAP0002-DEFAULT","esbModule":"AIAApi.restful.oauth.autherize:CallbackRequestAuthCode"}},"authCode":"b782bd1bac7d4888bb5e9d8c96f7ae00"}
+
+25/08/2023 20:45:41: 
+1) API call result: {"returnCode":"S","returnMessage":"Success","requestInfo":{"serviceInfo":{"trxCode":"31a6bfd026986@THAZEULAP0002-DEFAULT","esbModule":"AIAApi.restful.oauth.autherize:CallbackRequestAuthCode"}},"authCode":"8ae032fced1b4ca08e3e80cb4b88180a"}
+
+25/08/2023 20:45:41: 
+3) API call result: {"returnCode":"S","returnMessage":"Success","requestInfo":{"serviceInfo":{"trxCode":"31a6c00b4dd7e@THAZEULAP0002-DEFAULT","esbModule":"AIAApi.restful.oauth.autherize:CallbackRequestAuthCode"}},"authCode":"f76f473d129e414e8a6aeda653f3b68a"}
+
+25/08/2023 20:45:41: 
+2) API call result: {"returnCode":"S","returnMessage":"Success","requestInfo":{"serviceInfo":{"trxCode":"316e8993c65b9@THAZEULAP0001-DEFAULT","esbModule":"AIAApi.restful.oauth.autherize:CallbackRequestAuthCode"}},"authCode":"b7195c46ba49492c84badcd95cc3b917"}
+
+25/08/2023 20:45:41: 
+4) API call result: {"returnCode":"S","returnMessage":"Success","requestInfo":{"serviceInfo":{"trxCode":"316e89926ae4e@THAZEULAP0001-DEFAULT","esbModule":"AIAApi.restful.oauth.autherize:CallbackRequestAuthCode"}},"authCode":"9f07298c06aa4039aada9041bd400238"}
+
+25/08/2023 20:45:49: 
+2) API call result: {"returnCode":"S","returnMessage":"Success","requestInfo":{"serviceInfo":{"trxCode":"31a6ddf4d8cd3@THAZEULAP0002-DEFAULT","esbModule":"AIAApi.restful.oauth.autherize:CallbackRequestAuthCode"}},"authCode":"eaed5a560b17446295e2490a6045a537"}
+
+25/08/2023 20:45:49: 
+3) API call result: {"returnCode":"S","returnMessage":"Success","requestInfo":{"serviceInfo":{"trxCode":"31a6de00cb752@THAZEULAP0002-DEFAULT","esbModule":"AIAApi.restful.oauth.autherize:CallbackRequestAuthCode"}},"authCode":"a6482a086fbc4da192b4ef2b0997eef7"}
+
+25/08/2023 20:45:49: 
+4) API call result: {"returnCode":"S","returnMessage":"Success","requestInfo":{"serviceInfo":{"trxCode":"316ea7758f278@THAZEULAP0001-DEFAULT","esbModule":"AIAApi.restful.oauth.autherize:CallbackRequestAuthCode"}},"authCode":"e4bb0635fed54dfe927a5990d5bb14ec"}
+
+25/08/2023 20:45:49: 
+1) API call result: {"returnCode":"S","returnMessage":"Success","requestInfo":{"serviceInfo":{"trxCode":"316ea772307a1@THAZEULAP0001-DEFAULT","esbModule":"AIAApi.restful.oauth.autherize:CallbackRequestAuthCode"}},"authCode":"866608e3a47748a8a00867288cdb611c"}
+
+25/08/2023 20:45:57: 
+4) API call result: {"returnCode":"S","returnMessage":"Success","requestInfo":{"serviceInfo":{"trxCode":"316ec26f0b6fd@THAZEULAP0001-DEFAULT","esbModule":"AIAApi.restful.oauth.autherize:CallbackRequestAuthCode"}},"authCode":"630a1ac41ded403abd3aa5538e8469ff"}
+
+25/08/2023 20:45:57: 
+2) API call result: {"returnCode":"S","returnMessage":"Success","requestInfo":{"serviceInfo":{"trxCode":"31a6f9104d76f@THAZEULAP0002-DEFAULT","esbModule":"AIAApi.restful.oauth.autherize:CallbackRequestAuthCode"}},"authCode":"e6b86bcb46244971b9690f7570248da2"}
+
+25/08/2023 20:45:57: 
+1) API call result: {"returnCode":"S","returnMessage":"Success","requestInfo":{"serviceInfo":{"trxCode":"31a6f8f49672d@THAZEULAP0002-DEFAULT","esbModule":"AIAApi.restful.oauth.autherize:CallbackRequestAuthCode"}},"authCode":"da91282e1ea54d0593e9b5947943210c"}
+
+25/08/2023 20:45:57: 
+3) API call result: {"returnCode":"S","returnMessage":"Success","requestInfo":{"serviceInfo":{"trxCode":"316ec22eb56a8@THAZEULAP0001-DEFAULT","esbModule":"AIAApi.restful.oauth.autherize:CallbackRequestAuthCode"}},"authCode":"d6b32186cd8d42148810a8beb7decc85"}
+
+25/08/2023 20:46:03: 
+3) API call result: {"returnCode":"S","returnMessage":"Success","requestInfo":{"serviceInfo":{"trxCode":"316ed9fda0a0e@THAZEULAP0001-DEFAULT","esbModule":"AIAApi.restful.oauth.autherize:CallbackRequestAuthCode"}},"authCode":"2993058c3e5947cbb48976e7f8277972"}
+
+25/08/2023 20:46:03: 
+4) API call result: {"returnCode":"S","returnMessage":"Success","requestInfo":{"serviceInfo":{"trxCode":"316eda40c4e45@THAZEULAP0001-DEFAULT","esbModule":"AIAApi.restful.oauth.autherize:CallbackRequestAuthCode"}},"authCode":"0a9f67c96de54186bfeed3e11559ca82"}
+
+25/08/2023 20:46:03: 
+2) API call result: {"returnCode":"S","returnMessage":"Success","requestInfo":{"serviceInfo":{"trxCode":"31a7110745d5e@THAZEULAP0002-DEFAULT","esbModule":"AIAApi.restful.oauth.autherize:CallbackRequestAuthCode"}},"authCode":"c9221499edc44553a6602e5e94a32f5d"}
+
+25/08/2023 20:46:03: 
+1) API call result: {"returnCode":"S","returnMessage":"Success","requestInfo":{"serviceInfo":{"trxCode":"31a71185aac2a@THAZEULAP0002-DEFAULT","esbModule":"AIAApi.restful.oauth.autherize:CallbackRequestAuthCode"}},"authCode":"8f05d694db5d428f976383695f21ed58"}
+
+25/08/2023 20:46:06: 
+3) API call result: {"returnCode":"S","returnMessage":"Success","requestInfo":{"serviceInfo":{"trxCode":"316ee62e82ebc@THAZEULAP0001-DEFAULT","esbModule":"AIAApi.restful.oauth.autherize:CallbackRequestAuthCode"}},"authCode":"90b6797a6e3549fd8355bb633192e859"}
+
+25/08/2023 20:46:06: 
+1) API call result: {"returnCode":"S","returnMessage":"Success","requestInfo":{"serviceInfo":{"trxCode":"316ee637689fa@THAZEULAP0001-DEFAULT","esbModule":"AIAApi.restful.oauth.autherize:CallbackRequestAuthCode"}},"authCode":"93f4643d3d8b42c0ae565872b35a4ede"}
+
+25/08/2023 20:46:06: 
+2) API call result: {"returnCode":"S","returnMessage":"Success","requestInfo":{"serviceInfo":{"trxCode":"31a71d02b4d9a@THAZEULAP0002-DEFAULT","esbModule":"AIAApi.restful.oauth.autherize:CallbackRequestAuthCode"}},"authCode":"780da661e5b947749b2a787cf0da8700"}
+
+25/08/2023 20:46:06: 
+4) API call result: {"returnCode":"S","returnMessage":"Success","requestInfo":{"serviceInfo":{"trxCode":"31a71d218781c@THAZEULAP0002-DEFAULT","esbModule":"AIAApi.restful.oauth.autherize:CallbackRequestAuthCode"}},"authCode":"e0da73d64203492a8b9ea47bac07a25c"}
+
+25/08/2023 20:46:08: 
+3) API call result: {"returnCode":"S","returnMessage":"Success","requestInfo":{"serviceInfo":{"trxCode":"316eeb5320851@THAZEULAP0001-DEFAULT","esbModule":"AIAApi.restful.oauth.autherize:CallbackRequestAuthCode"}},"authCode":"fa3c3f98b160416e90567a0705d9cb15"}
+
+25/08/2023 20:46:08: 
+2) API call result: {"returnCode":"S","returnMessage":"Success","requestInfo":{"serviceInfo":{"trxCode":"316eeb49d60f4@THAZEULAP0001-DEFAULT","esbModule":"AIAApi.restful.oauth.autherize:CallbackRequestAuthCode"}},"authCode":"39feedd96629436b914720c42a5218fa"}
+
+25/08/2023 20:46:08: 
+4) API call result: {"returnCode":"S","returnMessage":"Success","requestInfo":{"serviceInfo":{"trxCode":"31a7220349199@THAZEULAP0002-DEFAULT","esbModule":"AIAApi.restful.oauth.autherize:CallbackRequestAuthCode"}},"authCode":"13640778267c48429fb5ddd54f3681c4"}
+
+25/08/2023 20:46:08: 
+1) API call result: {"returnCode":"S","returnMessage":"Success","requestInfo":{"serviceInfo":{"trxCode":"31a72215fb5f1@THAZEULAP0002-DEFAULT","esbModule":"AIAApi.restful.oauth.autherize:CallbackRequestAuthCode"}},"authCode":"731989e9ba764b6791cf23f015522b71"}
+
+25/08/2023 20:46:09: 
+1) API call result: {"returnCode":"S","returnMessage":"Success","requestInfo":{"serviceInfo":{"trxCode":"316eef9f37aca@THAZEULAP0001-DEFAULT","esbModule":"AIAApi.restful.oauth.autherize:CallbackRequestAuthCode"}},"authCode":"4539bdf5c8d54fbea1db48d3dcb3fcbe"}
+
+25/08/2023 20:46:09: 
+2) API call result: {"returnCode":"S","returnMessage":"Success","requestInfo":{"serviceInfo":{"trxCode":"31a7265effcbc@THAZEULAP0002-DEFAULT","esbModule":"AIAApi.restful.oauth.autherize:CallbackRequestAuthCode"}},"authCode":"145f48f1066d43a6bc24cafdf130dac3"}
+
+25/08/2023 20:46:09: 
+3) API call result: {"returnCode":"S","returnMessage":"Success","requestInfo":{"serviceInfo":{"trxCode":"31a7267064d33@THAZEULAP0002-DEFAULT","esbModule":"AIAApi.restful.oauth.autherize:CallbackRequestAuthCode"}},"authCode":"1977d740082c48e984e476c23dfd68a3"}
+
+25/08/2023 20:46:09: 
+4) API call result: {"returnCode":"S","returnMessage":"Success","requestInfo":{"serviceInfo":{"trxCode":"316eef9d7a045@THAZEULAP0001-DEFAULT","esbModule":"AIAApi.restful.oauth.autherize:CallbackRequestAuthCode"}},"authCode":"8818f81ec4f04df592e972e6065248aa"}
+
+25/08/2023 20:46:14: 
+2) API call result: {"returnCode":"S","returnMessage":"Success","requestInfo":{"serviceInfo":{"trxCode":"316f030b5a5cd@THAZEULAP0001-DEFAULT","esbModule":"AIAApi.restful.oauth.autherize:CallbackRequestAuthCode"}},"authCode":"fe843d37375042229c6c9670ab18be98"}
+
+25/08/2023 20:46:14: 
+1) API call result: {"returnCode":"S","returnMessage":"Success","requestInfo":{"serviceInfo":{"trxCode":"316f02ff72bb8@THAZEULAP0001-DEFAULT","esbModule":"AIAApi.restful.oauth.autherize:CallbackRequestAuthCode"}},"authCode":"ef28edc23d7541118c6ff52c4da35ad7"}
+
+25/08/2023 20:46:14: 
+3) API call result: {"returnCode":"S","returnMessage":"Success","requestInfo":{"serviceInfo":{"trxCode":"31a739f5c4224@THAZEULAP0002-DEFAULT","esbModule":"AIAApi.restful.oauth.autherize:CallbackRequestAuthCode"}},"authCode":"81e46039fc2c48c6a898bb22706b764c"}
+
+25/08/2023 20:46:14: 
+4) API call result: {"returnCode":"S","returnMessage":"Success","requestInfo":{"serviceInfo":{"trxCode":"31a73a2772fb9@THAZEULAP0002-DEFAULT","esbModule":"AIAApi.restful.oauth.autherize:CallbackRequestAuthCode"}},"authCode":"83acf18e7fae44bebb60e27198171e07"}
+
+25/08/2023 20:46:17: 
+2) API call result: {"returnCode":"S","returnMessage":"Success","requestInfo":{"serviceInfo":{"trxCode":"316f0d0d4cf01@THAZEULAP0001-DEFAULT","esbModule":"AIAApi.restful.oauth.autherize:CallbackRequestAuthCode"}},"authCode":"aee1e70838ac4283a743d80d67cee657"}
+
+25/08/2023 20:46:17: 
+4) API call result: {"returnCode":"S","returnMessage":"Success","requestInfo":{"serviceInfo":{"trxCode":"316f0d13ee43d@THAZEULAP0001-DEFAULT","esbModule":"AIAApi.restful.oauth.autherize:CallbackRequestAuthCode"}},"authCode":"0ba8b79b552140cdbecb5f28901861af"}
+
+25/08/2023 20:46:17: 
+3) API call result: {"returnCode":"S","returnMessage":"Success","requestInfo":{"serviceInfo":{"trxCode":"31a743bb36da0@THAZEULAP0002-DEFAULT","esbModule":"AIAApi.restful.oauth.autherize:CallbackRequestAuthCode"}},"authCode":"5217342833a14062866769bd8315eb64"}
+
+25/08/2023 20:46:17: 
+1) API call result: {"returnCode":"S","returnMessage":"Success","requestInfo":{"serviceInfo":{"trxCode":"31a743b732e06@THAZEULAP0002-DEFAULT","esbModule":"AIAApi.restful.oauth.autherize:CallbackRequestAuthCode"}},"authCode":"ad00fda771a74378b39397530171af0c"}
+
+25/08/2023 20:46:21: 
+4) API call result: {"returnCode":"S","returnMessage":"Success","requestInfo":{"serviceInfo":{"trxCode":"31a7540e1d562@THAZEULAP0002-DEFAULT","esbModule":"AIAApi.restful.oauth.autherize:CallbackRequestAuthCode"}},"authCode":"5ea774a2085943d2b54a15f6f41cbb60"}
+
+25/08/2023 20:46:21: 
+3) API call result: {"returnCode":"S","returnMessage":"Success","requestInfo":{"serviceInfo":{"trxCode":"31a754479a265@THAZEULAP0002-DEFAULT","esbModule":"AIAApi.restful.oauth.autherize:CallbackRequestAuthCode"}},"authCode":"7f22ffb14f8e4b4099d58185e2eb914e"}
+
+25/08/2023 20:46:21: 
+1) API call result: {"returnCode":"S","returnMessage":"Success","requestInfo":{"serviceInfo":{"trxCode":"316f1d74adcda@THAZEULAP0001-DEFAULT","esbModule":"AIAApi.restful.oauth.autherize:CallbackRequestAuthCode"}},"authCode":"4bd3549b5788495dafa1c94abdceaade"}
+
+25/08/2023 20:46:21: 
+2) API call result: {"returnCode":"S","returnMessage":"Success","requestInfo":{"serviceInfo":{"trxCode":"316f1daf1af25@THAZEULAP0001-DEFAULT","esbModule":"AIAApi.restful.oauth.autherize:CallbackRequestAuthCode"}},"authCode":"eb861c793f764c598effe50ae1438064"}
+
+25/08/2023 20:46:26: 
+4) API call result: {"returnCode":"S","returnMessage":"Success","requestInfo":{"serviceInfo":{"trxCode":"316f2ed7af694@THAZEULAP0001-DEFAULT","esbModule":"AIAApi.restful.oauth.autherize:CallbackRequestAuthCode"}},"authCode":"501f6c3507f547ec925829fdad8b6baa"}
+
+25/08/2023 20:46:26: 
+2) API call result: {"returnCode":"S","returnMessage":"Success","requestInfo":{"serviceInfo":{"trxCode":"31a7656e7750d@THAZEULAP0002-DEFAULT","esbModule":"AIAApi.restful.oauth.autherize:CallbackRequestAuthCode"}},"authCode":"9598c388139f4cb99cbc9fba9462d473"}
+
+25/08/2023 20:46:26: 
+3) API call result: {"returnCode":"S","returnMessage":"Success","requestInfo":{"serviceInfo":{"trxCode":"316f2edf667fc@THAZEULAP0001-DEFAULT","esbModule":"AIAApi.restful.oauth.autherize:CallbackRequestAuthCode"}},"authCode":"749a9551f80d492daa2e38ff91b6e322"}
+
+25/08/2023 20:46:26: 
+1) API call result: {"returnCode":"S","returnMessage":"Success","requestInfo":{"serviceInfo":{"trxCode":"31a76573aade7@THAZEULAP0002-DEFAULT","esbModule":"AIAApi.restful.oauth.autherize:CallbackRequestAuthCode"}},"authCode":"e510a94378d246d282884935dcd46633"}
+
+25/08/2023 20:46:29: 
+1) API call result: {"returnCode":"S","returnMessage":"Success","requestInfo":{"serviceInfo":{"trxCode":"316f39f6a58ba@THAZEULAP0001-DEFAULT","esbModule":"AIAApi.restful.oauth.autherize:CallbackRequestAuthCode"}},"authCode":"f882e6b68fc646dd974a23d5de548811"}
+
+25/08/2023 20:46:29: 
+2) API call result: {"returnCode":"S","returnMessage":"Success","requestInfo":{"serviceInfo":{"trxCode":"31a77090e388c@THAZEULAP0002-DEFAULT","esbModule":"AIAApi.restful.oauth.autherize:CallbackRequestAuthCode"}},"authCode":"ea728d2f68874d4b9a630c41031cb0da"}
+
+25/08/2023 20:46:29: 
+3) API call result: {"returnCode":"S","returnMessage":"Success","requestInfo":{"serviceInfo":{"trxCode":"316f39fc80d30@THAZEULAP0001-DEFAULT","esbModule":"AIAApi.restful.oauth.autherize:CallbackRequestAuthCode"}},"authCode":"3d7408a77ef24278be58a9aafbd28a0e"}
+
+25/08/2023 20:46:29: 
+4) API call result: {"returnCode":"S","returnMessage":"Success","requestInfo":{"serviceInfo":{"trxCode":"31a7709c74a09@THAZEULAP0002-DEFAULT","esbModule":"AIAApi.restful.oauth.autherize:CallbackRequestAuthCode"}},"authCode":"18dcfbf401e748e7b406d150460c2b69"}
+
+25/08/2023 20:46:31: 
+3) API call result: {"returnCode":"S","returnMessage":"Success","requestInfo":{"serviceInfo":{"trxCode":"316f43ba07086@THAZEULAP0001-DEFAULT","esbModule":"AIAApi.restful.oauth.autherize:CallbackRequestAuthCode"}},"authCode":"4d075ddef77d4013a47d989732e98acc"}
+
+25/08/2023 20:46:31: 
+1) API call result: {"returnCode":"S","returnMessage":"Success","requestInfo":{"serviceInfo":{"trxCode":"31a77a5c1dd02@THAZEULAP0002-DEFAULT","esbModule":"AIAApi.restful.oauth.autherize:CallbackRequestAuthCode"}},"authCode":"a1d7eb4be9154d61b39bc618c9ef1e12"}
+
+25/08/2023 20:46:31: 
+2) API call result: {"returnCode":"S","returnMessage":"Success","requestInfo":{"serviceInfo":{"trxCode":"316f43f50f286@THAZEULAP0001-DEFAULT","esbModule":"AIAApi.restful.oauth.autherize:CallbackRequestAuthCode"}},"authCode":"dfe69761082540aa893c4caa2a206acc"}
+
+25/08/2023 20:46:31: 
+4) API call result: {"returnCode":"S","returnMessage":"Success","requestInfo":{"serviceInfo":{"trxCode":"31a77a8dcf3ff@THAZEULAP0002-DEFAULT","esbModule":"AIAApi.restful.oauth.autherize:CallbackRequestAuthCode"}},"authCode":"d96eb214aaa9480f8be819bd1c92f467"}
+
+25/08/2023 20:46:35: 
+3) API call result: {"returnCode":"S","returnMessage":"Success","requestInfo":{"serviceInfo":{"trxCode":"316f4e98bdecc@THAZEULAP0001-DEFAULT","esbModule":"AIAApi.restful.oauth.autherize:CallbackRequestAuthCode"}},"authCode":"dd41c324601f4160bccb1c69a6363ff3"}
+
+25/08/2023 20:46:35: 
+2) API call result: {"returnCode":"S","returnMessage":"Success","requestInfo":{"serviceInfo":{"trxCode":"31a785374d6f5@THAZEULAP0002-DEFAULT","esbModule":"AIAApi.restful.oauth.autherize:CallbackRequestAuthCode"}},"authCode":"58416670185843cc92de99cc5ce103f2"}
+
+25/08/2023 20:46:35: 
+4) API call result: {"returnCode":"S","returnMessage":"Success","requestInfo":{"serviceInfo":{"trxCode":"31a7852b71376@THAZEULAP0002-DEFAULT","esbModule":"AIAApi.restful.oauth.autherize:CallbackRequestAuthCode"}},"authCode":"c46d7909a19546379359e366390b0093"}
+
+25/08/2023 20:46:35: 
+1) API call result: {"returnCode":"S","returnMessage":"Success","requestInfo":{"serviceInfo":{"trxCode":"316f4e97e5c2d@THAZEULAP0001-DEFAULT","esbModule":"AIAApi.restful.oauth.autherize:CallbackRequestAuthCode"}},"authCode":"7f8dab7df26e4213907fd603f9d18fc5"}
+
+25/08/2023 22:42:00: 
+1) API call result: {"returnCode":"S","returnMessage":"Success","requestInfo":{"serviceInfo":{"trxCode":"31d416bfb329e@THAZEULAP0001-DEFAULT","esbModule":"AIAApi.restful.oauth.autherize:CallbackRequestAuthCode"}},"authCode":"67ac0af3194a46a5a9ee002269edbded"}
+
+25/08/2023 22:42:00: 
+2) API call result: {"returnCode":"S","returnMessage":"Success","requestInfo":{"serviceInfo":{"trxCode":"320c4e5affbc3@THAZEULAP0002-DEFAULT","esbModule":"AIAApi.restful.oauth.autherize:CallbackRequestAuthCode"}},"authCode":"8470e16d6e4c411f8c284917e7b74678"}
+
+25/08/2023 22:42:00: 
+3) API call result: {"returnCode":"S","returnMessage":"Success","requestInfo":{"serviceInfo":{"trxCode":"31d4179eb3ad6@THAZEULAP0001-DEFAULT","esbModule":"AIAApi.restful.oauth.autherize:CallbackRequestAuthCode"}},"authCode":"a1fcce1c2b4a44b68722761a947b82a2"}
+
+25/08/2023 22:42:01: 
+4) API call result: {"returnCode":"S","returnMessage":"Success","requestInfo":{"serviceInfo":{"trxCode":"320c4efa8ac2c@THAZEULAP0002-DEFAULT","esbModule":"AIAApi.restful.oauth.autherize:CallbackRequestAuthCode"}},"authCode":"d7b0ca3933674cc8af07ab77291f95c7"}
+
+25/08/2023 22:43:50: 
+1) API call result[in sResultAsync]: {"returnCode":"S","returnMessage":"Success","requestInfo":{"serviceInfo":{"trxCode":"320de712e0097@THAZEULAP0002-DEFAULT","esbModule":"AIAApi.restful.oauth.autherize:CallbackRequestAuthCode"}},"authCode":"a31f5d56aaa84ad5b9728a3ec463faf4"}
+
+25/08/2023 22:43:50: 
+2) API call result[in sResultAsync]: {"returnCode":"S","returnMessage":"Success","requestInfo":{"serviceInfo":{"trxCode":"31d5b055887cd@THAZEULAP0001-DEFAULT","esbModule":"AIAApi.restful.oauth.autherize:CallbackRequestAuthCode"}},"authCode":"062cfd7db1ca49d7b51b2a5ff99f5e33"}
+
+25/08/2023 22:43:50: 
+3) API call result[in sResultAsync]: {"returnCode":"S","returnMessage":"Success","requestInfo":{"serviceInfo":{"trxCode":"320de7a60a52a@THAZEULAP0002-DEFAULT","esbModule":"AIAApi.restful.oauth.autherize:CallbackRequestAuthCode"}},"authCode":"af8f4c0b96eb401a8c42567ee0e57172"}
+
+25/08/2023 22:43:50: 
+4) API call result[in sResultAsync]: {"returnCode":"S","returnMessage":"Success","requestInfo":{"serviceInfo":{"trxCode":"320de7e30fe5a@THAZEULAP0002-DEFAULT","esbModule":"AIAApi.restful.oauth.autherize:CallbackRequestAuthCode"}},"authCode":"07ba6d9b277848f7a0b0ace98bf60d50"}
+
+25/08/2023 22:44:42: 
+1) API call result: {"returnCode":"S","returnMessage":"Success","requestInfo":{"serviceInfo":{"trxCode":"31d66fe7fd3de@THAZEULAP0001-DEFAULT","esbModule":"AIAApi.restful.oauth.autherize:CallbackRequestAuthCode"}},"authCode":"7dfd44806b824ec6baa12ef1343b0e84"}
+
+25/08/2023 22:44:42: 
+2) API call result: {"returnCode":"S","returnMessage":"Success","requestInfo":{"serviceInfo":{"trxCode":"320ea82a5ad27@THAZEULAP0002-DEFAULT","esbModule":"AIAApi.restful.oauth.autherize:CallbackRequestAuthCode"}},"authCode":"f8560aa2a2684949a3e31bf2205bab51"}
+
+25/08/2023 22:44:42: 
+3) API call result: {"returnCode":"S","returnMessage":"Success","requestInfo":{"serviceInfo":{"trxCode":"31d671e3e7cd4@THAZEULAP0001-DEFAULT","esbModule":"AIAApi.restful.oauth.autherize:CallbackRequestAuthCode"}},"authCode":"dbfba6a11b444300a5fc722f6d1cd83e"}
+
+25/08/2023 22:44:43: 
+4) API call result: {"returnCode":"S","returnMessage":"Success","requestInfo":{"serviceInfo":{"trxCode":"320eaa278de69@THAZEULAP0002-DEFAULT","esbModule":"AIAApi.restful.oauth.autherize:CallbackRequestAuthCode"}},"authCode":"ab661d3768ce429ea1cb4e183332eb00"}
+

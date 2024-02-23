@@ -341,6 +341,11 @@ public class ParsersXML extends javax.swing.JFrame {
             */
             
             JSONObject ob = new JSONObject(txaXMLData.getText());
+            double dResultTotalApprovedAmount = 0;
+            String sResultTotalApprovedAmount = "0";
+            dResultTotalApprovedAmount = ExtractJsonDoubleData(ob, "TotalApprovedAmount", "Data");
+            sResultTotalApprovedAmount = ExtractJsonStringData(ob, "TotalApprovedAmount", "Data");
+            
             //txaParserXML.setText(ob.toString() +  "\n");
 
             //getting first and last name
@@ -359,18 +364,27 @@ public class ParsersXML extends javax.swing.JFrame {
             }
             */
             
-            /*
-            JSONArray arr = ob.getJSONArray("visitcareproviders");
+            
+            // JSONArray arr = ob.getJSONArray("visitcareproviders");
+            JSONArray arr = ob.getJSONObject("Data").getJSONArray("Benefit");
             txaParserXML.setText("\n");
+            String sDepartmentName = "";
+            String sCareprovideruid = "";
             for (int i = 0; i < arr.length(); i++) {
                 txaParserXML.append("Array Detail : " + arr.getJSONObject(i) +  "\n\n");
-                JSONObject oArrSub = arr.getJSONObject(i).getJSONObject("departmentuid");
-                String sDepartmentName = oArrSub.getString("name");
-                // System.out.println(post_id);
-                txaParserXML.append("department name. : " + sDepartmentName +  "\n\n");
                 
-                String sCareprovideruid = "";
+                sCareprovideruid = arr.getJSONObject(i).getString("PolicyNumber");
+                txaParserXML.append("Policy Number : " + sCareprovideruid +  "\n");
+                
+                sDepartmentName = arr.getJSONObject(i).getString("PlanCode");
+                // JSONObject oArrSub = arr.getJSONObject(i).getJSONObject("departmentuid");
+                // sDepartmentName = oArrSub.getString("name");
+                // System.out.println(post_id);
+                txaParserXML.append("Isurance Plan Code : " + sDepartmentName +  "\n");
+                
+                sCareprovideruid = arr.getJSONObject(i).getString("PlanName");
                 // arr.getJSONObject(i).getString("careprovideruid")
+                /*
                 if(arr.getJSONObject(i).isNull("careprovideruid")){
                     sCareprovideruid = "NULL";
                 }
@@ -378,10 +392,30 @@ public class ParsersXML extends javax.swing.JFrame {
                     JSONObject oArrSub2 = arr.getJSONObject(i).getJSONObject("careprovideruid");
                     sCareprovideruid = oArrSub2.getString("name");
                 }
-                txaParserXML.append("Care Provider Name : " + sCareprovideruid +  "\n\n");
+                */
+                txaParserXML.append("Isurance Plan Name : " + sCareprovideruid +  "\n");
+                
+                sCareprovideruid = arr.getJSONObject(i).getString("EffectiveDate");
+                txaParserXML.append("Effective Date : " + sCareprovideruid +  "\n");
+                sCareprovideruid = arr.getJSONObject(i).getString("ExpireDate");
+                txaParserXML.append("Expire Date : " + sCareprovideruid +  "\n");
+                sCareprovideruid = arr.getJSONObject(i).getString("ServiceType");
+                txaParserXML.append("Service Type : " + sCareprovideruid +  "\n");
+                sCareprovideruid = arr.getJSONObject(i).getString("EpisodeType");
+                txaParserXML.append("Episode Type : " + sCareprovideruid +  "\n");
+                sCareprovideruid = arr.getJSONObject(i).getString("InsuranceIDType");
+                txaParserXML.append("Insurance ID Type : " + sCareprovideruid +  "\n");
+                sCareprovideruid = arr.getJSONObject(i).getJSONObject("Condition").getString("ExclusionProduct");
+                txaParserXML.append("Exclusion Product : " + sCareprovideruid +  "\n");
+                sCareprovideruid = arr.getJSONObject(i).getJSONObject("Condition").getString("ExclusionPersonal");
+                txaParserXML.append("Exclusion Personal : " + sCareprovideruid +  "\n");
+                sCareprovideruid = arr.getJSONObject(i).getJSONObject("Condition").getString("ExclusionPolicy");
+                txaParserXML.append("Exclusion Policy : " + sCareprovideruid +  "\n\n");            
+                
             }            
-            */
             
+            
+            /*
             txaParserXML.setText("\n");
             String sVisitID = "";
             sVisitID = ob.getString("visitid");
@@ -413,6 +447,9 @@ public class ParsersXML extends javax.swing.JFrame {
             }
             
             txaParserXML.append("Title ID : " + sTitleuid +  "\n\n");   
+            */
+            
+            
             
         } catch (JSONException ex) {
             Logger.getLogger(ParsersXML.class.getName()).log(Level.SEVERE, null, ex);
@@ -682,6 +719,49 @@ public class ParsersXML extends javax.swing.JFrame {
             throw new RuntimeException(e);
         }
     }    
+    
+    public String ExtractJsonStringData(JSONObject jsonPrmObj, String sPrmJsonValue, String... sPrmJsonKeys) throws JSONException {
+        JSONObject jsonCurrentObj = NavigateToLastJsonObject(jsonPrmObj, sPrmJsonKeys);
+
+        if (jsonCurrentObj.has(sPrmJsonValue) && !jsonCurrentObj.isNull(sPrmJsonValue)) {
+            Object value = jsonCurrentObj.get(sPrmJsonValue);
+
+            if (value instanceof String) {
+                return (String) value;
+            } else {
+                return value.toString();
+            }
+        }
+        else{
+            return "";
+        }
+    }    
+    
+    private Double ExtractJsonDoubleData(JSONObject jsonPrmObj, String sPrmJsonValue, String... sPrmJsonKeys) throws JSONException {
+        JSONObject jsonCurrentObj = NavigateToLastJsonObject(jsonPrmObj, sPrmJsonKeys);
+
+        if (jsonCurrentObj.has(sPrmJsonValue) && !jsonCurrentObj.isNull(sPrmJsonValue)) {
+            try{
+                return jsonCurrentObj.getDouble(sPrmJsonValue);
+            }
+            catch(JSONException e){
+                return 0.0;
+            }
+        }
+        else{
+            return 0.0;
+        }
+    }    
+    
+    private static JSONObject NavigateToLastJsonObject(JSONObject jsonPrmObj, String... sPrmJsonKeys) throws JSONException {
+        JSONObject jsonCurrentTag = jsonPrmObj;
+
+        for (String sJsonKey : sPrmJsonKeys) {
+            jsonCurrentTag = jsonCurrentTag.getJSONObject(sJsonKey);
+        }
+
+        return jsonCurrentTag;
+    }      
     
     /**
      * @param args the command line arguments
